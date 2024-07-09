@@ -26,7 +26,7 @@
                 width: 100%;
                 height: 100px;
                 padding: 10px;
-                background-color: blue;
+                /* background-color: blue; */
                 /* 필요에 따라 배경색을 변경하세요 */
                 position: relative;
             }
@@ -73,6 +73,7 @@
                 display: none;
                 /* 초기 상태 숨김 */
             }
+
             .gnb div.Community_item {
                 color: white;
                 position: absolute;
@@ -196,21 +197,32 @@
                 z-index: 1000;
             }
 
-            #contentsZone>p {
+            #textZone>p {
                 position: absolute;
-                top: 40%;
+                top: 48%;
                 left: 50%;
-                color: white;
+                color: black;
                 transform: translateX(-50%);
                 font-weight: 200px;
                 font-size: 24px;
+                display: none;
+                opacity: 0;
+            }
+
+            #textZone>p.active {
+                display: block
             }
         </style>
         <script>
             let count = 1;
+            let textcount = 1;
             let change;
 
             $(function () {
+                $('#textZone>p.active').animate({
+                    'opacity': '1',
+                    'top': '50%'
+                }, 1000);
                 function imgChange() {
                     $('#controlZone>a').eq(2).removeClass('active')
                     count++;
@@ -224,11 +236,27 @@
 
                         count = 0;
                     }
+                    $('#textZone>p.active').css({
+                        'opacity': '0',
+                        'top': '48%'
+                    });
+                    $(`#textZone>p:nth-child(${textcount})`).removeClass('active');
+                    textcount++;
+                    if (textcount == 4) {
+                        textcount = 1;
+                    }
+                    $(`#textZone>p:nth-child(${textcount})`).addClass('active');
+
+                    $('#textZone>p.active').animate({
+                        'opacity': '1',
+                        'top': '50%'
+                    }, 1000);
                 }
-                change = setInterval(imgChange, 3000)
+                change = setInterval(imgChange, 3000);
                 $('#controlZone>a').on('click', function () {
                     clearInterval(change);
                     let imgAddr = $(this).attr('href');
+                    let textdata = parseInt($(this).attr('data'));
                     $('#contentsZone').prepend(`<img src="${imgAddr}">`)
                     $('#contentsZone>img:last').fadeOut(700, function () {
                         $('#contentsZone>img:last').remove();
@@ -237,13 +265,33 @@
                     $(this).addClass('active')
                     change = setInterval(imgChange, 3000);
                     count = parseInt($(this).attr('data'));
+                    if (count > 2) {
+                        count = 0;
+                    }
+                    $('#textZone>p.active').css({
+                        'opacity': '0',
+                        'top': '48%'
+                    });
+                    $(`#textZone>p`).removeClass('active');
+                    $(`#textZone>p:nth-child(${textdata})`).addClass('active');
+                    $('#textZone>p.active').animate({
+                        'opacity': '1',
+                        'top': '50%'
+                    }, 1000);
+                    textcount = textdata;
                     return false;
                 });
+
+
             });
         </script>
         <div id="contentsZone">
             <img src="./Images/img1.jpg" alt="1">
-            <!-- <p>좋아하는 것을 누릴 수 있도록.</p> -->
+        </div>
+        <div id="textZone">
+            <p class="active">좋아하는 것을 누릴 수 있도록.</p>
+            <p>내 일상도 소중한 순간이라는 것.</p>
+            <p>취향을 함께 공유해보다.</p>
         </div>
         <!-- 컨텐츠Zone끝 -->
 
@@ -251,7 +299,7 @@
         <style>
             #controlZone {
                 margin: 0 auto;
-                width: 300px;
+                width: 200px;
                 overflow: hidden;
                 /* background-color: red; */
                 position: absolute;
@@ -276,7 +324,6 @@
             <a href="./Images/img1.jpg" class="active" data="1">하나</a>
             <a href="./Images/img2.jpg" data="2">둘</a>
             <a href="./Images/img3.jpg" data="3">셋</a>
-            <a href="./Images/img4.jpg" data="4">넷</a>
         </div>
         <!-- 컨트롤Zone 끝-->
 
