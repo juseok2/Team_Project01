@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 상단 Area시작-->
+    <style>
+        #topArea {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
+    <div id="topArea">
+        <!-- 내비 Zone시작 -->
+        <style>
+            #navZone {
+                width: 100%;
+                height: 100px;
+                padding: 10px;
+                /* background-color: blue; */
+                position: relative;
+            }
+
+            .logo {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: 20px;
+                z-index: 1;
+            }
+
+            .gnb {
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 1;
+            }
+
+            .gnb>ul {
+                overflow: hidden;
+            }
+
+            .gnb>ul li {
+                float: left;
+                padding: 10px;
+            }
+
+            .gnb>ul li>a {
+                color: white;
+            }
+        </style>
+        <div id="navZone">
+            <div class="logo">
+                <img src="./Images/logo.png" alt="">
+            </div>
+            <div class="gnb">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Community</a></li>
+                    <li><a href="#">Log in</a></li>
+                    <li><a href="#"><img src="" alt=""></a></li>
+                    <li><a href="#"><img src="" alt=""></a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- 내비 Zone끝 -->
+        <!-- 컨텐츠Zone시작 -->
+        <style>
+            #contentsZone {
+                width: 100%;
+                height: 1000px;
+                position: relative;
+                z-index: 0;
+            }
+
+            #contentsZone>img {
+                width: 100%;
+                height: 960px;
+                position: absolute;
+                top: -120px;
+                left: 0;
+                z-index: 1000;
+            }
+            #contentsZone>p{
+                position: absolute;
+                top: 40%;
+                left: 50%;
+                color: white;
+                transform: translateX(-50%);
+                font-weight: 200px;
+                font-size: 24px;
+            }
+        </style>
+        <script>
+            let count = 1;
+            let change;
+            
+            $(function(){
+                function imgChange(){
+                    $('#controlZone>a').eq(2).removeClass('active')
+                    count++;
+                    $('#contentsZone').prepend(`<img src="./Images/img${count}.jpg">`)
+                    $('#contentsZone>img:last').fadeOut(700,function(){
+                        $('#contentsZone>img:last').remove();
+                    });
+                    $('#controlZone>a').removeClass('active')
+                    $('#controlZone>a').eq(count-1).addClass('active')
+                    if(count >2){
+                        
+                        count = 0;
+                    }
+                }
+                change = setInterval(imgChange,3000)
+                $('#controlZone>a').on('click',function(){
+                    clearInterval(change);
+                    let imgAddr = $(this).attr('href');
+                    $('#contentsZone').prepend(`<img src="${imgAddr}">`)
+                    $('#contentsZone>img:last').fadeOut(700,function(){
+                        $('#contentsZone>img:last').remove();
+                    });
+                    $('#controlZone>a').removeClass('active');
+                    $(this).addClass('active')
+                    change =  setInterval(imgChange,3000);
+                    count = parseInt($(this).attr('data'));
+                    return false;
+                });
+            });
+        </script>
+        <div id="contentsZone">
+            <img src="./Images/img1.jpg" alt="1">
+            <!-- <p>좋아하는 것을 누릴 수 있도록.</p> -->
+        </div>
+        <!-- 컨텐츠Zone끝 -->
+
+        <!-- 컨트롤Zone 시작-->
+        <style>
+            #controlZone {
+                margin: 0 auto;
+                width: 300px;
+                overflow: hidden;
+                /* background-color: red; */
+                position: absolute;
+                z-index: 200;
+                bottom: 180px;
+                left: 50%;
+                transform: translateX(-45%);
+            }
+
+            #controlZone>a {
+                float: left;
+                padding: 0 20px;
+                color: rgb(105, 105, 105);
+                cursor: pointer;
+            }
+            #controlZone>a.active{
+                color: white;
+            }
+        </style>
+        <div id="controlZone">
+                <a href="./Images/img1.jpg" class="active" data ="1">하나</a>
+                <a href="./Images/img2.jpg" data ="2">둘</a>
+                <a href="./Images/img3.jpg" data ="3">셋</a>
+                <a href="./Images/img4.jpg" data ="4">넷</a>
+        </div>
+        <!-- 컨트롤Zone 끝-->
+
+    </div>
+    <!-- 상단 Area끝 -->
+    <!-- 하단 Area시작 -->
+    <div id="bottomArea">
+        <div class="leftZone">
+            <img src="" alt="">
+            <p>모아스튜디오</p>
+            <p>Copyright ⓒ모아스튜디오.All right reserved</p>
+        </div>
+        <div class="rightZone">
+            <div class="rightZone1">
+                <p>070-8095-3686</p>
+                <p>MON - FRI : 11-6pm</p>
+                <p>SON,MON OFF</p>
+                <p>우리은행:1002-955-738542 (고종현)</p>
+                <p>모아스튜디오</p>
+            </div>
+            <div class="rightZone2">
+                <p>Owner : 고종현</p>
+                <p>Address : 서울특별시 강서구 곰달래로31나길</p>
+                <p>Business License : </p>
+                <p>Online business license</p>
+                <p>Designed by moa-studio·Hosting by 카페24(주)</p>
+            </div>
+            <div class="rightZone3">
+                <p>about</p>
+                <p>agreement</p>
+                <p>guide</p>
+                <p>privacy</p>
+            </div>
+            <div class="rightZone4">
+                <p>Instagram</p>
+                <p>youtube</p>
+                <p>naverstore</p>
+                <p>facebook</p>
+            </div>
+
+        </div>
+    </div>
+    <!-- 하단 Area끝 -->
+</body>
+
+</html>
