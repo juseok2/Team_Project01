@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Noto+Serif+KR:wght@200..900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Nanum Myeongjo", serif;
+            font-style: normal;
+            font-family: "Noto Serif KR", serif;
+
+
+        }
+
+        body {
+            background-color: #F2EFE8;
+        }
+
+        /* 팝업 */
+        a,p {
+            text-decoration: none;
+            color: rgb(0, 36, 0);
+            padding: 5px 10px;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        td,th{
+            width: 50%;
+        }
+
+        #popup {
+            margin: 0 auto;
+            height: 40px;
+            overflow: hidden;
+            /* position: relative; */
+        }
+
+        #popup>ul>a>li {
+            float: left;
+            height: 40px;
+            width: 100%;
+            background-color: dimgray;
+
+        }
+
+        #popup>ul>a>li>p {
+            text-align: center;
+            font-size: small;
+            margin-top: 8px;
+        }
+
+        /* 메인창  */
+        #mid_tap {
+            border: 1px solid salmon;
+            margin: 0 auto;
+            height: 200px;
+            overflow: hidden;
+
+        }
+
+        #mid_tap>#tap_img {
+            width: 100px;
+            height: 25px;
+            border: 1px solid blue;
+            margin-top: 30px;
+
+        }
+
+
+
+        .taplist {
+            width: 550px;
+            height: 50px;
+            right: 10px;
+            overflow: hidden;
+
+
+
+        }
+
+        .taplist>li {
+            width: 70px;
+            float: left;
+            margin-left: 20px;
+            margin: 10px 10px;
+            font-size: small;
+            text-align: center;
+        }
+
+        .tap {
+            display: none;
+        }
+
+        /* 중앙 */
+
+        #main_center {
+            overflow: hidden;
+            /* position: absolute; */
+            text-align: center;
+            margin: 0 auto;
+            border: 1px solid black;
+        }
+
+        #main_center>p {
+            color: rgb(0, 36, 0);
+            border: 1px solid red;
+
+        }
+
+        #center_list>ul {
+            width: 300px;
+            margin: 0 auto;
+            border: 1px solid pink;
+        }
+
+        #center_list>ul>li {
+            float: left;
+            text-align: center;
+            border: 1px solid purple;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="top_page">
+        <!-- 1.팝업 -->
+        <div id="popup">
+            <ul>
+                <a href="#">
+                    <li>
+                        <p>관리자에서 클릭만으로 편리하게 관리 가능합니다.</p>
+                    </li>
+                </a><a href="#">
+                    <li>
+                        <p>모아스튜디오 고객님께만 드리는 특별한 혜택!</p>
+                    </li>
+                </a><a href="#">
+                    <li>
+                        <p>모아스튜디오는 서브페이지까지 모두 디자인합니다.</p>
+                    </li>
+                </a>
+            </ul>
+
+
+        </div>
+
+        <!-- x 표시 이미지 찾아서 삽입하깅 -->
+
+    </div>
+
+    <!-- 2.상단창  -->
+    <div id="middle_page">
+
+
+        <div id="mid_tap">
+
+            <div id="tap_img">
+
+                <a href="#"><img src="./com_img/logogreensmall.png" alt=""></a>
+
+                <ul class="taplist">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Shop</a>
+                        <ul class="tap">
+                            <li><a href="#">Furniture</a></li>
+                            <li><a href="#">Home deco</a></li>
+                            <li><a href="#">Lighting</a></li>
+                            <li><a href="#">Kitchen</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="#">Community</a>
+                        <ul class="tap">
+                            <li><a href="#">Notice</a></li>
+                            <li><a href="#">Event</a></li>
+                            <li><a href="#">Q&A</a></li>
+                            <li><a href="#">Review</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="#">Login</a></li>
+                    <li><a href=""><img src="" alt="">장바구니</a></li>
+                    <li><a href=""><img src="" alt="">돋보기</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+
+
+        <!-- 메인 -->
+
+
+        <div id="main_center">
+            <p>Notice</p>
+            <div id="center_list">
+                <ul>
+                    <li><a href="#">Notice</a> &nbsp;/&nbsp;&nbsp;</li>
+                    <li><a href="#">Event</a> &nbsp;/&nbsp;&nbsp;</li>
+                    <li><a href="#">Q&A</a> &nbsp;/&nbsp;&nbsp;</li>
+                    <li><a href="#">Review</a>&nbsp;</li>
+
+                </ul>
+            </div>
+        </div>
+
+        <table  >
+            <thead>
+                <tr align="center">
+                    <td><p>번호</p></td>
+                    <td><p>제목</p></td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr align="center">
+                    <th>3</th>
+                    <th><a href="#">여름 한정 세일 기간 7/1~ 8/31(10%~50%)</a></th>
+                </tr>
+                <tr align="center">
+                    <th>2</th>
+                    <th><a href="#">할인 쿠폰, 마일리지와 함께 쓸 수 있는 다양한 결제 혜택</a></th>
+                </tr>
+                <tr align="center">
+                    <th>1</th>
+                    <th><a href="#">당신을 위한 7월의 혜택</a></th>
+                </tr>
+            </tbody>
+
+        </table>
+
+
+
+    </div>
+
+    <!--3.본문  -->
+    <!-- 4.주소 -->
+
+</body>
+
+</html>
