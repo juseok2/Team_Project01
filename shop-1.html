@@ -40,18 +40,32 @@
             #bodyArea{
                 width: 100%;
                 position: relative;
+                overflow: hidden;
             }
             #leftmeunzone{
                 float: left;
                 width: 200px;
+                position: relative;
+                /* background-color: gray; */
+                
             }
-            #leftmeunzone>#left_top_menu{}
-            #leftmeunzone>#left_bottom_menu{}
+            #leftmeunzone>#left_top_menu{
+                display: block;
+                font-size: 0.75em;
+                font-weight: 400;
+            }
+            #leftmeunzone>#left_bottom_menu{
+                display: block;
+            }
             #contentzone{
                 float: right;
+                width: calc(100% - 200px);
+                background-color: yellowgreen;
             }
             td{padding-right: 25px;}
+            td>a>img{margin-bottom: 10px;}
         </style>
+        </div>
         <div id="bodyArea">
             <div id="leftmeunzone">
                 <div id="left_top_menu">
@@ -69,7 +83,7 @@
                     </ul>
                 </div>
             </div>
-            <div id="contentzone"></div>
+            <div id="contentzone">
                 <div id="content">
                     <table class="flower_list_1">
                         <tr>
