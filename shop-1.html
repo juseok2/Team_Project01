@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="./reset.css">
+    <script>
+        function includeHTML(ctrl, page, callback) {
+            $.get(page, function(data) {
+                $('#' + ctrl).html(data);
+                if (callback) {
+                    callback();
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <div id="site">
+        <div id="topArea">
+            <div id="titlezone">
+                <div id="top_banner">
+                    <ul>
+                        <li><a href="#">모아스튜디오 고객님께만 드리는 특별한 혜택!</a></li>
+                        <li><a href="#">모아스튜디오 서브페이지까지 모두 디자인 합니다.</a></li>
+                        <li><a href="#">관리자에서 클릭만으로 편안하게 관리 가능합니다.</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="navZone"></div>
+            <script>
+                $(function(){
+                    includeHTML('navZone','nav_sub.html',null);
+                });
+            </script>
+        </div>
+        <style>
+            #bodyArea{
+                width: 100%;
+                position: relative;
+            }
+            #leftmeunzone{
+                float: left;
+                width: 200px;
+            }
+            #leftmeunzone>#left_top_menu{}
+            #leftmeunzone>#left_bottom_menu{}
+            #contentzone{
+                float: right;
+            }
+            td{padding-right: 25px;}
+        </style>
+        <div id="bodyArea">
+            <div id="leftmeunzone">
+                <div id="left_top_menu">
+                    <ul>
+                        <li><a href="#">Furniture</a></li>
+                        <li><a href="#">Home deco</a></li>
+                        <li><a href="#">Lighting</a></li>
+                        <li><a href="#">Kitchen</a></li>
+                    </ul>
+                </div>
+                <div id="left_bottom_menu">
+                    <ul>
+                        <li><a href="#">위로</a></li>
+                        <li><a href="#">아래로</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="contentzone"></div>
+                <div id="content">
+                    <table class="flower_list_1">
+                        <tr>
+                            <td>
+                                <a href="#"><img src="/shop_Img/598b1ba1c77128c0f9bb3b2b0549da01.png" alt=""></a>
+                                <p class="name"><a href="#">수공예 유리 화병</a></p>
+                                <p class="money">
+                                    <span>50,000원</span>
+                                    <span><strong>43,000원</strong></span>
+                                </p>
+                            </td>
+                            <td>
+                                <a href="#"><img src="/shop_Img/8b39cc4859deac1835eadf4ba7593e63.png" alt=""></a>
+                                <p class="name"><a href="#">수공예 유리 화병</a></p>
+                                <p class="money">
+                                    <span>50,000원</span>
+                                    <span><strong>43,000원</strong></span>
+                                </p>
+                            </td>
+                            <td>
+                                <a href="#"><img src="/shop_Img/be27a2c1ade0018cc9e21bd058e8cdbd.png" alt=""></a>
+                                <p class="name"><a href="#">수공예 유리 화병</a></p>
+                                <p class="money">
+                                    <span>50,000원</span>
+                                    <span><strong>43,000원</strong></span>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="#"><img src="/shop_Img/ca121df60f21589ecc5c10d3e4219efc.png" alt=""></a>
+                                <p class="name"><a href="#">수공예 유리 화병</a></p>
+                                <p class="money">
+                                    <span>50,000원</span>
+                                    <span><strong>43,000원</strong></span>
+                                </p>
+                            </td>
+                            <td>
+                                <a href="#"><img src="/shop_Img/cb7e514a19ba7e5f8b4ce73279e53362.png" alt=""></a>
+                                <p class="name"><a href="#">수공예 유리 화병</a></p>
+                                <p class="money">
+                                    <span>50,000원</span>
+                                    <span><strong>43,000원</strong></span>
+                                </p>
+                            </td>
+                            <td>
+                                <a href="#"><img src="/shop_Img/d30b860f5ee7251fc841946959f4f752.png" alt=""></a>
+                                <p class="name"><a href="#">수공예 유리 화병</a></p>
+                                <p class="money">
+                                    <span>50,000원</span>
+                                    <span><strong>43,000원</strong></span>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="#"><img src="/shop_Img/598b1ba1c77128c0f9bb3b2b0549da01.png" alt=""></a>
+                                <p class="name"><a href="#">수공예 유리 화병</a></p>
+                                <p class="money">
+                                    <span>50,000원</span>
+                                    <span><strong>43,000원</strong></span>
+                                </p>
+                            </td>
+                            <td>
+                                <a href="#"><img src="/shop_Img/8b39cc4859deac1835eadf4ba7593e63.png" alt=""></a>
+                                <p class="name"><a href="#">수공예 유리 화병</a></p>
+                                <p class="money">
+                                    <span>50,000원</span>
+                                    <span><strong>43,000원</strong></span>
+                                </p>
+                            </td>
+                            <td>
+                                <a href="#"><img src="/shop_Img/be27a2c1ade0018cc9e21bd058e8cdbd.png" alt=""></a>
+                                <p class="name"><a href="#">수공예 유리 화병</a></p>
+                                <p class="money">
+                                    <span>50,000원</span>
+                                    <span><strong>43,000원</strong></span>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="#"><img src="/shop_Img/ca121df60f21589ecc5c10d3e4219efc.png" alt=""></a>
+                                <p class="name"><a href="#">수공예 유리 화병</a></p>
+                                <p class="money">
+                                    <span>50,000원</span>
+                                    <span><strong>43,000원</strong></span>
+                                </p>
+                            </td>
+                            <td>
+                                <a href="#"><img src="/shop_Img/cb7e514a19ba7e5f8b4ce73279e53362.png" alt=""></a>
+                                <p class="name"><a href="#">수공예 유리 화병</a></p>
+                                <p class="money">
+                                    <span>50,000원</span>
+                                    <span><strong>43,000원</strong></span>
+                                </p>
+                            </td>
+                            <td>
+                                <a href="#"><img src="/shop_Img/d30b860f5ee7251fc841946959f4f752.png" alt=""></a>
+                                <p class="name"><a href="#">수공예 유리 화병</a></p>
+                                <p class="money">
+                                    <span>50,000원</span>
+                                    <span><strong>43,000원</strong></span>
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                    <div id="first_button"><a href="#"></a></div>
+                    <div id="list_page_button">
+                        <ul>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                        </ul>
+                    </div>
+                    <div id="last_button"></div>
+                </div>
+            </div>
+        </div>
+        <div id="bottomzone">
+        </div>
+        <script>
+            $(function(){
+                includeHTML('bottomzone','footer.html',null);
+            });
+        </script>
+    </div>
+</body>
+</html>
