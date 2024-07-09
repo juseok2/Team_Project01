@@ -26,13 +26,19 @@
         }
 
         /* 팝업 */
-        a {
+        a,p {
             text-decoration: none;
+            color: rgb(0, 36, 0);
+            padding: 5px 10px;
         }
 
         ul,
         li {
             list-style: none;
+        }
+
+        td,th{
+            width: 50%;
         }
 
         #popup {
@@ -57,35 +63,35 @@
         }
 
         /* 메인창  */
-        #content {
-            margin: 0 auto;
-        }
-
-        #midpage>img {
-            width: 80px;
-            height: 25px;
-            border: 1px solid blue;
-            position: relative;
-            
-        }
-
         #mid_tap {
             border: 1px solid salmon;
-            width: 550px;
+            margin: 0 auto;
+            height: 200px;
+            overflow: hidden;
 
         }
 
-        #mid_tap_list {
+        #mid_tap>#tap_img {
+            width: 100px;
+            height: 25px;
+            border: 1px solid blue;
+            margin-top: 30px;
+
+        }
+
+
+
+        .taplist {
             width: 550px;
             height: 50px;
             right: 10px;
-           overflow: hidden;
+            overflow: hidden;
+
 
 
         }
 
-
-        #mid_tap_list>li {
+        .taplist>li {
             width: 70px;
             float: left;
             margin-left: 20px;
@@ -94,32 +100,36 @@
             text-align: center;
         }
 
-        .tap_li {
+        .tap {
             display: none;
         }
 
         /* 중앙 */
 
-        #mid_center {
+        #main_center {
             overflow: hidden;
             /* position: absolute; */
             text-align: center;
             margin: 0 auto;
+            border: 1px solid black;
         }
-        #mid_center>p{
-            color: darkgreen;
-        
-        }
-        #center_list{
-            width: 760px;
-            margin: 0 auto;}
 
-    #center_list>ul>li {
-            width: 80px;
-            float: left;
-            /* position: absolute; */
-            text-align: center;
+        #main_center>p {
+            color: rgb(0, 36, 0);
+            border: 1px solid red;
+
+        }
+
+        #center_list>ul {
+            width: 300px;
             margin: 0 auto;
+            border: 1px solid pink;
+        }
+
+        #center_list>ul>li {
+            float: left;
+            text-align: center;
+            border: 1px solid purple;
         }
     </style>
 </head>
@@ -152,17 +162,21 @@
 
     </div>
 
-    <!-- 2.메인창  -->
-    <div id="content">
-        <div id="midpage">
-            <a href="#"><img src="./com_img/logogreensmall.png" alt=""></a>
-            
-            <div id="mid_tap">
-                <ul id="mid_tap_list">
+    <!-- 2.상단창  -->
+    <div id="middle_page">
+
+
+        <div id="mid_tap">
+
+            <div id="tap_img">
+
+                <a href="#"><img src="./com_img/logogreensmall.png" alt=""></a>
+
+                <ul class="taplist">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Shop</a>
-                        <ul class="tap_li">
+                        <ul class="tap">
                             <li><a href="#">Furniture</a></li>
                             <li><a href="#">Home deco</a></li>
                             <li><a href="#">Lighting</a></li>
@@ -171,7 +185,7 @@
                     </li>
 
                     <li><a href="#">Community</a>
-                        <ul class="tap_li">
+                        <ul class="tap">
                             <li><a href="#">Notice</a></li>
                             <li><a href="#">Event</a></li>
                             <li><a href="#">Q&A</a></li>
@@ -184,23 +198,51 @@
                     <li><a href=""><img src="" alt="">돋보기</a></li>
                 </ul>
             </div>
+
         </div>
 
 
 
+        <!-- 메인 -->
 
 
-        <div id="mid_center">
+        <div id="main_center">
             <p>Notice</p>
             <div id="center_list">
-            <ul>
-                <li><a href="#">Notice</a> &nbsp;/&nbsp;&nbsp;</li>
-                <li><a href="#">Event</a> &nbsp;/&nbsp;&nbsp;</li>
-                <li><a href="#">Q&A</a> &nbsp;/&nbsp;&nbsp;</li>
-                <li><a href="#">Review</a>&nbsp;</li>
+                <ul>
+                    <li><a href="#">Notice</a> &nbsp;/&nbsp;&nbsp;</li>
+                    <li><a href="#">Event</a> &nbsp;/&nbsp;&nbsp;</li>
+                    <li><a href="#">Q&A</a> &nbsp;/&nbsp;&nbsp;</li>
+                    <li><a href="#">Review</a>&nbsp;</li>
+
+                </ul>
             </div>
-            </ul>
         </div>
+
+        <table  >
+            <thead>
+                <tr align="center">
+                    <td><p>번호</p></td>
+                    <td><p>제목</p></td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr align="center">
+                    <th>3</th>
+                    <th><a href="#">여름 한정 세일 기간 7/1~ 8/31(10%~50%)</a></th>
+                </tr>
+                <tr align="center">
+                    <th>2</th>
+                    <th><a href="#">할인 쿠폰, 마일리지와 함께 쓸 수 있는 다양한 결제 혜택</a></th>
+                </tr>
+                <tr align="center">
+                    <th>1</th>
+                    <th><a href="#">당신을 위한 7월의 혜택</a></th>
+                </tr>
+            </tbody>
+
+        </table>
 
 
 
