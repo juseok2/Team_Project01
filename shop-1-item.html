@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <script src="js/jquery.min.js"></script>
+    <script>
+        function includeHTML(ctrl, page, callback) {
+            $.get(page, function(data) {
+                $('#' + ctrl).html(data);
+                if (callback) {
+                    callback();
+                }
+            });
+        }
+        includeHTML('navZone','nav/nav_sub.html',null);
+    </script>
+    <style>
+        body{
+            background-color: #f2efe9;
+        }
+        h2{
+            font-weight: 400;
+        }
+        #topArea{
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .top_leftZone{
+            width: 600px;
+            float: left;
+        }
+        .top_rightZone{
+            width: 500px;
+            padding-left: 100px;
+            float: left;
+            color: #526755;
+        }
+        .top_rightZone>h4{
+            padding-top: 10px;
+        }
+        .top_rightZone>p{
+            font-size: 14px;
+            padding-top: 30px;
+        }
+        .mainImg{
+            width: 600px;
+            height: 600px;
+            /* overflow: hidden; */
+        }
+        .mainImg>img{
+            width: 600px;
+            height: 600px;
+            object-fit: cover;
+        }
+        .subImg{
+            width: 600px;
+            display: flex;
+            overflow: hidden;
+            justify-content: center;
+        }
+        .subImg>img{
+            display: block;
+            width: 100px;
+            height: 100px;
+            float: left;
+            border-radius: 50%;
+            margin: 30px 10px;
+            opacity: 0.6;
+        }
+        .subImg>img.active{
+            animation: fadein 0.5s ease-in-out;
+            opacity: 1;
+        }
+        @keyframes fadein{
+            0%{
+                opacity: 0.6;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
+        .detail{
+            position: relative;
+            margin-top: 50px;
+            height: 30px;
+            border-bottom: 1px solid #526755;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .detail>p{
+            float: left;
+            color: #526755;
+        }
+        #arrow{
+            float: right;
+            display: block;
+            width: 10px;
+            margin-top: -20px;
+            transform: rotate(90deg);
+        }
+        .detail_content{
+            width: 500px;
+            height: 180px;
+            top: 50px;
+        }
+        .detail_content>ul{
+            float: left;
+        }
+        .detail_content>ul:nth-child(2){
+            margin-left: 50px;
+        }
+        .detail_content>ul:nth-child(2)>li:nth-child(1){
+            text-decoration: line-through;
+        }
+        .detail_content li{
+            font-size: 12px;
+            padding: 10px 0;
+        }
+        .delivery_info{
+            position: relative;
+            height: 30px;
+            margin-top: 10px;
+            border-bottom: 1px solid #526755;
+            cursor: pointer;
+        }
+        .delivery_content{
+            font-size: 12px;
+            padding: 10px 0;
+            display: none;
+        }
+        .refund_info{
+            position: relative;
+            height: 30px;
+            margin-top: 10px;
+            border-bottom: 1px solid #526755;
+            cursor: pointer;
+        }
+        .refund_content{
+            font-size: 12px;
+            padding: 10px 0;
+            display: none;
+        }
+        .refund_content>ul{
+            margin-bottom: 20px;
+        }
+        .refund_content>ul>li:nth-child(1){
+            font-weight: 800;
+        }
+        .refund_content>ul:nth-child(3)>li:nth-child(7){
+            margin-top: 20px;
+        }
+        .item_option{
+            position: relative;
+            height: 30px;
+            margin-top: 10px;
+            border-bottom: 1px solid #526755;
+        }
+        .color{
+            overflow: hidden;
+            padding: 30px 0;
+        }
+        .color>p{
+            float: left;
+        }
+        .color>.color_box{
+            width: 150px;
+            margin-left: 100px;
+            float: left;
+            overflow: hidden;
+        }
+        .color>.color_box>div{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            float: left;
+            margin-left: 10px;
+            cursor: pointer;
+            border: none;
+        }
+        .color>.color_box>div:nth-child(1)>div{
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: #ffb0b0;
+            margin: 0 auto;
+            transform: translateY(10%);
+        }
+        .color>.color_box>div:nth-child(2)>div{
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: #f4d7aa;
+            margin: 0 auto;
+            transform: translateY(10%);
+        }
+        .color>.color_box>div:nth-child(3)>div{
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: #866868;
+            margin: 0 auto;
+            transform: translateY(10%);
+        }
+    </style>
+    <script>
+        $(function(){
+            $('.subImg>img').on('mouseover',function(){
+                let imgAddr = $(this).attr('alt');
+                $('.subImg>img').removeClass('active');
+                $(this).addClass('active');
+                $('.mainImg>img').attr('src',imgAddr);
+            });
+            $('.detail').on('click',function(){
+                let data = $(this).attr('data');
+                if(data == 'active'){
+                    $('.detail_content').slideUp();
+                    $(this).attr('data','unactive');
+                    $('.detail>div>p:nth-child(2)').css('transform','rotate(-90deg)');
+                }else{
+                    $('.content').slideUp();
+                    $('.header').attr('data','unactive');
+                    $('.detail_content').slideDown();
+                    $(this).attr('data','active');
+                    $('.detail>div>p:nth-child(2)').css('transform','rotate(90deg)');
+                }
+            });
+            $('.delivery_info').on('click',function(){
+                let data = $(this).attr('data');
+                if(data == 'active'){
+                    $('.delivery_content').slideUp();
+                    $(this).attr('data','unactive');
+                    $('.delivery_info>#arrow').css('transform','rotate(-90deg)');
+                }else{
+                    $('.content').slideUp();
+                    $('.header').attr('data','unactive');
+                    $('.delivery_content').slideDown();
+                    $(this).attr('data','active');
+                    $('.delivery_info>#arrow').css('transform','rotate(90deg)');
+                }
+            });
+            $('.refund_info').on('click',function(){
+                let data = $(this).attr('data');
+                if(data == 'active'){
+                    $('.refund_content').slideUp();
+                    $(this).attr('data','unactive');
+                    $('.refund_info>#arrow').css('transform','rotate(-90deg)');
+                }else{
+                    $('.content').slideUp();
+                    $('.header').attr('data','unactive');
+                    $('.refund_content').slideDown();
+                    $(this).attr('data','active');
+                    $('.refund_info>#arrow').css('transform','rotate(90deg)');
+                }
+            });
+            $('.color>.color_box>div:nth-child(1)>div').on('click',function(){
+                $('.color>.color_box>div').css('border','none');
+                $('.color>.color_box>div:nth-child(1)').css('border','1px solid rgba(83, 92, 76, 0.79)')
+            })
+            $('.color>.color_box>div:nth-child(2)>div').on('click',function(){
+                $('.color>.color_box>div').css('border','none');
+                $('.color>.color_box>div:nth-child(2)').css('border','1px solid rgba(83, 92, 76, 0.79)')
+            })
+            $('.color>.color_box>div:nth-child(3)>div').on('click',function(){
+                $('.color>.color_box>div').css('border','none');
+                $('.color>.color_box>div:nth-child(3)').css('border','1px solid rgba(83, 92, 76, 0.79)')
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <!-- 내비영역 -->
+    <div id="navZone"></div>
+    <!-- 상단영역 -->
+     <div id="topArea">
+        <!-- 상단 왼쪽 영역 -->
+         <div class="top_leftZone">
+            <div class="mainImg">
+                <img src="Images/1_shop1_235009.jpg" alt="">
+            </div>
+            <div class="subImg">
+                <img src="Images/img1.png" alt="Images/1_shop1_235009.jpg" class="active">
+                <img src="Images/img2.png" alt="Images/2_shop1_235009.jpg">
+                <img src="Images/img3.png" alt="Images/3_shop1_235009.jpg">
+                <img src="Images/img4.png" alt="Images/img4.png">
+            </div>
+         </div>
+        <!-- 상단 왼쪽 영역 끝-->
+        <!-- 상단 오른쪽영역 -->
+        <div class="top_rightZone">
+            <h2>수공예 유리화병</h2>
+            <h4>43,000원</h4>
+            <p>수공예로 제작된 유리 화병입니다. 유리의 질감을 살린 소박하고<br>
+                사랑스러운화병은 작은 사이즈이지만 한다발의 꽃을 담거나, 발향의 오일을<br>
+                담거나, 인테리어 소품들을 진열해 다양한 쓰임으로 활용할 수 있습니다. 하나<br>
+                하나손으로 제작되어 상품마다 차이가 있습니다.
+            </p>
+            <div class="detail header" data = "active">
+                <div class="box">
+                    <p>세부정보</p>
+                    <p id="arrow"><</p>
+                </div>
+            </div>
+            <div class="detail_content content">
+                <ul>
+                    <li>소비자가</li>
+                    <li>적립금</li>
+                    <li>제조사</li>
+                    <li>브랜드</li>
+                    <li>배송비</li>
+                </ul>
+                <ul>
+                    <li>50,000원</li>
+                    <li>860원(2%)</li>
+                    <li>자체제작</li>
+                    <li>자체브랜드</li>
+                    <li>2,500원(50,000원 이상 구매시 무료)</li>
+                </ul>
+            </div>
+            <div class="delivery_info header" data = "unactive">
+                <p>배송정보</p>
+                <p id="arrow"><</p>
+            </div>
+            <div class="delivery_content content">
+                <ul>
+                    <li>-배송비는 기본 2,500원이며, 5만원 이상 구매시 무료배송됩니다.</li>
+                    <li>-제주 및 도서산간 지역의 경우 6,000원의 배송비가 부과됩니다.</li>
+                    <li>-배송기간은 결제완료 후 기본 1-2일이 소요됩니다.</li>
+                    <li>-좋아하는것은 CJ대한통운 택배를 이용하고 있습니다. 배송조회 바로가기</li>
+                </ul>
+            </div>
+            <div class="refund_info header" data = "unactive">
+                <p>교환 및 환불</p>
+                <p id="arrow"><</p>
+            </div>
+            <div class="refund_content content">
+                <ul>
+                    <li>교환 및 반품 주소</li>
+                    <li>-</li>
+                </ul>
+                <ul>
+                    <li>교환 및 반품이 가능한 경우</li>
+                    <li>- 상품을 공급 받으신 날로부터 7일이내 단, 가전제품의<br>
+                        경우 포장을 개봉하였거나 포장이 훼손되어 상품가치가 상실된 경우에는 교환/반품이<br>
+                        불가능합니다.
+                    </li>
+                    <li>- 공급받으신 상품 및 용역의 내용이 표시.광고 내용과<br>
+                        다르거나 다르게 이행된 경우에는 공급받은 날로부터 3월이내, 그사실을 알게 된<br>
+                        날로부터 30일이내
+                    </li>
+                </ul>
+                <ul>
+                    <li>교환 및 반품이 불가능한 경우</li>
+                    <li>- 고객님의 책임 있는 사유로 상품등이 멸실 또는 훼손된 경우. 단, 상품의 내용을 확인하기 위하여
+                        포장 등을 훼손한 경우는 제외</li>
+                    <li>- 포장을 개봉하였거나 포장이 훼손되어 상품가치가 상실된 경우
+                        (예 : 가전제품, 식품, 음반 등, 단 액정화면이 부착된 노트북, LCD모니터, 디지털 카메라 등의 불량화소에
+                        따른 반품/교환은 제조사 기준에 따릅니다.)</li>
+                    <li>- 고객님의 사용 또는 일부 소비에 의하여 상품의 가치가 현저히 감소한 경우 단, 화장품등의 경우 시용제품을
+                        제공한 경우에 한 합니다.</li>
+                    <li>- 시간의 경과에 의하여 재판매가 곤란할 정도로 상품등의 가치가 현저히 감소한 경우</li>
+                    <li>- 복제가 가능한 상품등의 포장을 훼손한 경우
+                        (자세한 내용은 고객만족센터 1:1 E-MAIL상담을 이용해 주시기 바랍니다.)</li>
+                    <li>※ 고객님의 마음이 바뀌어 교환, 반품을 하실 경우 상품반송 비용은 고객님께서 부담하셔야 합니다.
+                        (색상 교환, 사이즈 교환 등 포함)</li>
+                </ul>
+            </div>
+            <div class="item_option header" data = "unactive">
+                <p>상품 옵션</p>
+            </div>
+            <div class="color">
+                <p>색상</p>
+                <div class="color_box">
+                    <div>
+                        <div>
+
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 상단 오른쪽영역 끝-->
+    </div>
+    <!-- 상단영역 끝-->
+
+    <!-- 본문영역 -->
+     <div id="contentsZone">
+
+     </div>
+    <!-- 본문영역 끝 -->
+
+    <!-- 하단영역 -->
+     <div id="bottomZone">
+        <!-- 추천상품 -->
+         <div class="bestItem">
+
+         </div>
+        <!-- 추천상품 끝-->
+        <!-- 리뷰 -->
+         <div class="review">
+
+         </div>
+        <!-- 리뷰 끝 -->
+    </div>
+    <!-- 하단영역 끝-->
+
+     <!-- 푸터영역 -->
+     <!-- 푸터영역 끝 -->
+</body>
+
+</html>

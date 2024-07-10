@@ -6,12 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="js/jquery.min.js"></script>
-    <style>
-        body {
-            display: none;
-        }
-    </style>
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="./css/main.css">
     <script>
         $(function () {
             $('body').fadeIn(1000);
@@ -21,88 +17,9 @@
 
 <body>
     <!-- 상단 Area시작-->
-    <style>
-        #topArea {
-            width: 100%;
-            height: 960px;
-            position: relative;
-            overflow: hidden;
-        }
-    </style>
+    
     <div id="topArea">
         <!-- 내비 Zone시작 -->
-        <style>
-            #navZone {
-                width: 100%;
-                height: 100px;
-                padding: 10px;
-                /* background-color: blue; */
-                /* 필요에 따라 배경색을 변경하세요 */
-                position: relative;
-            }
-
-            .logo {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                left: 20px;
-                z-index: 1;
-                cursor: pointer;
-            }
-
-            .gnb {
-                position: absolute;
-                right: 20px;
-                top: 50%;
-                transform: translateY(-50%);
-                z-index: 1;
-            }
-
-            .gnb>ul {
-                overflow: hidden;
-            }
-
-            .gnb>ul li {
-                float: left;
-                padding: 10px;
-            }
-
-            .gnb>ul li>a {
-                color: white;
-                padding: 20px 0;
-                text-decoration: none;
-            }
-
-            .gnb div.Shop_item {
-                color: white;
-                position: absolute;
-                width: 120px;
-                top: 40px;
-                /* 위치 조정 */
-                left: 130px;
-                /* 위치 조정 */
-                display: none;
-                /* 초기 상태 숨김 */
-            }
-
-            .gnb div.Community_item {
-                color: white;
-                position: absolute;
-                width: 100px;
-                top: 40px;
-                /* 위치 조정 */
-                left: 190px;
-                /* 위치 조정 */
-                display: none;
-                /* 초기 상태 숨김 */
-            }
-
-            .gnb div>ul>li {
-                opacity: 0;
-                display: none;
-                margin-top: 10px;
-            }
-        </style>
         <script>
             $(function () {
                 $('.gnb > ul > li:nth-child(3)').on('mouseover', function () {
@@ -165,7 +82,7 @@
                     <li><a href="shop-1.html" class="Shop">Shop</a>
                         <div class="Shop_item">
                             <ul>
-                                <li><a href="#" class="Shop">Furniture</a></li>
+                                <li><a href="shop-1.html" class="Shop">Furniture</a></li>
                                 <li><a href="#" class="Shop">Home deco</a></li>
                                 <li><a href="#" class="Shop">Lighting</a></li>
                                 <li><a href="#" class="Shop">Kitchen</a></li>
@@ -175,7 +92,7 @@
                     <li><a href="./community/Commu_p.html" class="Community">Community</a>
                         <div class="Community_item">
                             <ul>
-                                <li><a href="#" class="Community">Notice</a></li>
+                                <li><a href="./community/Commu_p.html" class="Community">Notice</a></li>
                                 <li><a href="#" class="Community">Event</a></li>
                                 <li><a href="#" class="Community">Q&A</a></li>
                                 <li><a href="#" class="Community">Review</a></li>
@@ -191,59 +108,6 @@
         </div>
         <!-- 내비 Zone끝 -->
         <!-- 컨텐츠Zone시작 -->
-        <style>
-            #contentsZone {
-                width: 100%;
-                height: 960px;
-                position: relative;
-                z-index: 0;
-            }
-
-            #contentsZone>img {
-                width: 100%;
-                height: 960px;
-                position: absolute;
-                top: -120px;
-                left: 0;
-                z-index: 1000;
-            }
-
-            #textZone>p {
-                font-family: sans-serif;
-                position: absolute;
-                top: 48%;
-                left: 50%;
-                color: black;
-                transform: translateX(-50%);
-                font-weight: 200px;
-                font-size: 24px;
-                display: none;
-                opacity: 0;
-            }
-
-            #textZone>p.active {
-                display: block
-            }
-
-            #textshow {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translateX(-50%);
-                z-index: 2000;
-                overflow: hidden;
-            }
-
-            #textshow>span {
-                opacity: 0;
-                margin-top: 20px;
-                display: block;
-                float: left;
-                font-weight: 200px;
-                font-size: 24px;
-                color: rgb(255, 255, 255);
-            }
-        </style>
         <script>
             let count = 1;
             let textcount = 1;
@@ -342,30 +206,6 @@
         <!-- 컨텐츠Zone끝 -->
 
         <!-- 컨트롤Zone 시작-->
-        <style>
-            #controlZone {
-                margin: 0 auto;
-                width: 200px;
-                overflow: hidden;
-                /* background-color: red; */
-                position: absolute;
-                z-index: 200;
-                bottom: 50px;
-                left: 50%;
-                transform: translateX(-45%);
-            }
-
-            #controlZone>a {
-                float: left;
-                padding: 0 20px;
-                color: rgb(105, 105, 105);
-                cursor: pointer;
-            }
-
-            #controlZone>a.active {
-                color: white;
-            }
-        </style>
         <div id="controlZone">
             <a href="./Images/img1.jpg" class="active" data="1">하나</a>
             <a href="./Images/img2.jpg" data="2">둘</a>
@@ -376,52 +216,6 @@
     </div>
     <!-- 상단 Area끝 -->
     <!-- 하단 Area시작 -->
-    <style>
-        #bottomArea {
-            position: relative;
-            overflow: hidden;
-            padding: 40px;
-        }
-
-        #bottomArea>.leftZone>div {
-            width: 100px;
-        }
-
-        #bottomArea>.leftZone>div>img {
-            margin-bottom: 50px;
-            width: 100%;
-        }
-
-        #bottomArea p {
-            padding: 2px;
-            color: green;
-            font-size: 12px;
-        }
-
-        #bottomArea>div.leftZone {
-            float: left;
-        }
-
-        #bottomArea>div.rightZone {
-            display: flex;
-            float: right;
-            width: 800px;
-            height: 160px;
-            /* background-color: red; */
-        }
-
-        #bottomArea>div.rightZone>div {
-            margin-right: 50px;
-        }
-
-        .rightZone1>p:nth-child(4) {
-            margin-top: 50px;
-        }
-
-        .rightZone2>p:nth-child(5) {
-            margin-top: 50px;
-        }
-    </style>
     <div id="bottomArea">
         <div class="leftZone">
             <div class="fotterLogo">
