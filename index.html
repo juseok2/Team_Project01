@@ -7,13 +7,13 @@
     <title>Document</title>
     <script src="js/jquery.min.js"></script>
     <style>
-        body{
+        body {
             display: none;
         }
     </style>
     <link rel="stylesheet" href="css/reset.css">
     <script>
-        $(function(){
+        $(function () {
             $('body').fadeIn(1000);
         });
     </script>
@@ -47,6 +47,7 @@
                 transform: translateY(-50%);
                 left: 20px;
                 z-index: 1;
+                cursor: pointer;
             }
 
             .gnb {
@@ -155,13 +156,13 @@
         </script>
         <div id="navZone">
             <div class="logo">
-                <img src="./Images/logo.png" alt="">
+                <a href="index.html"><img src="./Images/logo.png" alt=""></a>
             </div>
             <div class="gnb">
                 <ul>
                     <li><a href="#">Home</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="#" class="Shop">Shop</a>
+                    <li><a href="shop-1.html" class="Shop">Shop</a>
                         <div class="Shop_item">
                             <ul>
                                 <li><a href="#" class="Shop">Furniture</a></li>
@@ -171,7 +172,7 @@
                             </ul>
                         </div>
                     </li>
-                    <li><a href="#" class="Community">Community</a>
+                    <li><a href="./community/Commu_p.html" class="Community">Community</a>
                         <div class="Community_item">
                             <ul>
                                 <li><a href="#" class="Community">Notice</a></li>
@@ -223,6 +224,25 @@
             #textZone>p.active {
                 display: block
             }
+
+            #textshow {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 2000;
+                overflow: hidden;
+            }
+
+            #textshow>span {
+                opacity: 0;
+                margin-top: 20px;
+                display: block;
+                float: left;
+                font-weight: 200px;
+                font-size: 24px;
+                color: rgb(255, 255, 255);
+            }
         </style>
         <script>
             let count = 1;
@@ -230,10 +250,28 @@
             let change;
 
             $(function () {
-                $('#textZone>p.active').animate({
-                    'opacity': '1',
-                    'top': '50%'
-                }, 1000);
+                function textUp() {
+                    $('#textshow>span').remove();
+                    let text = $('#textZone>p.active').text();
+                    const textArr = [...text];
+                    for (let i = 0; i <= textArr.length; i++) {
+                        if (textArr[i] == ' ') {
+                            textArr[i] = '&nbsp';
+                        }
+                        if (i < textArr.length) {
+                            $('#textshow').append('<span>' + String(textArr[i]) + '</span>');
+                            $('#textshow>span:nth-child(' + (i + 1) + ')').delay(i * 100).animate({
+                                'opacity': '1',
+                                'margin-top': '10px'
+                            }, 500)
+                        } else {
+                            $('#textshow>span:nth-child(' + (i + 1) + ')').delay(i * 100).animate({
+                                'opacity': '1',
+                                'margin-top': '10px'
+                            }, 500)
+                        }
+                    }
+                }
                 function imgChange() {
                     $('#controlZone>a').eq(2).removeClass('active')
                     count++;
@@ -257,13 +295,10 @@
                         textcount = 1;
                     }
                     $(`#textZone>p:nth-child(${textcount})`).addClass('active');
-
-                    $('#textZone>p.active').animate({
-                        'opacity': '1',
-                        'top': '50%'
-                    }, 1000);
+                    textUp();
                 }
-                change = setInterval(imgChange, 3000);
+                textUp();
+                change = setInterval(imgChange, 4000);
                 $('#controlZone>a').on('click', function () {
                     clearInterval(change);
                     let imgAddr = $(this).attr('href');
@@ -274,7 +309,6 @@
                     });
                     $('#controlZone>a').removeClass('active');
                     $(this).addClass('active')
-                    change = setInterval(imgChange, 3000);
                     count = parseInt($(this).attr('data'));
                     if (count > 2) {
                         count = 0;
@@ -285,13 +319,11 @@
                     });
                     $(`#textZone>p`).removeClass('active');
                     $(`#textZone>p:nth-child(${textdata})`).addClass('active');
-                    $('#textZone>p.active').animate({
-                        'opacity': '1',
-                        'top': '50%'
-                    }, 1000);
-                    textcount = textdata;
+                    textUp();
+                    change = setInterval(imgChange, 4000);
                     return false;
                 });
+
 
 
             });
@@ -303,6 +335,9 @@
             <p class="active">좋아하는 것을 누릴 수 있도록.</p>
             <p>내 일상도 소중한 순간이라는 것.</p>
             <p>취향을 함께 공유해보다.</p>
+        </div>
+        <div id="textshow">
+
         </div>
         <!-- 컨텐츠Zone끝 -->
 
