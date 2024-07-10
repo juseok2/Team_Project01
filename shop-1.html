@@ -6,6 +6,15 @@
     <title>Document</title>
     <script src="js/jquery.min.js"></script>
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    
+    <style>
+        *{font-family: "Nanum Myeongjo", serif;
+            font-style: normal;
+            font-family: "Noto Serif KR", serif;}
+    </style>
     <script>
         function includeHTML(ctrl, page, callback) {
             $.get(page, function(data) {
@@ -23,6 +32,7 @@
         #top_banner>ul>li>a{color: white;}
         #top_banner>div{position: absolute; right: 100px; top: 15px;  width: 30px; height: 30px; }
         #top_banner>div>p{font-size: 30px; color: white; cursor: pointer;}
+        #title_dummy{width: 100%; height: 70px;}
     </style>
 </head>
 <body>
@@ -54,9 +64,10 @@
                 
             </div>
             <div id="navZone"></div>
+            <div id="title_dummy"></div>
             <script>
                 $(function(){
-                    includeHTML('navZone','nav_sub.html',null);
+                    includeHTML('navZone','/nav/nav_sub.html',null);
                 });
             </script>
         </div>
@@ -65,32 +76,55 @@
                 width: 100%;
                 position: relative;
                 overflow: hidden;
+                margin: 0 50px;
+                max-width: 1920px;
+                min-width: 1280px;
             }
             #leftmeunzone{
                 float: left;
                 width: 200px;
                 position: relative;
-                /* background-color: gray; */
                 
             }
             #leftmeunzone>#left_top_menu{
                 display: block;
-                font-size: 0.75em;
+                margin: 10px 0px;
+                font-size: 16px;
                 font-weight: 400;
+                position: absolute;
+                top: 0px;
             }
+            
+            #left_top_menu>ul>li>a{color: #797d72;}
+            #left_top_menu>ul>li>a:hover{color: #535c4c;}
+
+            #left_top_menu>ul>li{margin-bottom: 10px;}
+
             #leftmeunzone>#left_bottom_menu{
-                display: block;
+                display: none;
+                position: absolute;
+                top: 650px;
             }
+            #left_bottom_menu>ul>li>a{color: #797d72;}
+            #left_bottom_menu>ul>li>a:hover{color: #535c4c;}
+
             #contentzone{
                 float: right;
                 width: calc(100% - 200px);
-                background-color: yellowgreen;
+                /* background-color: yellowgreen; */
             }
-            td{padding-right: 25px;}
-            td>a>img{margin-bottom: 10px;}
+            .flower_list_1 img{
+                margin: 0 auto; 
+                padding-right: 25px;
+                margin-bottom: 10px;
+                
+            }
+            tr>td>p,p>a{color: #797d72;}
+            tr>td>a>img{margin: 10px 0; }
+            tr>td>p.money{margin-bottom: 60px;}
         </style>
         </div>
-        <div id="bodyArea">
+        <div id="bodyArea" style="display: none;">
             <div id="leftmeunzone">
                 <div id="left_top_menu">
                     <ul>
@@ -102,136 +136,201 @@
                 </div>
                 <div id="left_bottom_menu">
                     <ul>
-                        <li><a href="#">위로</a></li>
-                        <li><a href="#">아래로</a></li>
+                        <li><a href="#" class="menu_top">위로</a></li>
+                        <li><a href="#" class="menu_bottom">아래로</a></li>
                     </ul>
                 </div>
             </div>
+            <script>
+                $(function(){
+                    $('#bodyArea').fadeIn(1200);
+                    $('#left_top_menu').css({position:'fixed',top:'250px'});
+                    $('#left_bottom_menu').css({position:'fixed',top:'750px'});
+                    $(window).on('scroll',function(){
+                        let scrAddr = $(this).scrollTop();
+                        if(scrAddr>750){
+                            $('#left_bottom_menu').fadeIn();
+                        } else {
+                            $('#left_bottom_menu').fadeOut();
+                            }
+                    });
+                    $('.menu_top').on('click',function(){
+                        $('body,html').animate(scrollTop(0));
+                    });
+                    $('.menu_bottom').click(function() {
+                        $('html, body').animate({scrollTop: $(document).height()}, 'slow');
+                        return false;
+                    });
+                });
+            </script>
             <div id="contentzone">
                 <div id="content">
                     <table class="flower_list_1">
                         <tr>
                             <td>
-                                <a href="#"><img src="/shop_Img/8b39cc4859deac1835eadf4ba7593e63.png" alt=""></a>
+                                <div class="flower_photo">
+                                    <a href="#"><img src="/shop_Img/flower1.png" alt=""></a>
+                                    <!-- <div class="sold_out">sold out</div> -->
+                                </div>
                                 <p class="name"><a href="#">수공예 유리 화병</a></p>
                                 <p class="money">
-                                    <span>50,000원</span>
-                                    <span><strong>43,000원</strong></span>
+                                    <span style="text-decoration: line-through; ">50,000원</span>
+                                    <span><strong style="color: #535c4c;">43,000원</strong></span>
                                 </p>
                             </td>
                             <td>
-                                <a href="#"><img src="/shop_Img/8b39cc4859deac1835eadf4ba7593e63.png" alt=""></a>
+                                <div class="flower_photo">
+                                    <a href="#"><img src="/shop_Img/flower2.png" alt=""></a>
+                                </div>
                                 <p class="name"><a href="#">수공예 유리 화병</a></p>
                                 <p class="money">
-                                    <span>50,000원</span>
-                                    <span><strong>43,000원</strong></span>
+                                    <span style="text-decoration: line-through;">50,000원</span>
+                                    <span><strong style="color: #535c4c;">43,000원</strong></span>
                                 </p>
                             </td>
                             <td>
-                                <a href="#"><img src="/shop_Img/be27a2c1ade0018cc9e21bd058e8cdbd.png" alt=""></a>
+                                <div class="flower_photo">
+                                    <a href="#"><img src="/shop_Img/flower3.png" alt=""></a>
+                                </div>
                                 <p class="name"><a href="#">수공예 유리 화병</a></p>
                                 <p class="money">
-                                    <span>50,000원</span>
-                                    <span><strong>43,000원</strong></span>
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#"><img src="/shop_Img/ca121df60f21589ecc5c10d3e4219efc.png" alt=""></a>
-                                <p class="name"><a href="#">수공예 유리 화병</a></p>
-                                <p class="money">
-                                    <span>50,000원</span>
-                                    <span><strong>43,000원</strong></span>
-                                </p>
-                            </td>
-                            <td>
-                                <a href="#"><img src="/shop_Img/cb7e514a19ba7e5f8b4ce73279e53362.png" alt=""></a>
-                                <p class="name"><a href="#">수공예 유리 화병</a></p>
-                                <p class="money">
-                                    <span>50,000원</span>
-                                    <span><strong>43,000원</strong></span>
-                                </p>
-                            </td>
-                            <td>
-                                <a href="#"><img src="/shop_Img/d30b860f5ee7251fc841946959f4f752.png" alt=""></a>
-                                <p class="name"><a href="#">수공예 유리 화병</a></p>
-                                <p class="money">
-                                    <span>50,000원</span>
-                                    <span><strong>43,000원</strong></span>
+                                    <span style="text-decoration: line-through;">50,000원</span>
+                                    <span><strong style="color: #535c4c;">43,000원</strong></span>
                                 </p>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <a href="#"><img src="/shop_Img/598b1ba1c77128c0f9bb3b2b0549da01.png" alt=""></a>
+                                <div class="flower_photo">
+                                    <a href="#"><img src="/shop_Img/flower4.png" alt=""></a>
+                                </div>
                                 <p class="name"><a href="#">수공예 유리 화병</a></p>
                                 <p class="money">
-                                    <span>50,000원</span>
-                                    <span><strong>43,000원</strong></span>
+                                    <span style="text-decoration: line-through;">50,000원</span>
+                                    <span><strong style="color: #535c4c;">43,000원</strong></span>
                                 </p>
                             </td>
                             <td>
-                                <a href="#"><img src="/shop_Img/8b39cc4859deac1835eadf4ba7593e63.png" alt=""></a>
+                                <div class="flower_photo">
+                                    <a href="#"><img src="/shop_Img/flower5.png" alt=""></a>
+                                </div>
                                 <p class="name"><a href="#">수공예 유리 화병</a></p>
                                 <p class="money">
-                                    <span>50,000원</span>
-                                    <span><strong>43,000원</strong></span>
+                                    <span style="text-decoration: line-through;">50,000원</span>
+                                    <span><strong style="color: #535c4c;">43,000원</strong></span>
                                 </p>
                             </td>
                             <td>
-                                <a href="#"><img src="/shop_Img/be27a2c1ade0018cc9e21bd058e8cdbd.png" alt=""></a>
+                                <div class="flower_photo">
+                                    <a href="#"><img src="/shop_Img/flower6.png" alt=""></a>
+                                </div>
                                 <p class="name"><a href="#">수공예 유리 화병</a></p>
                                 <p class="money">
-                                    <span>50,000원</span>
-                                    <span><strong>43,000원</strong></span>
+                                    <span style="text-decoration: line-through;">50,000원</span>
+                                    <span><strong style="color: #535c4c;">43,000원</strong></span>
                                 </p>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <a href="#"><img src="/shop_Img/ca121df60f21589ecc5c10d3e4219efc.png" alt=""></a>
+                                <div class="flower_photo">
+                                    <a href="#"><img src="/shop_Img/flower1.png" alt=""></a>
+                                    <!-- <div class="sold_out">sold out</div> -->
+                                </div>
                                 <p class="name"><a href="#">수공예 유리 화병</a></p>
                                 <p class="money">
-                                    <span>50,000원</span>
-                                    <span><strong>43,000원</strong></span>
+                                    <span style="text-decoration: line-through; ">50,000원</span>
+                                    <span><strong style="color: #535c4c;">43,000원</strong></span>
                                 </p>
                             </td>
                             <td>
-                                <a href="#"><img src="/shop_Img/cb7e514a19ba7e5f8b4ce73279e53362.png" alt=""></a>
+                                <div class="flower_photo">
+                                    <a href="#"><img src="/shop_Img/flower2.png" alt=""></a>
+                                </div>
                                 <p class="name"><a href="#">수공예 유리 화병</a></p>
                                 <p class="money">
-                                    <span>50,000원</span>
-                                    <span><strong>43,000원</strong></span>
+                                    <span style="text-decoration: line-through;">50,000원</span>
+                                    <span><strong style="color: #535c4c;">43,000원</strong></span>
                                 </p>
                             </td>
                             <td>
-                                <a href="#"><img src="/shop_Img/d30b860f5ee7251fc841946959f4f752.png" alt=""></a>
+                                <div class="flower_photo">
+                                    <a href="#"><img src="/shop_Img/flower3.png" alt=""></a>
+                                </div>
                                 <p class="name"><a href="#">수공예 유리 화병</a></p>
                                 <p class="money">
-                                    <span>50,000원</span>
-                                    <span><strong>43,000원</strong></span>
+                                    <span style="text-decoration: line-through;">50,000원</span>
+                                    <span><strong style="color: #535c4c;">43,000원</strong></span>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="flower_photo">
+                                    <a href="#"><img src="/shop_Img/flower4.png" alt=""></a>
+                                </div>
+                                <p class="name"><a href="#">수공예 유리 화병</a></p>
+                                <p class="money">
+                                    <span style="text-decoration: line-through;">50,000원</span>
+                                    <span><strong style="color: #535c4c;">43,000원</strong></span>
+                                </p>
+                            </td>
+                            <td>
+                                <div class="flower_photo">
+                                    <a href="#"><img src="/shop_Img/flower5.png" alt=""></a>
+                                </div>
+                                <p class="name"><a href="#">수공예 유리 화병</a></p>
+                                <p class="money">
+                                    <span style="text-decoration: line-through;">50,000원</span>
+                                    <span><strong style="color: #535c4c;">43,000원</strong></span>
+                                </p>
+                            </td>
+                            <td>
+                                <div class="flower_photo">
+                                    <a href="#"><img src="/shop_Img/flower6.png" alt=""></a>
+                                </div>
+                                <p class="name"><a href="#">수공예 유리 화병</a></p>
+                                <p class="money">
+                                    <span style="text-decoration: line-through;">50,000원</span>
+                                    <span><strong style="color: #535c4c;">43,000원</strong></span>
                                 </p>
                             </td>
                         </tr>
                     </table>
-                    <div id="first_button"><a href="#"></a></div>
-                    <div id="list_page_button">
-                        <ul>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                        </ul>
+                    <script>
+                        // $(function(){
+                        //     $('tr:nth-child(3)').fadeIn(1000); 
+                        // });
+                    </script>
+                    <style>
+                        #content_bottom{overflow: hidden;}
+                        #first_button{float: left;}
+                        #list_page_button{text-align: center;}
+                        /* #list_page_button>ul>li{overflow: hidden;} */
+                        #list_page_button>ul>li>a{float: left;}
+                        #last_button{float: right;}
+                    </style>
+                    <div id="content_bottom">
+                        <div id="first_button"><a href="#">처음</a></div>
+                        <div id="list_page_button">
+                            <ul>
+                                <li><a href="#">이전</a></li>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">다음</a></li>
+                            </ul>
+                        </div>
+                        <div id="last_button">끝</div>
                     </div>
-                    <div id="last_button"></div>
                 </div>
             </div>
         </div>
-        <div id="bottomzone">
+        <div id="bottomzone"><a href="" class="bottomX"></a>
         </div>
         <script>
             $(function(){
-                includeHTML('bottomzone','footer.html',null);
+                includeHTML('bottomzone','/footer/footer.html',null);
             });
         </script>
     </div>
