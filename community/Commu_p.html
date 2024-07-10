@@ -22,11 +22,12 @@
         }
 
         body {
-            background-color: #F2EFE8;
+            background-color: #F2F0EB;
         }
 
         /* 팝업 */
-        a,p {
+        a,
+        p {
             text-decoration: none;
             color: rgb(0, 36, 0);
             padding: 5px 10px;
@@ -37,9 +38,71 @@
             list-style: none;
         }
 
-        td,th{
-            width: 50%;
+
+        /* 테이블 css */
+
+        table{width: 95%; 
+            margin: 0 auto;
+            border-top: 2px solid rgb(0, 36, 0);
+}
+            table>thead>tr>td,tbody>tr>td {border-bottom: 1px solid #bbbbbb;
+            padding: 10px;
+        font-size: small;}
+    
+        /* tabel numbtn */
+        #tab_num {
+            margin: 0 auto;
+            height: 40px;
         }
+
+        #tab_num>ul {
+            width: 100px;
+            margin: 0 auto;
+        }
+
+        #tab_num>ul>li {
+            float: left;
+        }
+            /* search box */
+
+        #searchBox {
+            margin: 0 auto;
+            height: 40px;
+        }
+
+        #search_secint {width: 500px;
+        margin: 0 auto;}
+
+        #search_sec>select {
+            width: 70px;
+            height: 34px;
+            background-color: #F2F0EB;
+            appearance: none;
+            text-align: center;
+            border-color: #bbbbbb;
+            float: left;
+            margin-left: 5px;
+        }
+
+        #searchB_box{  
+            width: 210px;
+            height: 34px;
+            background-color: #F2F0EB;
+            border: 1px solid #bbbbbb;
+            margin-left: 5px;
+        }
+        #searchB_sub{
+            width: 70px;
+            height: 34px;
+            background-color: #52594A;
+            color: white;
+            border: none;
+        }
+
+
+
+
+
 
         #popup {
             margin: 0 auto;
@@ -64,28 +127,38 @@
 
         /* 메인창  */
         #mid_tap {
-            border: 1px solid salmon;
+            /* border: 1px solid salmon; */
             margin: 0 auto;
             height: 200px;
             overflow: hidden;
 
         }
 
-        #mid_tap>#tap_img {
-            width: 100px;
+        #mid_tap>#tap_img>a {
+            width: 120px;
+            height: 50px;
+        }
+
+        #mid_tap>#tap_img>a>img {
+            width: 76px;
             height: 25px;
-            border: 1px solid blue;
+            /* border: 1px solid blue; */
             margin-top: 30px;
+            margin-left: 20px;
 
         }
 
 
 
         .taplist {
-            width: 550px;
+            width: 500px;
             height: 50px;
             right: 10px;
             overflow: hidden;
+            /* border: 1px solid yellow; */
+            float: right;
+            margin-top: 25px;
+            font-size: small;
 
 
 
@@ -94,10 +167,9 @@
         .taplist>li {
             width: 70px;
             float: left;
-            margin-left: 20px;
-            margin: 10px 10px;
-            font-size: small;
+            font-size: smaller;
             text-align: center;
+
         }
 
         .tap {
@@ -111,25 +183,71 @@
             /* position: absolute; */
             text-align: center;
             margin: 0 auto;
-            border: 1px solid black;
+            /* border: 1px solid black; */
         }
 
         #main_center>p {
             color: rgb(0, 36, 0);
-            border: 1px solid red;
+            /* border: 1px solid red; */
 
         }
 
         #center_list>ul {
-            width: 300px;
+            width: 400px;
             margin: 0 auto;
-            border: 1px solid pink;
+            /* border: 1px solid pink; */
         }
 
         #center_list>ul>li {
             float: left;
             text-align: center;
-            border: 1px solid purple;
+            /* border: 1px solid purple; */
+        }
+
+        /* 하단 스타일 -  */
+        #bottomArea {
+            position: relative;
+            overflow: hidden;
+            padding: 40px;
+        }
+
+        #bottomArea>.leftZone>div {
+            width: 100px;
+        }
+
+        #bottomArea>.leftZone>div>img {
+            margin-bottom: 50px;
+            width: 100%;
+        }
+
+        #bottomArea p {
+            padding: 2px;
+            color: green;
+            font-size: 12px;
+        }
+
+        #bottomArea>div.leftZone {
+            float: left;
+        }
+
+        #bottomArea>div.rightZone {
+            display: flex;
+            float: right;
+            width: 800px;
+            height: 160px;
+            /* background-color: red; */
+        }
+
+        #bottomArea>div.rightZone>div {
+            margin-right: 50px;
+        }
+
+        .rightZone1>p:nth-child(4) {
+            margin-top: 50px;
+        }
+
+        .rightZone2>p:nth-child(5) {
+            margin-top: 50px;
         }
     </style>
 </head>
@@ -168,35 +286,36 @@
 
         <div id="mid_tap">
 
+
+            <ul class="taplist">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Shop</a>
+                    <ul class="tap">
+                        <li><a href="#">Furniture</a></li>
+                        <li><a href="#">Home deco</a></li>
+                        <li><a href="#">Lighting</a></li>
+                        <li><a href="#">Kitchen</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="#">Community</a>
+                    <ul class="tap">
+                        <li><a href="#">Notice</a></li>
+                        <li><a href="#">Event</a></li>
+                        <li><a href="#">Q&A</a></li>
+                        <li><a href="#">Review</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="#">Login</a></li>
+                <li><a href=""><img src="" alt="">장바구니</a></li>
+                <li><a href=""><img src="" alt="">돋보기</a></li>
+            </ul>
+
             <div id="tap_img">
 
                 <a href="#"><img src="./com_img/logogreensmall.png" alt=""></a>
-
-                <ul class="taplist">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Shop</a>
-                        <ul class="tap">
-                            <li><a href="#">Furniture</a></li>
-                            <li><a href="#">Home deco</a></li>
-                            <li><a href="#">Lighting</a></li>
-                            <li><a href="#">Kitchen</a></li>
-                        </ul>
-                    </li>
-
-                    <li><a href="#">Community</a>
-                        <ul class="tap">
-                            <li><a href="#">Notice</a></li>
-                            <li><a href="#">Event</a></li>
-                            <li><a href="#">Q&A</a></li>
-                            <li><a href="#">Review</a></li>
-                        </ul>
-                    </li>
-
-                    <li><a href="#">Login</a></li>
-                    <li><a href=""><img src="" alt="">장바구니</a></li>
-                    <li><a href=""><img src="" alt="">돋보기</a></li>
-                </ul>
             </div>
 
         </div>
@@ -219,38 +338,158 @@
             </div>
         </div>
 
+        <!-- 메인의 테이블 -->
+
         <table  >
             <thead>
                 <tr align="center">
-                    <td><p>번호</p></td>
-                    <td><p>제목</p></td>
+                    <td>
+                        <p>번호</p>
+                    </td>
+                    <td>
+                        <p>제목</p>
+                    </td>
+                    <td>
+                        <p>작성자</p>
+                    </td>
+                    <td>
+                        <p>작성일</p>
+                    </td>\
+                    <td>
+                        <p>조회</p>
+                    </td>
                 </tr>
             </thead>
 
             <tbody>
+
                 <tr align="center">
-                    <th>3</th>
-                    <th><a href="#">여름 한정 세일 기간 7/1~ 8/31(10%~50%)</a></th>
+                    <td>2</td>
+                    <td><a href="#">서비스 점검 공지(5/3 12:00 ~ 14:00)</a></td>
+                    <td>
+                        <p>모아스튜디오</p>
+                    </td>
+                    <td>
+                        <p>2021-01-13</p>
+                    </td>
+                    <td>
+                        <p>686</p>
+                    </td>
                 </tr>
                 <tr align="center">
-                    <th>2</th>
-                    <th><a href="#">할인 쿠폰, 마일리지와 함께 쓸 수 있는 다양한 결제 혜택</a></th>
-                </tr>
-                <tr align="center">
-                    <th>1</th>
-                    <th><a href="#">당신을 위한 7월의 혜택</a></th>
+                    <td>1</td>
+                    <td><a href="#">몰 오픈을 축하합니다.</a></td>
+                    <td>
+                        <p>E***</p>
+                    </td>
+                    <td>
+                        <p>2021-01-08</p>
+                    </td>
+                    <td>
+                        <p>60</p>
+                    </td>
                 </tr>
             </tbody>
 
         </table>
 
+        <!-- 테이블 페이지 조정 -->
+        <div id="tab_num">
+            <ul>
+                <li><a href="#">1</a></li>
+                <li><a href="#">다음</a></li>
+            </ul>
+
+        </div>
+
+        <div id="searchBox">
+            <div id="search_secint">
+                <div id="search_sec">
+                    <select name="month" id="month">
+                        <option value="일주일">
+                            <p>일주일</p>
+                        </option>
+                        <option value="한달">
+                            <p>한달</p>
+                        </option>
+                        <option value="세달">
+                            <p>세달</p>
+                        </option>
+                        <option value="전체">
+                            <p>전체</p>
+                        </option>
+                    </select>
+                    <select name="subject" id="subject">
+                        <option value="제목">
+                            <p>제목</p>
+                        </option>
+                        <option value="내용">
+                            <p>내용</p>
+                        </option>
+                        <option value="글쓴이">
+                            <p>글쓴이</p>
+                        </option>
+                        <option value="아이디">
+                            <p>아이디</p>
+                        </option>
+                        <option value="별명">
+                            <p>별명</p>
+                        </option>
+                    </select>
+                </div>
+
+                <div id="search_int">
+                    <input type="search" name="" id="searchB_box">
+                    <input type="submit" value="찾기" id="searchB_sub">
+                </div>
+            </div>
+        </div>
+
 
 
     </div>
 
-    <!--3.본문  -->
     <!-- 4.주소 -->
 
+    <div id="bottomArea">
+        <div class="leftZone">
+            <div class="fotterLogo">
+                <img src="../Images/logo_fotter.png" alt="">
+            </div>
+            <p>모아스튜디오</p>
+            <p>Copyright ⓒ모아스튜디오.All right reserved</p>
+        </div>
+        <div class="rightZone">
+            <div class="rightZone1">
+                <p>070-8095-3686</p>
+                <p>MON - FRI : 11-6pm</p>
+                <p>SON,MON OFF</p>
+                <p>우리은행:1002-955-738542 (고종현)</p>
+                <p>모아스튜디오</p>
+            </div>
+            <div class="rightZone2">
+                <p>Owner : 고종현</p>
+                <p>Address : 서울특별시 강서구 곰달래로31나길</p>
+                <p>Business License : </p>
+                <p>Online business license</p>
+                <p>Designed by moa-studio·Hosting by 카페24(주)</p>
+            </div>
+            <div class="rightZone3">
+                <p>about</p>
+                <p>agreement</p>
+                <p>guide</p>
+                <p>privacy</p>
+            </div>
+            <div class="rightZone4">
+                <p>Instagram</p>
+                <p>youtube</p>
+                <p>naverstore</p>
+                <p>facebook</p>
+            </div>
+
+        </div>
+    </div>
+    <!-- 하단 Area끝 -->
 </body>
 
 </html>
