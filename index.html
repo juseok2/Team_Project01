@@ -6,7 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="js/jquery.min.js"></script>
-    <link rel="stylesheet" href="reset.css">
+    <style>
+        body{
+            display: none;
+        }
+    </style>
+    <link rel="stylesheet" href="css/reset.css">
+    <script>
+        $(function(){
+            $('body').fadeIn(1000);
+        });
+    </script>
 </head>
 
 <body>
@@ -171,7 +181,7 @@
                             </ul>
                         </div>
                     </li>
-                    <li><a href="#">Log in</a></li>
+                    <li><a href="/member/login.html">Log in</a></li>
                     <li><a href="#"><img src="" alt=""></a></li>
                     <li><a href="#"><img src="" alt=""></a></li>
 

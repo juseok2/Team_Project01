@@ -5,8 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="js/jquery.min.js"></script>
-    <link rel="stylesheet" href="reset.css">
+    <script src="../js/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>
+        body{
+            display: none;
+        }
+    </style>
+    <script>
+        $(function(){
+            $('body').fadeIn(1000);
+        });
+    </script>
 </head>
 
 <body>
@@ -145,7 +155,7 @@
         </script>
         <div id="navZone">
             <div class="logo">
-                <img src="./Images/logo.png" alt="">
+                <img src="../Images/logo.png" alt="">
             </div>
             <div class="gnb">
                 <ul>
@@ -227,7 +237,7 @@
                 function imgChange() {
                     $('#controlZone>a').eq(2).removeClass('active')
                     count++;
-                    $('#contentsZone').prepend(`<img src="./Images/img${count}.jpg">`)
+                    $('#contentsZone').prepend(`<img src="../Images/img${count}.jpg">`)
                     $('#contentsZone>img:last').fadeOut(700, function () {
                         $('#contentsZone>img:last').remove();
                     });
@@ -287,7 +297,7 @@
             });
         </script>
         <div id="contentsZone">
-            <img src="./Images/img1.jpg" alt="1">
+            <img src="../Images/img1.jpg" alt="1">
         </div>
         <div id="textZone">
             <p class="active">좋아하는 것을 누릴 수 있도록.</p>
@@ -322,9 +332,9 @@
             }
         </style>
         <div id="controlZone">
-            <a href="./Images/img1.jpg" class="active" data="1">하나</a>
-            <a href="./Images/img2.jpg" data="2">둘</a>
-            <a href="./Images/img3.jpg" data="3">셋</a>
+            <a href="../Images/img1.jpg" class="active" data="1">하나</a>
+            <a href="../Images/img2.jpg" data="2">둘</a>
+            <a href="../Images/img3.jpg" data="3">셋</a>
         </div>
         <!-- 컨트롤Zone 끝-->
 
@@ -380,7 +390,7 @@
     <div id="bottomArea">
         <div class="leftZone">
             <div class="fotterLogo">
-                <img src="./Images/logo_fotter.png" alt="">
+                <img src="../Images/logo_fotter.png" alt="">
             </div>
             <p>모아스튜디오</p>
             <p>Copyright ⓒ모아스튜디오.All right reserved</p>
