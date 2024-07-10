@@ -34,10 +34,10 @@ $(function () {
     $('.jsScrollTxt').click(function() {
         if($(this).parent().hasClass('jsScrollUp')) {
             console.log("위로 클릭");
-            //$('html,body').stop(true,true).animate({scrollTop: $('html, body').offset().top},600,'swing');
+            $('html,body').stop(true,true).animate({scrollTop: $('html, body').offset().top},600,'swing');
         } else {
             console.log("아래로 클릭");
-            //$('html,body').stop(true,true).animate({scrollTop: $(document).outerHeight()},600,'swing');
+            $('html,body').stop(true,true).animate({scrollTop: $(document).outerHeight()},600,'swing');
         }
     });
 
