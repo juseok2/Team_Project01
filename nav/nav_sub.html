@@ -1,159 +1,169 @@
-<!-- 내비 Zone시작 -->
-<style>
-    #navZone {
-        width: 100%;
-        height: 100px;
-        padding: 10px;
-        /* background-color: blue; */
-        /* 필요에 따라 배경색을 변경하세요 */
-        position: relative;
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery.min.js"></script>
+    <style>
 
-    .logo {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        left: 20px;
-        z-index: 1;
-        cursor: pointer;
-    }
+        #navZone {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            /* 필요에 따라 배경색을 변경하세요 */
+            position: relative;
+        }
 
-    .gnb {
-        position: absolute;
-        right: 20px;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 1;
-    }
+        .logo {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 20px;
+            z-index: 1;
+            cursor: pointer;
+        }
 
-    .gnb>ul {
-        overflow: hidden;
-    }
+        .gnb {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+            color: rgba(52, 67, 55, 0.6);
+        }
 
-    .gnb>ul li {
-        float: left;
-        padding: 10px;
-    }
+        .gnb>ul {
+            overflow: hidden;
+        }
 
-    .gnb>ul li>a {
-        color: black;
-        padding: 20px 0;
-        text-decoration: none;
-    }
+        .gnb>ul li {
+            float: left;
+            padding: 10px;
+        }
 
-    .gnb div.Shop_item {
-        color: black;
-        position: absolute;
-        width: 120px;
-        top: 40px;
-        /* 위치 조정 */
-        left: 130px;
-        /* 위치 조정 */
-        display: none;
-        /* 초기 상태 숨김 */
-    }
-    .gnb div.Community_item {
-        color: black;
-        position: absolute;
-        width: 100px;
-        top: 40px;
-        /* 위치 조정 */
-        left: 190px;
-        /* 위치 조정 */
-        display: none;
-        /* 초기 상태 숨김 */
-    }
+        .gnb>ul li>a {
+            color: rgb(0, 36, 0);
+            padding: 20px 0;
+            text-decoration: none;
+        }
 
-    .gnb div>ul>li {
-        opacity: 0;
-        display: none;
-        margin-top: 10px;
-    }
-</style>
-<script>
-    $(function () {
-        $('.gnb > ul > li:nth-child(3)').on('mouseover', function () {
-            const subMenuItems = $('.gnb>ul>li:nth-child(3) div > ul > li');
-            subMenuItems.css('display', 'block').each(function (index) {
-                $(this).delay(index * 200).animate({
-                    'opacity': '1',
-                    'margin-top': '0'
-                }, 500); // 애니메이션 시간 변경
-            });
-            $('.gnb div.Shop_item').fadeIn(); // 서브 메뉴 보이기
-        });
+        .gnb div.Shop_item {
+            color: rgb(0, 36, 0);
+            position: absolute;
+            width: 120px;
+            top: 40px;
+            /* 위치 조정 */
+            left: 130px;
+            /* 위치 조정 */
+            display: none;
+            /* 초기 상태 숨김 */
+        }
 
-        $('.gnb > ul > li:nth-child(3)').on('mouseleave', function () {
-            const subMenuItems = $('.gnb>ul>li:nth-child(3) div > ul > li');
-            subMenuItems.stop(true, true).each(function (index) {
-                $(this).delay(index * 200).animate({
-                    'opacity': '0',
-                    'margin-top': '10px'
-                }, 500, function () {
-                    $(this).css('display', 'none');
+        .gnb div.Community_item {
+            color: white;
+            position: absolute;
+            width: 100px;
+            top: 40px;
+            /* 위치 조정 */
+            left: 190px;
+            /* 위치 조정 */
+            display: none;
+            /* 초기 상태 숨김 */
+        }
+
+        .gnb div>ul>li {
+            opacity: 0;
+            display: none;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        $(function () {
+            $('.gnb > ul > li:nth-child(3)').on('mouseover', function () {
+                const subMenuItems = $('.gnb>ul>li:nth-child(3) div > ul > li');
+                subMenuItems.css('display', 'block').each(function (index) {
+                    $(this).delay(index * 200).animate({
+                        'opacity': '1',
+                        'margin-top': '0'
+                    }, 500); // 애니메이션 시간 변경
                 });
+                $('.gnb div.Shop_item').fadeIn(); // 서브 메뉴 보이기
             });
-            $('.gnb div.Shop_item').fadeOut(); // 서브 메뉴 숨기기
-        });
-        $('.gnb > ul > li:nth-child(4)').on('mouseover', function () {
-            const subMenuItems = $('.gnb>ul>li:nth-child(4) div > ul > li');
-            subMenuItems.css('display', 'block').each(function (index) {
-                $(this).delay(index * 100).animate({
-                    'opacity': '1',
-                    'margin-top': '0'
-                }, 500); // 애니메이션 시간 변경
-            });
-            $('.gnb div.Community_item').fadeIn(); // 서브 메뉴 보이기
-        });
 
-        $('.gnb > ul > li:nth-child(4)').on('mouseleave', function () {
-            const subMenuItems = $('.gnb>ul>li:nth-child(4) div > ul > li');
-            subMenuItems.stop(true, true).each(function (index) {
-                $(this).delay(index * 100).animate({
-                    'opacity': '0',
-                    'margin-top': '10px'
-                }, 500, function () {
-                    $(this).css('display', 'none');
+            $('.gnb > ul > li:nth-child(3)').on('mouseleave', function () {
+                const subMenuItems = $('.gnb>ul>li:nth-child(3) div > ul > li');
+                subMenuItems.stop(true, true).each(function (index) {
+                    $(this).delay(index * 200).animate({
+                        'opacity': '0',
+                        'margin-top': '10px'
+                    }, 500, function () {
+                        $(this).css('display', 'none');
+                    });
                 });
+                $('.gnb div.Shop_item').fadeOut(); // 서브 메뉴 숨기기
             });
-            $('.gnb div.Community_item').fadeOut(); // 서브 메뉴 숨기기
+            $('.gnb > ul > li:nth-child(4)').on('mouseover', function () {
+                const subMenuItems = $('.gnb>ul>li:nth-child(4) div > ul > li');
+                subMenuItems.css('display', 'block').each(function (index) {
+                    $(this).delay(index * 100).animate({
+                        'opacity': '1',
+                        'margin-top': '0'
+                    }, 500); // 애니메이션 시간 변경
+                });
+                $('.gnb div.Community_item').fadeIn(); // 서브 메뉴 보이기
+            });
+
+            $('.gnb > ul > li:nth-child(4)').on('mouseleave', function () {
+                const subMenuItems = $('.gnb>ul>li:nth-child(4) div > ul > li');
+                subMenuItems.stop(true, true).each(function (index) {
+                    $(this).delay(index * 100).animate({
+                        'opacity': '0',
+                        'margin-top': '10px'
+                    }, 500, function () {
+                        $(this).css('display', 'none');
+                    });
+                });
+                $('.gnb div.Community_item').fadeOut(); // 서브 메뉴 숨기기
+            });
         });
-    });
+    </script>
+</head>
+<body>
+    <div id="navZone">
+        <div class="logo">
+            <a href="../index.html"><img src="./community/com_img/logogreensmall.png" alt=""></a>
+        </div>
+        <div class="gnb">
+            <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/shop-1.html" class="Shop">Shop</a>
+                    <div class="Shop_item">
+                        <ul>
+                            <li><a href="/shop-1.html" class="Shop">Furniture</a></li>
+                            <li><a href="#" class="Shop">Home deco</a></li>
+                            <li><a href="#" class="Shop">Lighting</a></li>
+                            <li><a href="#" class="Shop">Kitchen</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="/community/_Notice.html" class="Community">Community</a>
+                    <div class="Community_item">
+                        <ul>
+                            <li><a href="/community/_Notice.html" class="Community">Notice</a></li>
+                            <li><a href="/community/_Event.html" class="Community">Event</a></li>
+                            <li><a href="/community/_Q&A.html" class="Community">Q&A</a></li>
+                            <li><a href="/community/_Review.html" class="Community">Review</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="/member/login.html">Log in</a></li>
+                <li><a href="#"><img src="" alt=""></a></li>
+                <li><a href="#"><img src="" alt=""></a></li>
 
-</script>
-<div id="navZone">
-    <div class="logo">
-        <a href="/index.html"><img src="./Images/logo_fotter.png" alt=""></a>
+            </ul>
+        </div>
     </div>
-    <div class="gnb">
-        <ul>
-            <li><a href="/index.html">Home</a></li>
-            <li><a href="/about.html">About</a></li>
-            <li><a href="/shop-1.html" class="Shop">Shop</a>
-                <div class="Shop_item">
-                    <ul>
-                        <li><a href="/shop-1.html" class="Shop">Furniture</a></li>
-                        <li><a href="#" class="Shop">Home deco</a></li>
-                        <li><a href="#" class="Shop">Lighting</a></li>
-                        <li><a href="#" class="Shop">Kitchen</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li><a href="/community/_Notice.html" class="Community">Community</a>
-                <div class="Community_item">
-                    <ul>
-                        <li><a href="/community/_Notice.html" class="Community">Notice</a></li>
-                        <li><a href="/community/_Event.html" class="Community">Event</a></li>
-                        <li><a href="/community/_Q&A.html" class="Community">Q&A</a></li>
-                        <li><a href="/community/_Review.html" class="Community">Review</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li><a href="/member/login.html">Log in</a></li>
-            <li><a href="#"><img src="" alt=""></a></li>
-            <li><a href="#"><img src="" alt=""></a></li>
-
-        </ul>
-    </div>
-</div>
-<!-- 내비 Zone끝 -->
+</body>
+</html>

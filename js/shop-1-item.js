@@ -96,13 +96,17 @@ $(function () {
     });
     $('#bottomZone>.review>.title>p:first').on('click',function(){
         $('#bottomZone>.review>.title>a').text('리뷰 전체보기');
-        $('#bottomZone>.review>.review_box').css('display','block');
-        $('#bottomZone>.review>.inquiry').css('display','none');
+        $('#bottomZone>.review>.inquiry').slideUp(500,function(){
+            $('#bottomZone>.review>.review_box').slideDown(1000);
+        });
+        
     });
     $('#bottomZone>.review>.title>p:last').on('click',function(){
         $('#bottomZone>.review>.title>a').text('문의 전체보기');
-        $('#bottomZone>.review>.review_box').css('display','none');
-        $('#bottomZone>.review>.inquiry').css('display','block');
+        $('#bottomZone>.review>.review_box').slideUp(1000,function(){
+            $('#bottomZone>.review>.inquiry').slideDown(500);
+        });
+        
     });
     $('#bottomZone>.review>.review_box>.slide_btn>p:first').on('click',function(){
         $('#bottomZone>.review>.review_box>.review_contents>.slide_img').animate({

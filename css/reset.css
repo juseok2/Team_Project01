@@ -1,13 +1,23 @@
-
         * {
             margin: 0;
             padding: 0;
-            list-style: none;
-            font-family: inherit;
+            font-family: "Nanum Myeongjo", serif;
             font-style: normal;
+            font-family: "Noto Serif KR", serif;
+
+
         }
 
-        a {
+        body {
+            background-color: #F2F0EB;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        a,
+        p {
             text-decoration: none;
-            color: black;
         }
