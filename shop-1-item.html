@@ -9,62 +9,75 @@
     <script src="js/jquery.min.js"></script>
     <script>
         function includeHTML(ctrl, page, callback) {
-            $.get(page, function(data) {
+            $.get(page, function (data) {
                 $('#' + ctrl).html(data);
                 if (callback) {
                     callback();
                 }
             });
         }
-        includeHTML('navZone','nav/nav_sub.html',null);
+        includeHTML('navZone', 'nav/nav_sub.html', null);
+        includeHTML('footerArea', 'footer/footer.html', null);
     </script>
     <style>
-        body{
+        body {
             background-color: #f2efe9;
         }
-        h2{
+
+        h2 {
             font-weight: 400;
         }
-        #topArea{
+
+        #topArea {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             overflow: hidden;
+            padding-bottom: 120px;
+            border-bottom: 1px solid rgba(52, 67, 55, 0.6);
         }
-        .top_leftZone{
+
+        .top_leftZone {
             width: 600px;
             float: left;
         }
-        .top_rightZone{
+
+        .top_rightZone {
             width: 500px;
             padding-left: 100px;
             float: left;
-            color: #526755;
+            color: rgba(52, 67, 55, 0.6);
         }
-        .top_rightZone>h4{
+
+        .top_rightZone>h4 {
             padding-top: 10px;
         }
-        .top_rightZone>p{
+
+        .top_rightZone>p {
             font-size: 14px;
             padding-top: 30px;
         }
-        .mainImg{
+
+        .mainImg {
             width: 600px;
             height: 600px;
             /* overflow: hidden; */
         }
-        .mainImg>img{
+
+        .mainImg>img {
             width: 600px;
             height: 600px;
             object-fit: cover;
         }
-        .subImg{
+
+        .subImg {
             width: 600px;
             display: flex;
             overflow: hidden;
             justify-content: center;
         }
-        .subImg>img{
+
+        .subImg>img {
             display: block;
             width: 100px;
             height: 100px;
@@ -73,108 +86,132 @@
             margin: 30px 10px;
             opacity: 0.6;
         }
-        .subImg>img.active{
+
+        .subImg>img.active {
             animation: fadein 0.5s ease-in-out;
             opacity: 1;
         }
-        @keyframes fadein{
-            0%{
+
+        @keyframes fadein {
+            0% {
                 opacity: 0.6;
             }
-            100%{
+
+            100% {
                 opacity: 1;
             }
         }
-        .detail{
+
+        .detail {
             position: relative;
             margin-top: 50px;
             height: 30px;
-            border-bottom: 1px solid #526755;
+            border-bottom: 1px solid rgba(52, 67, 55, 0.6);
             cursor: pointer;
             overflow: hidden;
         }
-        .detail>p{
+
+        .detail>p {
             float: left;
-            color: #526755;
+            color: rgba(52, 67, 55, 0.6);
         }
-        #arrow{
+
+        #arrow {
             float: right;
             display: block;
             width: 10px;
             margin-top: -20px;
             transform: rotate(90deg);
         }
-        .detail_content{
+
+        .detail_content {
             width: 500px;
             height: 180px;
             top: 50px;
         }
-        .detail_content>ul{
+
+        .detail_content>ul {
             float: left;
         }
-        .detail_content>ul:nth-child(2){
+
+        .detail_content>ul:nth-child(2) {
             margin-left: 50px;
         }
-        .detail_content>ul:nth-child(2)>li:nth-child(1){
+
+        .detail_content>ul:nth-child(2)>li:nth-child(1) {
             text-decoration: line-through;
         }
-        .detail_content li{
+
+        .detail_content li {
             font-size: 12px;
             padding: 10px 0;
         }
-        .delivery_info{
+
+        .delivery_info {
             position: relative;
             height: 30px;
             margin-top: 10px;
-            border-bottom: 1px solid #526755;
+            border-bottom: 1px solid rgba(52, 67, 55, 0.6);
             cursor: pointer;
         }
-        .delivery_content{
+
+        .delivery_content {
             font-size: 12px;
             padding: 10px 0;
             display: none;
         }
-        .refund_info{
+
+        .refund_info {
             position: relative;
             height: 30px;
             margin-top: 10px;
-            border-bottom: 1px solid #526755;
+            border-bottom: 1px solid rgba(52, 67, 55, 0.6);
             cursor: pointer;
         }
-        .refund_content{
+
+        .refund_content {
             font-size: 12px;
             padding: 10px 0;
             display: none;
         }
-        .refund_content>ul{
+
+        .refund_content>ul {
             margin-bottom: 20px;
         }
-        .refund_content>ul>li:nth-child(1){
+
+        .refund_content>ul>li:nth-child(1) {
             font-weight: 800;
         }
-        .refund_content>ul:nth-child(3)>li:nth-child(7){
+
+        .refund_content>ul:nth-child(3)>li:nth-child(7) {
             margin-top: 20px;
         }
-        .item_option{
+
+        .item_option {
             position: relative;
             height: 30px;
             margin-top: 10px;
-            border-bottom: 1px solid #526755;
+            border-bottom: 1px solid rgba(52, 67, 55, 0.6);
         }
-        .color{
+
+        .color {
             overflow: hidden;
             padding: 30px 0;
+            border-bottom: 1px solid rgba(52, 67, 55, 0.6);
         }
-        .color>p{
+
+        .color>p {
             float: left;
         }
-        .color>.color_box{
+
+        .color>.color_box {
             width: 150px;
             margin-left: 100px;
             float: left;
             overflow: hidden;
         }
-        .color>.color_box>div{
+
+        .color>.color_box>div {
             width: 30px;
             height: 30px;
             border-radius: 50%;
@@ -183,7 +220,8 @@
             cursor: pointer;
             border: none;
         }
-        .color>.color_box>div:nth-child(1)>div{
+
+        .color>.color_box>div:nth-child(1)>div {
             width: 25px;
             height: 25px;
             border-radius: 50%;
@@ -191,7 +229,8 @@
             margin: 0 auto;
             transform: translateY(10%);
         }
-        .color>.color_box>div:nth-child(2)>div{
+
+        .color>.color_box>div:nth-child(2)>div {
             width: 25px;
             height: 25px;
             border-radius: 50%;
@@ -199,7 +238,8 @@
             margin: 0 auto;
             transform: translateY(10%);
         }
-        .color>.color_box>div:nth-child(3)>div{
+
+        .color>.color_box>div:nth-child(3)>div {
             width: 25px;
             height: 25px;
             border-radius: 50%;
@@ -207,69 +247,479 @@
             margin: 0 auto;
             transform: translateY(10%);
         }
+
+        .size {
+            overflow: hidden;
+            padding: 30px 0;
+            border-bottom: 1px solid rgba(52, 67, 55, 0.6);
+        }
+
+        .size>p {
+            float: left;
+        }
+
+        .size>form {
+            float: left;
+            margin-left: 50px;
+            width: 400px;
+        }
+
+        .size>form>select {
+            width: 400px;
+            color: rgba(52, 67, 55, 0.6);
+        }
+
+        .size>form>select>option {
+            color: rgba(52, 67, 55, 0.6);
+        }
+
+        .price {
+            overflow: hidden;
+            padding: 30px 0 20px;
+            border-bottom: 1px solid rgba(52, 67, 55, 0.6);
+        }
+
+        .price>p {
+            float: right;
+        }
+
+        .price>p>strong {
+            font-size: 24px;
+            font-weight: 400;
+        }
+
+        .button_box {
+            width: 500px;
+            padding: 25px 0;
+            overflow: hidden;
+        }
+
+        .button_box>button {
+            border: 1px solid #526755;
+            cursor: pointer;
+        }
+
+        .button_box>button:nth-child(2) {
+            width: 54px;
+            height: 52px;
+        }
+
+        .button_box>button:nth-child(3) {
+            width: 54px;
+            height: 52px;
+        }
+
+        .button_box>button>img {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+        }
+
+        .button_box>button:nth-child(1) {
+            width: 380px;
+            padding: 15px 0;
+            margin-right: 6px;
+            background-color: rgb(52, 67, 55);
+            color: white;
+            font-size: 16px;
+            border: none;
+            float: left;
+        }
+
+        #contentsZone {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 0 0;
+            padding-bottom: 120px;
+            border-bottom: 1px solid rgba(52, 67, 55, 0.6);
+
+        }
+
+        #contentsZone>.text_box {
+            margin-bottom: 40px;
+        }
+
+        #contentsZone>.text_box>p {
+            color: rgba(52, 67, 55, 0.6);
+            font-size: 14px;
+        }
+
+        #contentsZone>.img_box>img {
+            width: 1200px;
+            height: 700px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        #contentsZone>.img_box>img:nth-child(3) {
+            margin-bottom: 0;
+        }
+
+        #bottomZone {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 0 0;
+            padding-bottom: 120px;
+        }
+
+        #bottomZone>.bestItem>.title {
+            overflow: hidden;
+        }
+
+        #bottomZone>.bestItem>.title>p {
+            display: block;
+            float: right;
+            padding: 0 5px;
+            color: rgba(52, 67, 55, 0.6);
+        }
+
+        #bottomZone>.bestItem>.title>p.next {
+            cursor: pointer;
+        }
+
+        #bottomZone>.bestItem>.title>p.prev {
+            cursor: pointer;
+        }
+
+        #bottomZone>.bestItem>.title>p:nth-child(1) {
+            float: left;
+            padding: 0;
+        }
+
+        #bottomZone>.bestItem>.items {
+            width: 1200px;
+            margin-top: 50px;
+            overflow: hidden;
+        }
+
+        #bottomZone>.bestItem>.items>ul.items_container {
+            width: 1452px;
+            overflow: hidden;
+        }
+
+        #bottomZone>.bestItem>.items>ul.items_container>li {
+            float: left;
+            width: 232px;
+            margin-right: 10px;
+            font-size: 14px;
+            color: rgba(52, 67, 55, 0.6);
+        }
+
+        #bottomZone>.bestItem>.items>ul.items_container>li>a {
+            color: rgba(52, 67, 55, 0.6);
+        }
+
+        #bottomZone>.bestItem>.items>ul.items_container>li>a>img {
+            width: 232px;
+            object-fit: cover;
+        }
+        #bottomZone>.review{
+            margin-top: 120px;
+        }
+        #bottomZone>.review>.title{
+            width: 100%;
+            overflow: hidden;
+            border-bottom: 3px solid rgba(52, 67, 55, 0.6);
+            padding: 20px 0;
+        }
+        #bottomZone>.review>.title>p{
+            display: block;
+            float: left;
+            color: rgba(52, 67, 55, 0.6);
+            font-size: 18px; 
+            padding: 0 10px;
+            cursor: pointer;
+        }
+        #bottomZone>.review>.title>span{
+            float: left;
+            color: rgba(52, 67, 55, 0.6);
+        }
+        #bottomZone>.review>.title>p.active{
+            font-weight: 800;
+        }
+        #bottomZone>.review>.title>a{
+            float: right;
+            font-size: 14px;
+            color: rgba(52, 67, 55, 0.6);
+        }
+        #bottomZone>.review>.review_box{
+            position: relative;
+            width: 1200px;
+            overflow: hidden;
+        }
+        #bottomZone>.review>.review_box>img{
+            position: absolute;
+            width: 100px;
+            height: 50px;
+            object-fit: cover;
+        }
+        #bottomZone>.review>.review_box>.star>img{
+            position: absolute;
+            width: 100px;
+            height: 50px;
+            object-fit: cover;
+        }
+        #bottomZone>.review>.review_box>.star{
+            position: relative;
+            width: 92px;
+            height: 50px;
+            overflow: hidden;
+        }
+        #bottomZone>.review>.review_box>.score{
+            display: block;
+            margin-left: 120px;
+            margin-top: -35px;
+            float: left;
+            color: rgba(52, 67, 55, 0.6);
+        }
+        #bottomZone>.review>.review_box>.score>p{
+            float: left;
+            color: #a4a79f;
+            font-weight: 800;
+            padding: 0 5px;
+        }
+        #bottomZone>.review>.review_box>.score>p:nth-child(1){
+            
+            color: rgba(52, 67, 55, 0.6);
+        }
+        #bottomZone>.review>.review_box>.slide_btn{
+            float: right;
+            margin-top: -35px;
+        }
+        #bottomZone>.review>.review_box>.slide_btn>p{
+            float: left;
+            font-size: 18px;
+            padding: 0 10px;
+            cursor: pointer;
+        }
+        #bottomZone>.review>.review_box>.review_contents>.slide_img{
+            width: 1376px;
+            height: 162px;
+            overflow: hidden;
+        }
+        #bottomZone>.review>.review_box>.review_contents>.slide_img>img{
+            width: 162px;
+            height: 162px;
+            object-fit: cover;
+            float: left;
+            margin-right: 10px;
+        }
+        #bottomZone>.review>.review_box>.review_contents>.contents{
+            width: 100%;
+            height: 50px;
+            padding: 20px 0;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(52, 67, 55, 0.6);
+        }
+        #bottomZone>.review>.review_box>.review_contents>.contents>p{
+            color: rgba(52, 67, 55, 0.6);
+            font-size: 12px;
+        }
+        #bottomZone>.review>.review_box>.review_contents>div.first{
+            margin-top: 50px ;
+            border-top: 1px solid rgba(52, 67, 55, 0.6);
+        }
+        #bottomZone>.review>.review_box>.review_contents>.contents>img{
+            width: 80px;
+            height: 20px;
+            object-fit: cover;
+            float: left;
+        }
+        #bottomZone>.review>.review_box>.review_contents>.contents>img:nth-of-type(2){
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            float: right;
+            border-radius: 50%;
+            margin-top: -60px;
+        }
+        #bottomZone>.review>.review_box>.review_contents>.contents>p:nth-of-type(1){
+            margin-left: 10px;
+            float: left;
+        }
+        #bottomZone>.review>.review_box>.review_contents>.contents>p:nth-of-type(2){
+            margin-left: 10px;
+            float: left;
+        }
+        #bottomZone>.review>.review_box>.review_contents>.contents>p:nth-of-type(3){
+            padding: 30px 0 0;
+            display: block;
+            float: none;
+        }
+        #bottomZone>.review>.review_box>.review_contents>.control_box{
+            width: 146px;
+            margin: 20px auto;
+            overflow: hidden;
+            color: rgba(52, 67, 55, 0.6);
+
+        }
+        #bottomZone>.review>.review_box>.review_contents>.control_box>span{
+            float: left;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+        #bottomZone>.review>.review_box>.review_contents>.control_box>p{
+            float: left;
+            padding: 0 5px;
+            cursor: pointer;
+        }
+        #bottomZone>.review>.review_box>.review_contents>.control_box>p.active{
+            color: #526755;
+            font-weight: 800;
+        }
+        #bottomZone>.review>.inquiry{
+            width: 100%;
+            height: 50px;
+            padding: 20px 0;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(52, 67, 55, 0.6);
+            color: rgba(52, 67, 55, 0.6);
+            font-size: 12px;
+            display: none;
+        }
+        #bottomZone>.review>.inquiry>.contents>p:nth-of-type(1){
+            float: left;
+        }
+        #bottomZone>.review>.inquiry>.contents>p:nth-of-type(2){
+            margin-left: 10px;
+            float: left;
+        }
+        #bottomZone>.review>.inquiry>.contents>p:nth-of-type(3){
+            padding: 30px 0 0;
+            display: block;
+            float: none;
+        }
     </style>
     <script>
-        $(function(){
-            $('.subImg>img').on('mouseover',function(){
+        $(function () {
+            let slide;
+            function slideImg() {
+                $('#bottomZone>.bestItem>.items>ul.items_container').animate({
+                    'marginLeft': '-242px'
+                }, 700, function () {
+                    $('#bottomZone>.bestItem>.items>ul.items_container>li:first').appendTo('#bottomZone>.bestItem>.items>ul.items_container');
+                    $('#bottomZone>.bestItem>.items>ul.items_container').css('margin-left', '0')
+                });
+            }
+            function color_box_border() {
+                $('.color>.color_box>div').css('border', 'none');
+                $(this).parent().css('border', '1px solid rgba(83, 92, 76, 0.79)');
+            }
+            $('.subImg>img').on('mouseover', function () {
                 let imgAddr = $(this).attr('alt');
                 $('.subImg>img').removeClass('active');
                 $(this).addClass('active');
-                $('.mainImg>img').attr('src',imgAddr);
+                $('.mainImg>img').attr('src', imgAddr);
             });
-            $('.detail').on('click',function(){
+            $('.detail').on('click', function () {
                 let data = $(this).attr('data');
-                if(data == 'active'){
+                if (data == 'active') {
                     $('.detail_content').slideUp();
-                    $(this).attr('data','unactive');
-                    $('.detail>div>p:nth-child(2)').css('transform','rotate(-90deg)');
-                }else{
+                    $(this).attr('data', 'unactive');
+                    $('.detail>div>p:nth-child(2)').css('transform', 'rotate(-90deg)');
+                } else {
                     $('.content').slideUp();
-                    $('.header').attr('data','unactive');
+                    $('.header').attr('data', 'unactive');
                     $('.detail_content').slideDown();
-                    $(this).attr('data','active');
-                    $('.detail>div>p:nth-child(2)').css('transform','rotate(90deg)');
+                    $(this).attr('data', 'active');
+                    $('.detail>div>p:nth-child(2)').css('transform', 'rotate(90deg)');
                 }
             });
-            $('.delivery_info').on('click',function(){
+            $('.delivery_info').on('click', function () {
                 let data = $(this).attr('data');
-                if(data == 'active'){
+                if (data == 'active') {
                     $('.delivery_content').slideUp();
-                    $(this).attr('data','unactive');
-                    $('.delivery_info>#arrow').css('transform','rotate(-90deg)');
-                }else{
+                    $(this).attr('data', 'unactive');
+                    $('.delivery_info>#arrow').css('transform', 'rotate(-90deg)');
+                } else {
                     $('.content').slideUp();
-                    $('.header').attr('data','unactive');
+                    $('.header').attr('data', 'unactive');
                     $('.delivery_content').slideDown();
-                    $(this).attr('data','active');
-                    $('.delivery_info>#arrow').css('transform','rotate(90deg)');
+                    $(this).attr('data', 'active');
+                    $('.delivery_info>#arrow').css('transform', 'rotate(90deg)');
                 }
             });
-            $('.refund_info').on('click',function(){
+            $('.refund_info').on('click', function () {
                 let data = $(this).attr('data');
-                if(data == 'active'){
+                if (data == 'active') {
                     $('.refund_content').slideUp();
-                    $(this).attr('data','unactive');
-                    $('.refund_info>#arrow').css('transform','rotate(-90deg)');
-                }else{
+                    $(this).attr('data', 'unactive');
+                    $('.refund_info>#arrow').css('transform', 'rotate(-90deg)');
+                } else {
                     $('.content').slideUp();
-                    $('.header').attr('data','unactive');
+                    $('.header').attr('data', 'unactive');
                     $('.refund_content').slideDown();
-                    $(this).attr('data','active');
-                    $('.refund_info>#arrow').css('transform','rotate(90deg)');
+                    $(this).attr('data', 'active');
+                    $('.refund_info>#arrow').css('transform', 'rotate(90deg)');
                 }
             });
-            $('.color>.color_box>div:nth-child(1)>div').on('click',function(){
-                $('.color>.color_box>div').css('border','none');
-                $('.color>.color_box>div:nth-child(1)').css('border','1px solid rgba(83, 92, 76, 0.79)')
-            })
-            $('.color>.color_box>div:nth-child(2)>div').on('click',function(){
-                $('.color>.color_box>div').css('border','none');
-                $('.color>.color_box>div:nth-child(2)').css('border','1px solid rgba(83, 92, 76, 0.79)')
-            })
-            $('.color>.color_box>div:nth-child(3)>div').on('click',function(){
-                $('.color>.color_box>div').css('border','none');
-                $('.color>.color_box>div:nth-child(3)').css('border','1px solid rgba(83, 92, 76, 0.79)')
-            })
+            $('.color>.color_box>div:nth-child(1)>div').on('click', color_box_border);
+            $('.color>.color_box>div:nth-child(2)>div').on('click', color_box_border);
+            $('.color>.color_box>div:nth-child(3)>div').on('click', color_box_border);
+            slide = setInterval(slideImg, 3000);
+            $('#bottomZone>.bestItem>.title>p.next').on('click', function () {
+                if (!$('#bottomZone>.bestItem>.items>ul.items_container').is(':animated')) {
+                    clearInterval(slide);
+                    $('#bottomZone>.bestItem>.items>ul.items_container').animate({
+                        'marginLeft': '-242px'
+                    }, 700, function () {
+                        $('#bottomZone>.bestItem>.items>ul.items_container>li:first').appendTo('#bottomZone>.bestItem>.items>ul.items_container');
+                        $('#bottomZone>.bestItem>.items>ul.items_container').css('margin-left', '0')
+                    });
+                    slide = setInterval(slideImg, 3000);
+                }
+            });
+            $('#bottomZone>.bestItem>.title>p.prev').on('click', function () {
+                if (!$('#bottomZone>.bestItem>.items>ul.items_container').is(':animated')) {
+                    clearInterval(slide);
+                    $('#bottomZone>.bestItem>.items>ul.items_container').css('margin-left', '-242px');
+                    $('#bottomZone>.bestItem>.items>ul.items_container>li:last').prependTo('#bottomZone>.bestItem>.items>ul.items_container');
+                    $('#bottomZone>.bestItem>.items>ul.items_container').animate({
+                        'marginLeft': '0px'
+                    }, 700, function () {
+                        // 애니메이션이 완료된 후 수행할 작업
+                    });
+                    slide = setInterval(slideImg, 3000);
+                }
+            });
+            $('#bottomZone>.review>.title>p').on('click',function(){
+                $('#bottomZone>.review>.title>p').removeClass('active')
+                $(this).addClass('active')
+            });
+            $('#bottomZone>.review>.title>p:first').on('click',function(){
+                $('#bottomZone>.review>.title>a').text('리뷰 전체보기');
+                $('#bottomZone>.review>.review_box').css('display','block');
+                $('#bottomZone>.review>.inquiry').css('display','none');
+            });
+            $('#bottomZone>.review>.title>p:last').on('click',function(){
+                $('#bottomZone>.review>.title>a').text('문의 전체보기');
+                $('#bottomZone>.review>.review_box').css('display','none');
+                $('#bottomZone>.review>.inquiry').css('display','block');
+            });
+            $('#bottomZone>.review>.review_box>.slide_btn>p:first').on('click',function(){
+                $('#bottomZone>.review>.review_box>.review_contents>.slide_img').animate({
+                    'marginLeft':'0'
+                })
+            });
+            $('#bottomZone>.review>.review_box>.slide_btn>p:last').on('click',function(){
+                $('#bottomZone>.review>.review_box>.review_contents>.slide_img').animate({
+                    'marginLeft':'-162px'
+                })
+            });
+            $('#bottomZone>.review>.review_box>.review_contents>.control_box>p').on('click',function(){
+                $('#bottomZone>.review>.review_box>.review_contents>.control_box>p').removeClass('active');
+                $(this).addClass('active');
+            });
+            $('#bottomZone>.review>.review_box>.review_contents>.control_box>span:nth-of-type(1)').on('click',function(){
+                $('#bottomZone>.review>.review_box>.review_contents>.control_box>p').removeClass('active');
+                $('#bottomZone>.review>.review_box>.review_contents>.control_box>p:nth-of-type(1)').addClass('active');
+            });
+            $('#bottomZone>.review>.review_box>.review_contents>.control_box>span:nth-of-type(2)').on('click',function(){
+                $('#bottomZone>.review>.review_box>.review_contents>.control_box>p').removeClass('active');
+                $('#bottomZone>.review>.review_box>.review_contents>.control_box>p:nth-of-type(2)').addClass('active');
+            });
         });
     </script>
 </head>
@@ -278,9 +728,9 @@
     <!-- 내비영역 -->
     <div id="navZone"></div>
     <!-- 상단영역 -->
-     <div id="topArea">
+    <div id="topArea">
         <!-- 상단 왼쪽 영역 -->
-         <div class="top_leftZone">
+        <div class="top_leftZone">
             <div class="mainImg">
                 <img src="Images/1_shop1_235009.jpg" alt="">
             </div>
@@ -290,7 +740,7 @@
                 <img src="Images/img3.png" alt="Images/3_shop1_235009.jpg">
                 <img src="Images/img4.png" alt="Images/img4.png">
             </div>
-         </div>
+        </div>
         <!-- 상단 왼쪽 영역 끝-->
         <!-- 상단 오른쪽영역 -->
         <div class="top_rightZone">
@@ -301,10 +751,11 @@
                 담거나, 인테리어 소품들을 진열해 다양한 쓰임으로 활용할 수 있습니다. 하나<br>
                 하나손으로 제작되어 상품마다 차이가 있습니다.
             </p>
-            <div class="detail header" data = "active">
+            <div class="detail header" data="active">
                 <div class="box">
                     <p>세부정보</p>
-                    <p id="arrow"><</p>
+                    <p id="arrow">
+                        << /p>
                 </div>
             </div>
             <div class="detail_content content">
@@ -323,9 +774,10 @@
                     <li>2,500원(50,000원 이상 구매시 무료)</li>
                 </ul>
             </div>
-            <div class="delivery_info header" data = "unactive">
+            <div class="delivery_info header" data="unactive">
                 <p>배송정보</p>
-                <p id="arrow"><</p>
+                <p id="arrow">
+                    << /p>
             </div>
             <div class="delivery_content content">
                 <ul>
@@ -335,9 +787,10 @@
                     <li>-좋아하는것은 CJ대한통운 택배를 이용하고 있습니다. 배송조회 바로가기</li>
                 </ul>
             </div>
-            <div class="refund_info header" data = "unactive">
+            <div class="refund_info header" data="unactive">
                 <p>교환 및 환불</p>
-                <p id="arrow"><</p>
+                <p id="arrow">
+                    << /p>
             </div>
             <div class="refund_content content">
                 <ul>
@@ -371,7 +824,7 @@
                         (색상 교환, 사이즈 교환 등 포함)</li>
                 </ul>
             </div>
-            <div class="item_option header" data = "unactive">
+            <div class="item_option header" data="unactive">
                 <p>상품 옵션</p>
             </div>
             <div class="color">
@@ -394,34 +847,162 @@
                     </div>
                 </div>
             </div>
+            <div class="size">
+                <p>사이즈</p>
+                <form action="">
+                    <select name="size" id="size_select_box">
+                        <option value="">- [필수] 옵션을 선택해 주세요-</option>
+                        <option value="none">-----------------</option>
+                    </select>
+                </form>
+            </div>
+            <div class="price">
+                <p>Total : <strong>0</strong> (0개)</p>
+            </div>
+            <div class="button_box">
+                <button type="button">구매하기</button>
+                <button type="button"><img src="/shop_Img/shopping_cart.png" alt=""></button>
+                <button type="button"><img src="/shop_Img/favorite.png" alt=""></button>
+            </div>
         </div>
         <!-- 상단 오른쪽영역 끝-->
     </div>
     <!-- 상단영역 끝-->
 
     <!-- 본문영역 -->
-     <div id="contentsZone">
-
-     </div>
+    <div id="contentsZone">
+        <div class="text_box">
+            <p>좋아하는 것들, 화병.<br>
+                수공예로 제작된 유리 화병입니다. 유리의 질감을 살린 소박하고 사랑스러운 화병은 작은 사이즈이지만 한다발의 꽃을 담거나, 발향의 오일을 담거나,<br>
+                인테리어 소품들을 진열해 다양한 쓰임으로 활용할 수 있습니다. 하나 하나 손으로 제작되어 상품마다 차이가 있습니다.</p>
+        </div>
+        <div class="img_box">
+            <img src="/Images/1_shop1_235009.jpg" alt="">
+            <img src="/Images/2_shop1_235009.jpg" alt="">
+            <img src="/Images/3_shop1_235009.jpg" alt="">
+        </div>
+    </div>
     <!-- 본문영역 끝 -->
 
     <!-- 하단영역 -->
-     <div id="bottomZone">
+    <div id="bottomZone">
         <!-- 추천상품 -->
-         <div class="bestItem">
-
-         </div>
+        <div class="bestItem">
+            <div class="title">
+                <p>당신을 위한 추천 상품</p>
+                <p class="next">다음</p>
+                <p>/</p>
+                <p class="prev">이전</p>
+            </div>
+            <div class="items">
+                <ul class="items_container">
+                    <li><a href="#"><img src="/Images/04f31ecf8f6103b24fa4538a6a491f96.png" alt="">수공예
+                            유리화병</a><br><br>43,000원</li>
+                    <li><a href="#"><img src="/Images/4b59e63a58f9e0e134d305f6dc2556b2.png" alt="">수공예
+                            유리화병</a><br><br>43,000원</li>
+                    <li><a href="#"><img src="/Images/06c3e158a224b3fd875619c330bb415d.png" alt="">수공예
+                            유리화병</a><br><br>43,000원</li>
+                    <li><a href="#"><img src="/Images/06c97856f936f3a8e727f72bec3c0f7b.png" alt="">수공예
+                            유리화병</a><br><br>43,000원</li>
+                    <li><a href="#"><img src="/Images/8b39cc4859deac1835eadf4ba7593e63.png" alt="">수공예
+                            유리화병</a><br><br>43,000원</li>
+                    <li><a href="#"><img src="/Images/b5d19408ad90416a18299f0b8e7ce0a1.png" alt="">수공예
+                            유리화병</a><br><br>43,000원</li>
+                </ul>
+            </div>
+        </div>
         <!-- 추천상품 끝-->
         <!-- 리뷰 -->
-         <div class="review">
-
-         </div>
+        <div class="review">
+            <div class="title">
+                <p class="active">리뷰(9)</p>
+                <span>/</span>
+                <p>문의(1)</p>
+                <a href="#">리뷰 전체보기</a>
+            </div>
+            <div class="review_box">
+                <img src="/shop_Img/icon_star5_bg.svg" alt="">
+                <div class="star">
+                    <img src="/shop_Img/icon_star5.svg" alt="">
+                </div>
+                <div class="score">
+                    <p>4.6</p>
+                    <p>/</p>
+                    <p>5</p>
+                </div>
+                <div class="slide_btn">
+                    <p><</p>
+                    <p>></p>
+                </div>
+                <div class="review_contents">
+                    <div class="slide_img">
+                        <img src="/Images/750f6afe98ba7d224f148871b37560e9.jpg" alt="">
+                        <img src="/Images/9d6252736d32e07711bbd6d2d93f566f.jpg" alt="">
+                        <img src="/Images/84031349fe7b93e1257d19eb71063597.jpg" alt="">
+                        <img src="/Images/0eddf15ee620721342672f766df0f8f3.jpg" alt="">
+                        <img src="/Images/e6642eff6790d5fd1c4ad80d20ecced3.jpg" alt="">
+                        <img src="/Images/ee80643491ef116324be8860394b7207.jpg" alt="">
+                        <img src="/Images/f954f98e2d88789636f7c5c9345b0242.jpg" alt="">
+                        <img src="/Images/84031349fe7b93e1257d19eb71063597.jpg" alt="">
+                    </div>
+                    <div class="contents first">
+                        <img src="/shop_Img/icon_star5.svg" alt="">
+                        <p>모아스튜디오</p>
+                        <p>2021-01-13</p>
+                        <p>주말 제외하고 8일만에 받았어요!!</p>
+                        <img src="/Images/750f6afe98ba7d224f148871b37560e9.jpg" alt="">
+                    </div>
+                    <div class="contents">
+                        <img src="/shop_Img/icon_star5.svg" alt="">
+                        <p>모아스튜디오</p>
+                        <p>2021-01-13</p>
+                        <p>주말 제외하고 8일만에 받았어요!!</p>
+                        <img src="/Images/750f6afe98ba7d224f148871b37560e9.jpg" alt="">
+                    </div>
+                    <div class="contents">
+                        <img src="/shop_Img/icon_star5.svg" alt="">
+                        <p>모아스튜디오</p>
+                        <p>2021-01-13</p>
+                        <p>주말 제외하고 8일만에 받았어요!!</p>
+                        <img src="/Images/750f6afe98ba7d224f148871b37560e9.jpg" alt="">
+                    </div>
+                    <div class="contents">
+                        <img src="/shop_Img/icon_star5.svg" alt="">
+                        <p>모아스튜디오</p>
+                        <p>2021-01-13</p>
+                        <p>주말 제외하고 8일만에 받았어요!!</p>
+                        <img src="/Images/750f6afe98ba7d224f148871b37560e9.jpg" alt="">
+                    </div>
+                    <div class="contents">
+                        <img src="/shop_Img/icon_star5.svg" alt="">
+                        <p>모아스튜디오</p>
+                        <p>2021-01-13</p>
+                        <p>주말 제외하고 8일만에 받았어요!!</p>
+                        <img src="/Images/750f6afe98ba7d224f148871b37560e9.jpg" alt="">
+                    </div>
+                    <div class="control_box">
+                        <span>이전</span>
+                        <p class="active">1</p>
+                        <p>2</p>
+                        <span>다음</span>
+                    </div>
+                </div>
+            </div>
+            <div class="inquiry">
+                <div class="contents">
+                    <p>모아스튜디오</p>
+                    <p>2021-01-13</p>
+                    <p>언제까지 세일인가요??</p>
+                </div>
+            </div>
+        </div>
         <!-- 리뷰 끝 -->
     </div>
     <!-- 하단영역 끝-->
 
-     <!-- 푸터영역 -->
-     <!-- 푸터영역 끝 -->
+    <!-- 푸터영역 -->
+     <div id="footerArea"></div>
+    <!-- 푸터영역 끝 -->
 </body>
 
 </html>
