@@ -22,6 +22,7 @@
     <style>
         body {
             background-color: #f2efe9;
+            opacity: 0;
         }
 
         h2 {
@@ -607,6 +608,7 @@
                 $('.color>.color_box>div').css('border', 'none');
                 $(this).parent().css('border', '1px solid rgba(83, 92, 76, 0.79)');
             }
+            $('body').animate({'opacity':'1'},1000);
             $('.subImg>img').on('mouseover', function () {
                 let imgAddr = $(this).attr('alt');
                 $('.subImg>img').removeClass('active');
