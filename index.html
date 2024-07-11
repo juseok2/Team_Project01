@@ -8,6 +8,7 @@
     <script src="js/jquery.min.js"></script>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="./css/main.css">
+    <script src="/js/main.js"></script>
     <script>
         $(function () {
             $('body').fadeIn(1000);
@@ -35,90 +36,6 @@
         <div id="navZone"></div>
         <!-- 내비 Zone끝 -->
         <!-- 컨텐츠Zone시작 -->
-        <script>
-            let count = 1;
-            let textcount = 1;
-            let change;
-
-            $(function () {
-                function textUp() {
-                    $('#textshow>span').remove();
-                    let text = $('#textZone>p.active').text();
-                    const textArr = [...text];
-                    for (let i = 0; i <= textArr.length; i++) {
-                        if (textArr[i] == ' ') {
-                            textArr[i] = '&nbsp';
-                        }
-                        if (i < textArr.length) {
-                            $('#textshow').append('<span>' + String(textArr[i]) + '</span>');
-                            $('#textshow>span:nth-child(' + (i + 1) + ')').delay(i * 100).animate({
-                                'opacity': '1',
-                                'margin-top': '10px'
-                            }, 500)
-                        } else {
-                            $('#textshow>span:nth-child(' + (i + 1) + ')').delay(i * 100).animate({
-                                'opacity': '1',
-                                'margin-top': '10px'
-                            }, 500)
-                        }
-                    }
-                }
-                function imgChange() {
-                    $('#controlZone>a').eq(2).removeClass('active')
-                    count++;
-                    $('#contentsZone').prepend(`<img src="./Images/img${count}.jpg">`)
-                    $('#contentsZone>img:last').fadeOut(700, function () {
-                        $('#contentsZone>img:last').remove();
-                    });
-                    $('#controlZone>a').removeClass('active')
-                    $('#controlZone>a').eq(count - 1).addClass('active')
-                    if (count > 2) {
-
-                        count = 0;
-                    }
-                    $('#textZone>p.active').css({
-                        'opacity': '0',
-                        'top': '48%'
-                    });
-                    $(`#textZone>p:nth-child(${textcount})`).removeClass('active');
-                    textcount++;
-                    if (textcount == 4) {
-                        textcount = 1;
-                    }
-                    $(`#textZone>p:nth-child(${textcount})`).addClass('active');
-                    textUp();
-                }
-                textUp();
-                change = setInterval(imgChange, 4000);
-                $('#controlZone>a').on('click', function () {
-                    clearInterval(change);
-                    let imgAddr = $(this).attr('href');
-                    let textdata = parseInt($(this).attr('data'));
-                    $('#contentsZone').prepend(`<img src="${imgAddr}">`)
-                    $('#contentsZone>img:last').fadeOut(700, function () {
-                        $('#contentsZone>img:last').remove();
-                    });
-                    $('#controlZone>a').removeClass('active');
-                    $(this).addClass('active')
-                    count = parseInt($(this).attr('data'));
-                    if (count > 2) {
-                        count = 0;
-                    }
-                    $('#textZone>p.active').css({
-                        'opacity': '0',
-                        'top': '48%'
-                    });
-                    $(`#textZone>p`).removeClass('active');
-                    $(`#textZone>p:nth-child(${textdata})`).addClass('active');
-                    textUp();
-                    change = setInterval(imgChange, 4000);
-                    return false;
-                });
-
-
-
-            });
-        </script>
         <div id="contentsZone">
             <img src="./Images/img1.jpg" alt="1">
         </div>
@@ -145,6 +62,14 @@
     <!-- 하단 Area시작 -->
     <div id="bottomArea"></div>
     <!-- 하단 Area끝 -->
+    <!-- 배너 시작 -->
+     <div id="banner">
+        <p>X</p>
+        <img src="/Images/logo_fotter.png" alt="">
+        <p>여러분은 지금,<br><strong>모아스튜디오</strong>의 디자인을 보고 계십니다.</p>
+        <button type="button">더 많은 디자인 보러가기</button>
+     </div>
+    <!-- 배너 끝 -->
 </body>
 
 </html>
