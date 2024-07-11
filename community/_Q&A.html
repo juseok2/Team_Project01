@@ -41,28 +41,36 @@
         /* 테이블 css */
 
         table {
-            width: 95%;
+            width: 90%;
             margin: 0 auto;
             border-top: 2px solid rgb(0, 36, 0);
             text-align: center;
             padding-bottom: 30px;
         }
 
-        table>thead>tr>td,
+        thead>tr>th,
         tbody>tr>td {
             border-bottom: 1px solid #bbbbbb;
-            padding: 10px;
+            padding: 20px;
             font-size: small;
+            border-collapse:collapse;
+            width: 10%;
+        
         }
+        tbody>td>.tbl{text-align: left;}
+        .tbl{width: 50%;}
 
-        table>tbody>tr>a {
-            text-align: left;
+        table>tr-child{border: none;}
+
+        table>tbody>tr>td>a{
+           margin-top: 15px;
         }
         table>tbody>tr>td>a>img{
             width: 40px;
             height: 40px;
             border-radius: 70%;
             overflow: hidden;
+            float: left;
 
         }
 
@@ -90,12 +98,12 @@
             height: 40px;
         }
 
-        #search_secint {
+        #search_All {
             width: 500px;
             margin: 0 auto;
         }
 
-        #search_sec>select {
+        #search_input>select {
             width: 70px;
             height: 34px;
             background-color: #F2F0EB;
@@ -106,8 +114,12 @@
             float: left;
             font-size: small;
         }
+        #search_input>select{
+            padding-left: 8px;
+            text-align: left;
+        }
 
-        #searchB_box {
+        #search_box {
             width: 210px;
             height: 34px;
             background-color: #F2F0EB;
@@ -115,7 +127,7 @@
             margin-left: 5px;
         }
 
-        #searchB_sub {
+        #search_box_find {
             width: 70px;
             height: 34px;
             background-color: #52594A;
@@ -222,32 +234,29 @@
 
         /* 페이지 */
 
-        #main_center {
-            overflow: hidden;
-            text-align: center;
-            margin: 0 auto;
+        #container {
+       margin: 0 auto;
+        }
+        #titleAria{width: 100%;
+        text-align: center;
+    padding-bottom: 35px;}
+
+        #container>#title_list{
+            width: 100%;
+            height: 40px;
+            padding-bottom: 35px;
         }
 
-        #main_center>p {
-            height: 40px;
-            color: rgb(0, 36, 0);
-            padding-bottom: 30px;
-
-        }
-
-        #center_list>ul {
-            width: 400px;
-            margin: 0 auto;
-            height: 40px;
+        #container>#title_list>ul {
+            width: 300px;
+            margin: 0 auto; 
             font-size: small;
-            padding-bottom: 30px;
+
         }
 
-        #center_list>ul>li {
+        #title_list>ul>li {
             float: left;
-            text-align: center;
         }
-
 
         /* 하단 스타일 -  */
         #bottomArea {
@@ -367,42 +376,46 @@
     <!--페이지 -->
 
 
-    <div id="main_center">
-        <p>Notice</p>
-        <div id="center_list">
-            <ul>
-                <li><a href="#">Notice</a> &nbsp;/&nbsp;&nbsp;</li>
-                <li><a href="#">Event</a> &nbsp;/&nbsp;&nbsp;</li>
-                <li><a href="#">Q&A</a> &nbsp;/&nbsp;&nbsp;</li>
-                <li><a href="#">Review</a>&nbsp;</li>
+    <div id="container">
 
-            </ul>
+        <div id="titleAria">
+            <p>Notice</p>
         </div>
-    </div>
+            <div id="title_list">
+                <ul>
+                    <li><a href="#">Notice</a> &nbsp;/&nbsp;&nbsp;</li>
+                    <li><a href="#">Event</a> &nbsp;/&nbsp;&nbsp;</li>
+                    <li><a href="#">Q&A</a> &nbsp;/&nbsp;&nbsp;</li>
+                    <li><a href="#">Review</a>&nbsp;</li>
+
+                </ul>
+            </div>
+        
+
 
     <!-- 페이지의 테이블 -->
 
     <table>
         <thead>
             <tr>
-                <td>
-                    <p>번호</p>
-                </td>
-                <td>
-                    <p>상품정보</p>
-                </td>
-                <td>
-                    <p>제목</p>
-                </td>
-                <td>
-                    <p>작성자</p>
-                </td>
-                <td>
-                    <p>작성일</p>
-                </td>
-                <td>
-                    <p>조회</p>
-                </td>
+                <th>
+                    번호
+                </th>
+                <th>
+                    상품정보
+                </th>
+                <th class="tbl">
+                    제목
+                </th>
+                <th>
+                    작성자
+                </th>
+                <th>
+                    작성일
+                </th>
+                <th>
+                    조회
+                </th>
             </tr>
         </thead>
 
@@ -410,155 +423,155 @@
 
             <tr>
                 <td>9</td>
-                <td><a href="#"><img src="./flower/꽃1.png" alt="Qna_photo1">
+                <td class="information"><a href="#"><img src="./flower/꽃1.png" alt="Qna_photo1">
                 수공예 유리화병</a></td>
                 <td>
                     <a href="#">요청시 포장도 해주시나요?</a>
                 </td>
                 <td>
-                    <p>모아스튜디오</p>
+                    모아스튜디오
                 </td>
                 <td>
-                    <p>2021-01-13</p>
+                    2021-01-13
                 </td>
                 <td>
-                    <p>686</p>
+                    686
                 </td>
             </tr>
             <tr>
                 <td>8</td>
-                <td><a href="#"><img src="./flower/꽃2.png" alt="Qna_photo2">
+                <td class="information"><a href="#"><img src="./flower/꽃2.png" alt="Qna_photo2">
                 수공예 유리화병</a></td>
                 <td>
                     <a href="#">언제까지 세일인가용?</a>
                 </td>
                 <td>
-                    <p>모아스튜디오</p>
+                    모아스튜디오
                 </td>
                 <td>
-                    <p>2021-01-13</p>
+                    2021-01-13
                 </td>
                 <td>
-                    <p>686</p>
+                    686
                 </td>
             </tr>
             <tr>
                 <td>7</td>
-                <td><a href="#"><img src="./flower/꽃3.png" alt="Qna_photo3">
+                <td class="information"><a href="#"><img src="./flower/꽃3.png" alt="Qna_photo3">
                 수공예 유리화병</a></td>
                 <td>
                     <a href="#">총 몇개 구성 상품인가요?</a>
                 </td>
                 <td>
-                    <p>모아스튜디오</p>
+                    모아스튜디오
                 </td>
                 <td>
-                    <p>2021-01-13</p>
+                    2021-01-13
                 </td>
                 <td>
-                    <p>686</p>
+                    686
                 </td>
             </tr>
             <tr>
                 <td>6</td>
-                <td><a href="#"><img src="./flower/꽃4.png" alt="Qna_photo4">
+                <td class="information"><a href="#"><img src="./flower/꽃4.png" alt="Qna_photo4">
                 수공예 유리화병</a></td>
                 <td>
                     <a href="#">라지 사이즈 재입고 되나요?</a>
                 </td>
                 <td>
-                    <p>모아스튜디오</p>
+                    모아스튜디오
                 </td>
                 <td>
-                    <p>2021-01-13</p>
+                    2021-01-13
                 </td>
                 <td>
-                    <p>686</p>
+                    686
                 </td>
             </tr>
             <tr>
                 <td>5</td>
-                <td><a href="#"><img src="./flower/꽃5.png" alt="Qna_photo5">
+                <td class="information"><a href="#"><img src="./flower/꽃5.png" alt="Qna_photo5">
                 수공예 유리화병</a></td>
                 <td>
                     <a href="#">색상 문의 드립니당</a>
                 </td>
                 <td>
-                    <p>모아스튜디오</p>
+                    모아스튜디오
                 </td>
                 <td>
-                    <p>2021-01-13</p>
+                    2021-01-13
                 </td>
                 <td>
-                    <p>686</p>
+                    686
                 </td>
             </tr>
             <tr>
                 <td>4</td>
-                <td><a href="#"><img src="./flower/꽃4.png" alt="Qna_photo6">
+                <td class="information"><a href="#"><img src="./flower/꽃4.png" alt="Qna_photo6">
                 수공예 유리화병</a></td>
                 <td>
                     <a href="#"><img src="" alt="">주문확이 요청드려요.</a>
                 </td>
                 <td>
-                    <p>모아스튜디오</p>
+                    모아스튜디오
                 </td>
                 <td>
-                    <p>2021-01-13</p>
+                    2021-01-13
                 </td>
                 <td>
-                    <p>686</p>
+                    686
                 </td>
             </tr>
             <tr>
                 <td>3</td>
-                <td><a href="#"><img src="./flower/꽃3.png" alt="Qna_photo7">
+                <td class="information"><a href="#"><img src="./flower/꽃3.png" alt="Qna_photo7">
                 수공예 유리화병</a></td>
                 <td>
                     <a href="#">재입고 문의</a>
                 </td>
                 <td>
-                    <p>모아스튜디오</p>
+                    모아스튜디오
                 </td>
                 <td>
-                    <p>2021-01-13</p>
+                    2021-01-13
                 </td>
                 <td>
-                    <p>686</p>
+                    686
                 </td>
             </tr>
             <tr>
                 <td>2</td>
-                <td><a href="#"><img src="./flower/꽃2.png" alt="Qna_photo8">
+                <td class="information"><a href="#"><img src="./flower/꽃2.png" alt="Qna_photo8">
                 수공예 유리화병</a></td>
                 <td>
                     <a href="#">사이즈는 어떻게 되나요?</a>
                 </td>
                 <td>
-                    <p>모아스튜디오</p>
+                    모아스튜디오
                 </td>
                 <td>
-                    <p>2021-01-13</p>
+                    2021-01-13
                 </td>
                 <td>
-                    <p>686</p>
+                    686
                 </td>
             </tr>
             <tr>
                 <td>1</td>
-                <td><a href="#"><img src="./flower/꽃1.png" alt="Qna_photo9">
+                <td class="information"><a href="#"><img src="./flower/꽃1.png" alt="Qna_photo9">
                 수공예 유리화병</a></td>
                 <td>
                     <a href="#">사이즈는 어떻게 되나요?</a>
                 </td>
                 <td>
-                    <p>모아스튜디오</p>
+                    모아스튜디오
                 </td>
                 <td>
-                    <p>2021-01-13</p>
+                    2021-01-13
                 </td>
                 <td>
-                    <p>686</p>
+                    686
                 </td>
             </tr>
 
@@ -577,48 +590,50 @@
     </div>
 
     <div id="searchBox">
-        <div id="search_secint">
-            <div id="search_sec">
+        <div id="search_All">
+            <div id="search_input">
                 <select name="month" id="month">
                     <option value="일주일">
-                        <p>일주일</p>
+                        일주일
                     </option>
                     <option value="한달">
-                        <p>한달</p>
+                        한달
                     </option>
                     <option value="세달">
-                        <p>세달</p>
+                       세달
                     </option>
                     <option value="전체">
-                        <p>전체</p>
+                        전체
                     </option>
                 </select>
                 <select name="subject" id="subject">
                     <option value="제목">
-                        <p>제목</p>
+                        제목
                     </option>
                     <option value="내용">
-                        <p>내용</p>
+                        내용
                     </option>
                     <option value="글쓴이">
-                        <p>글쓴이</p>
+                        글쓴이
                     </option>
                     <option value="아이디">
-                        <p>아이디</p>
+                        아이디
                     </option>
                     <option value="별명">
-                        <p>별명</p>
+                        별명
                     </option>
                 </select>
             </div>
 
-            <div id="search_int">
-                <input type="search" name="" id="searchB_box">
-                <input type="submit" value="찾기" id="searchB_sub">
+            <div id="search_text">
+                <input type="search" name="" id="search_box">
+                <input type="submit" value="찾기" id="search_box_find">
             </div>
         </div>
     </div>
-    </div>
+</div>
+</div>
+
 
     <!-- 4.주소 -->
 
@@ -719,13 +734,7 @@
             });
         });
 
-        // 메인페이지 리스트
-
-        $(function(){
-            $('#center_list>li>a').hover(function(){
-                $(this).animate(color,'red',100)},function(){color,'rgb(0,36,0)',100}
-            );
-        });
+       
     </script>
 
 </body>
