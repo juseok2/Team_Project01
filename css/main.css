@@ -94,6 +94,7 @@ body {
     top: -120px;
     left: 0;
     z-index: 1000;
+    pointer-events: none;
 }
 
 #textZone>p {
