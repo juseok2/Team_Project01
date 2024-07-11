@@ -120,6 +120,15 @@ $(function () {
             'marginLeft':'-162px'
         })
     });
+    $('#bottomZone>.review>.review_box>.review_contents>.slide_img>img').on('click',function(){
+        let Addr = $(this).attr('src');
+        $('.review>.review_detail>.contents>.contents_left>img').attr('src',Addr);
+        $('.review_detail').css('display','block');
+        $('.review_detail').animate({
+            'opacity':'1'
+        },600);
+
+    });
     $('#bottomZone>.review>.review_box>.review_contents>.control_box>p').on('click',function(){
         $('#bottomZone>.review>.review_box>.review_contents>.control_box>p').removeClass('active');
         $(this).addClass('active');
@@ -131,5 +140,19 @@ $(function () {
     $('#bottomZone>.review>.review_box>.review_contents>.control_box>span:nth-of-type(2)').on('click',function(){
         $('#bottomZone>.review>.review_box>.review_contents>.control_box>p').removeClass('active');
         $('#bottomZone>.review>.review_box>.review_contents>.control_box>p:nth-of-type(2)').addClass('active');
+    });
+    $('.review_detail>.background').on('click',function(){
+        $('.review_detail').animate({
+            'opacity':'0'
+        },600,function(){
+            $('.review_detail').css('display','none');
+        });
+    });
+    $('.review>.review_detail>.contents>.contents_right>.top>p:nth-of-type(2)').on('click',function(){
+        $('.review_detail').animate({
+            'opacity':'0'
+        },600,function(){
+            $('.review_detail').css('display','none');
+        });
     });
 });
