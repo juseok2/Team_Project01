@@ -41,9 +41,10 @@
         /* 테이블 css */
 
         table {
-            width: 95%;
+            width: 90%;
             margin: 0 auto;
             border-top: 2px solid rgb(0, 36, 0);
+
             text-align: center;
             padding-bottom: 30px;
         }
@@ -54,10 +55,12 @@
             padding: 20px;
             font-size: small;
             border-collapse:collapse;
-            width: 10%;
-        
+            width: 10%;   
+
         }
+        tbody>td>.tbl{text-align: left;}
         .tbl{width: 60%;}
+
        
     
 
@@ -407,7 +410,7 @@
 
                 <tr>
                     <td>2</td>
-                    <td width="" >
+                    <td class="tbl" >
                         <a href="#">서비스 점검 공지(5/3 12:00 ~ 14:00)</a></td>
                     <td>
                         모아스튜디오
@@ -589,17 +592,10 @@
             });
         });
 
-        // 메인페이지 리스트
+        // 
+        
 
-        $(function () {
-            $('#center_list>li>a').hover(function () {
-                $(this).animate(color, 'red', 100)
-            }, function () {
-                color,
-                'rgb(0,36,0)',
-                100
-            });
-        });
+    
     </script>
 
 </body>
