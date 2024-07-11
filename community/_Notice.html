@@ -11,6 +11,21 @@
         rel="stylesheet">
 
     <script src="../js/jquery.min.js"></script>
+    <script>
+        function includeHTML(ctrl, page, callback) {
+            $.get(page, function (data) {
+                $('#' + ctrl).html(data);
+                if (callback) {
+                    callback();
+                }
+            });
+        }
+        includeHTML('navZone', '/nav/nav_sub.html', null);
+
+        $(function(){
+            $('#NoticeAll').fadeIn(1000);
+        });
+    </script>
     <style>
         * {
             margin: 0;
@@ -25,6 +40,7 @@
         body {
             background-color: #F2F0EB;
         }
+        #NoticeAll{display: none;}
 
         ul,
         li {
@@ -37,6 +53,15 @@
             color: rgb(0, 36, 0);
             padding: 5px 10px;
         }
+       #title_list>ul>li>a{
+        color: rgb(104, 113, 104);
+        font-weight: bold;
+       }
+       #title_list>ul>li:first-child a{
+        color: rgb(0, 36, 0);
+        font-weight: 500;
+       }
+
 
         /* 테이블 css */
 
@@ -329,42 +354,10 @@
 
     <!-- 2.상단창  -->
     <div id="navZone">
-        <div class="logo">
-            <a href="../index.html"><img src="./com_img/logogreensmall.png" alt=""></a>
-        </div>
-        <div class="gnb">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#" class="Shop">Shop</a>
-                    <div class="Shop_item">
-                        <ul>
-                            <li><a href="#" class="Shop">Furniture</a></li>
-                            <li><a href="#" class="Shop">Home deco</a></li>
-                            <li><a href="#" class="Shop">Lighting</a></li>
-                            <li><a href="#" class="Shop">Kitchen</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li><a href="#" class="Community">Community</a>
-                    <div class="Community_item">
-                        <ul>
-                            <li><a href="#" class="Community">Notice</a></li>
-                            <li><a href="#" class="Community">Event</a></li>
-                            <li><a href="#" class="Community">Q&A</a></li>
-                            <li><a href="#" class="Community">Review</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li><a href="#">Log in</a></li>
-                <li><a href="#"><img src="" alt=""></a></li>
-                <li><a href="#"><img src="" alt=""></a></li>
-
-            </ul>
-        </div>
+        
     </div>
 
-
+    <div id="NoticeAll">
 
     <!--페이지 -->
     <div id="container">
@@ -374,10 +367,10 @@
         </div>
             <div id="title_list">
                 <ul>
-                    <li><a href="#">Notice</a> &nbsp;/&nbsp;&nbsp;</li>
-                    <li><a href="#">Event</a> &nbsp;/&nbsp;&nbsp;</li>
-                    <li><a href="#">Q&A</a> &nbsp;/&nbsp;&nbsp;</li>
-                    <li><a href="#">Review</a>&nbsp;</li>
+                    <li><a href="./_Notice.html">Notice</a> &nbsp;/&nbsp;&nbsp;</li>
+                    <li><a href="./_Event.html">Event</a> &nbsp;/&nbsp;&nbsp;</li>
+                    <li><a href="./_Q&A.html">Q&A</a> &nbsp;/&nbsp;&nbsp;</li>
+                    <li><a href="./_Review.html">Review</a>&nbsp;</li>
 
                 </ul>
             </div>
@@ -533,6 +526,7 @@
 
         </div>
     </div>
+</div>
     <!-- 하단 Area끝 -->
 
 
@@ -594,6 +588,24 @@
 
         // 
         
+        // 화면
+        
+       
+        $(function(){
+            $("#title_list>ul>li>a:nth-child(1)").hover(function(){
+               
+                    $(this).css({'color':'rgb(0,36,0)'},{'font-weight':'500'});
+              
+            },function(){
+                $(this).css('color',' rgb(104, 113, 104)');
+            });
+        });
+
+        $(function(){
+            $("#title_list>ul>li:nth-child(1)").on('click',function(){
+                
+            });
+        });
 
     
     </script>
