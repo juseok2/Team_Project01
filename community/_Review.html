@@ -39,13 +39,31 @@
         }
 
 
-        /* review content */
-        
-       .review{margin: 0 auto;}
-        .review_type{width: 1200px; height: 18px; padding: 30px;}
-        .review_type>li{width: 90px; height: 18px;
-        float: left;}
-        .review_type>a{font-size: smaller;}
+        /* review 내용 */
+
+      section{
+        width: 100%;
+        height: 100%;
+    }
+      section>.review_type>li{
+        width: 100px;
+        float: left;
+      }
+      section>.revieWrap{
+        width: 100%;
+        height: 100%;
+      }
+      section>.revieWrap>li{
+        width: 100%;
+        padding: 10px;
+      }
+      section>.revieWrap>li>a{
+        width: 100%;
+      }
+
+      .revieWrap>li>a>.rev_photo{
+        width: 100%;
+      }
 
 
         /* tabel 페이지 이동*/
@@ -369,20 +387,32 @@
             <li><a href="#">포토리뷰</a></li>
             <li><a href="#">일반리뷰</a></li>
         </ul>
+        <ul class="revieWrap">
+            <li>
+                <a href="#">
+                    <img src="./flower/꽃5.png" alt="rev_photo" class="rev_photo">
+                    <div class="rev_top">
+                        <p class="subject">주말 제외하고 8일만에 받았어요!!</p>
+                        <p class="content">예쁘게 만들어주셔서 감사합니다아 좋은 제품 저렴한 가격에 만족스럽네요.</p>
+                        <div class="rev_strwit">
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <p class="writer">모아스튜디오</p>
+                        </div>
 
-        <div class="rev">
-            <a href="#">
-                <img src="./flower/꽃5.png" alt="rev_photo">
-                <p class="subject">주말 제외하고 8일만에 받았어요!!</p>
-                <p class="content">예쁘게 만들어주셔서 감사합니다아 좋은 제품 저렴한 가격에 만족스럽네요.</p>
-                <p class="star">★★★★★</p>   
-                <p class="owner">모아스튜디오</p>
-                <div class="rev_bottom">
-                    <img src="./flower/꽃3.png" alt="rev_bottom_photo">
-                    <p class="customer">수공예 유리화병</p>
-                </div>
-            </a>
-        </div>
+                    </div>
+                    <div class="rev_bottom">
+                        <img src="./flower/꽃3.png" alt="rev_bottom_photo" class="rev_bottom_photo">
+                        <a href="#" class="customer">수공예 유리 화병</a>
+                    </div>
+                </a>
+            </li>
+        </ul>
+
+
 
     </section>
 

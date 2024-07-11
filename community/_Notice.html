@@ -48,16 +48,20 @@
             padding-bottom: 30px;
         }
 
-        table>thead>tr>td,
+        thead>tr>th,
         tbody>tr>td {
             border-bottom: 1px solid #bbbbbb;
-            padding: 10px;
+            padding: 20px;
             font-size: small;
+            border-collapse:collapse;
+            width: 10%;
+        
         }
+        .tbl{width: 60%;}
+       
+    
 
-        table>tbody>tr>a {
-            text-align: left;
-        }
+        table>tr-child{border: none;}
 
         /* tabel 페이지 이동*/
         #tab_num {
@@ -83,12 +87,12 @@
             height: 40px;
         }
 
-        #search_secint {
+        #search_All {
             width: 500px;
             margin: 0 auto;
         }
 
-        #search_sec>select {
+        #search_input>select {
             width: 70px;
             height: 34px;
             background-color: #F2F0EB;
@@ -99,8 +103,12 @@
             float: left;
             font-size: small;
         }
+        #search_input>select{
+            padding-left: 8px;
+            text-align: left;
+        }
 
-        #searchB_box {
+        #search_box {
             width: 210px;
             height: 34px;
             background-color: #F2F0EB;
@@ -108,7 +116,7 @@
             margin-left: 5px;
         }
 
-        #searchB_sub {
+        #search_box_find {
             width: 70px;
             height: 34px;
             background-color: #52594A;
@@ -215,30 +223,28 @@
 
         /* 페이지 */
 
-        #main_center {
-            overflow: hidden;
-            text-align: center;
-            margin: 0 auto;
+        #container {
+       margin: 0 auto;
+        }
+        #titleAria{width: 100%;
+        text-align: center;
+    padding-bottom: 35px;}
+
+        #container>#title_list{
+            width: 100%;
+            height: 40px;
+            padding-bottom: 35px;
         }
 
-        #main_center>p {
-            height: 40px;
-            color: rgb(0, 36, 0);
-            padding-bottom: 30px;
-
-        }
-
-        #center_list>ul {
-            width: 400px;
-            margin: 0 auto;
-            height: 40px;
+        #container>#title_list>ul {
+            width: 300px;
+            margin: 0 auto; 
             font-size: small;
-            padding-bottom: 30px;
+
         }
 
-        #center_list>ul>li {
+        #title_list>ul>li {
             float: left;
-            text-align: center;
         }
 
 
@@ -358,124 +364,127 @@
 
 
     <!--페이지 -->
+    <div id="container">
 
-
-    <div id="main_center">
-        <p>Notice</p>
-        <div id="center_list">
-            <ul>
-                <li><a href="#">Notice</a> &nbsp;/&nbsp;&nbsp;</li>
-                <li><a href="#">Event</a> &nbsp;/&nbsp;&nbsp;</li>
-                <li><a href="#">Q&A</a> &nbsp;/&nbsp;&nbsp;</li>
-                <li><a href="#">Review</a>&nbsp;</li>
-
-            </ul>
+        <div id="titleAria">
+            <p>Notice</p>
         </div>
-    </div>
+            <div id="title_list">
+                <ul>
+                    <li><a href="#">Notice</a> &nbsp;/&nbsp;&nbsp;</li>
+                    <li><a href="#">Event</a> &nbsp;/&nbsp;&nbsp;</li>
+                    <li><a href="#">Q&A</a> &nbsp;/&nbsp;&nbsp;</li>
+                    <li><a href="#">Review</a>&nbsp;</li>
 
-    <!-- 페이지의 테이블 -->
-
-    <table>
-        <thead>
-            <tr>
-                <td>
-                    <p>번호</p>
-                </td>
-                <td>
-                    <p>제목</p>
-                </td>
-                <td>
-                    <p>작성자</p>
-                </td>
-                <td>
-                    <p>작성일</p>
-                </td>
-                <td>
-                    <p>조회</p>
-                </td>
-            </tr>
-        </thead>
-
-        <tbody>
-
-            <tr>
-                <td>2</td>
-                <td><a href="#">서비스 점검 공지(5/3 12:00 ~ 14:00)</a></td>
-                <td>
-                    <p>모아스튜디오</p>
-                </td>
-                <td>
-                    <p>2021-01-13</p>
-                </td>
-                <td>
-                    <p>686</p>
-                </td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td><a href="#">몰 오픈을 축하합니다.</a></td>
-                <td>
-                    <p>E***</p>
-                </td>
-                <td>
-                    <p>2021-01-08</p>
-                </td>
-                <td>
-                    <p>60</p>
-                </td>
-            </tr>
-        </tbody>
-
-    </table>
-
-    <!-- 테이블 페이지 조정 -->
-    <div id="tab_num">
-        <ul>
-            <li><a href="#">1</a></li>
-            <li><a href="#">다음</a></li>
-        </ul>
-
-    </div>
-
-    <div id="searchBox">
-        <div id="search_secint">
-            <div id="search_sec">
-                <select name="month" id="month">
-                    <option value="일주일">
-                        <p>일주일</p>
-                    </option>
-                    <option value="한달">
-                        <p>한달</p>
-                    </option>
-                    <option value="세달">
-                        <p>세달</p>
-                    </option>
-                    <option value="전체">
-                        <p>전체</p>
-                    </option>
-                </select>
-                <select name="subject" id="subject">
-                    <option value="제목">
-                        <p>제목</p>
-                    </option>
-                    <option value="내용">
-                        <p>내용</p>
-                    </option>
-                    <option value="글쓴이">
-                        <p>글쓴이</p>
-                    </option>
-                    <option value="아이디">
-                        <p>아이디</p>
-                    </option>
-                    <option value="별명">
-                        <p>별명</p>
-                    </option>
-                </select>
+                </ul>
             </div>
+        
 
-            <div id="search_int">
-                <input type="search" name="" id="searchB_box">
-                <input type="submit" value="찾기" id="searchB_sub">
+        <!-- 페이지의 테이블 -->
+
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        번호
+                    </th>
+                    <th class="tbl">
+                       제목
+                    </th>
+                    <th>
+                        작성자
+                    </th>
+                    <th>
+                       작성일
+                    </th>
+                    <th>
+                        조회
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>2</td>
+                    <td width="" >
+                        <a href="#">서비스 점검 공지(5/3 12:00 ~ 14:00)</a></td>
+                    <td>
+                        모아스튜디오
+                    </td>
+                    <td>
+                        2021-01-13
+                    </td>
+                    <td>
+                        686
+                    </td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td class="tbl"><a href="#">몰 오픈을 축하합니다.</a></td>
+                    <td>
+                        E***
+                    </td>
+                    <td>
+                        2021-01-08
+                    </td>
+                    <td>
+                        60
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+
+        <!-- 테이블 페이지 조정 -->
+        <div id="tab_num">
+            <ul>
+                <li><a href="#">1</a></li>
+                <li><a href="#">다음</a></li>
+            </ul>
+
+        </div>
+
+        <div id="searchBox">
+            <div id="search_All">
+                <div id="search_input">
+                    <select name="month" id="month">
+                        <option value="일주일">
+                            일주일
+                        </option>
+                        <option value="한달">
+                            한달
+                        </option>
+                        <option value="세달">
+                           세달
+                        </option>
+                        <option value="전체">
+                            전체
+                        </option>
+                    </select>
+                    <select name="subject" id="subject">
+                        <option value="제목">
+                            제목
+                        </option>
+                        <option value="내용">
+                            내용
+                        </option>
+                        <option value="글쓴이">
+                            글쓴이
+                        </option>
+                        <option value="아이디">
+                            아이디
+                        </option>
+                        <option value="별명">
+                            별명
+                        </option>
+                    </select>
+                </div>
+
+                <div id="search_text">
+                    <input type="search" name="" id="search_box">
+                    <input type="submit" value="찾기" id="search_box_find">
+                </div>
             </div>
         </div>
     </div>
@@ -582,10 +591,14 @@
 
         // 메인페이지 리스트
 
-        $(function(){
-            $('#center_list>li>a').hover(function(){
-                $(this).animate(color,'red',100)},function(){color,'rgb(0,36,0)',100}
-            );
+        $(function () {
+            $('#center_list>li>a').hover(function () {
+                $(this).animate(color, 'red', 100)
+            }, function () {
+                color,
+                'rgb(0,36,0)',
+                100
+            });
         });
     </script>
 
