@@ -13,6 +13,18 @@
             $('body').fadeIn(1000);
         });
     </script>
+    <script>
+        function includeHTML(ctrl, page, callback) {
+            $.get(page, function (data) {
+                $('#' + ctrl).html(data);
+                if (callback) {
+                    callback();
+                }
+            });
+        }
+        includeHTML('navZone', 'nav/nav.html', null);
+        includeHTML('bottomArea', 'footer/footer.html', null);
+    </script>
 </head>
 
 <body>
@@ -20,92 +32,7 @@
     
     <div id="topArea">
         <!-- 내비 Zone시작 -->
-        <script>
-            $(function () {
-                $('.gnb > ul > li:nth-child(3)').on('mouseover', function () {
-                    const subMenuItems = $('.gnb>ul>li:nth-child(3) div > ul > li');
-                    subMenuItems.css('display', 'block').each(function (index) {
-                        $(this).delay(index * 200).animate({
-                            'opacity': '1',
-                            'margin-top': '0'
-                        }, 500); // 애니메이션 시간 변경
-                    });
-                    $('.gnb div.Shop_item').fadeIn(); // 서브 메뉴 보이기
-                });
-
-                $('.gnb > ul > li:nth-child(3)').on('mouseleave', function () {
-                    const subMenuItems = $('.gnb>ul>li:nth-child(3) div > ul > li');
-                    subMenuItems.stop(true, true).each(function (index) {
-                        $(this).delay(index * 200).animate({
-                            'opacity': '0',
-                            'margin-top': '10px'
-                        }, 500, function () {
-                            $(this).css('display', 'none');
-                        });
-                    });
-                    $('.gnb div.Shop_item').fadeOut(); // 서브 메뉴 숨기기
-                });
-                $('.gnb > ul > li:nth-child(4)').on('mouseover', function () {
-                    const subMenuItems = $('.gnb>ul>li:nth-child(4) div > ul > li');
-                    subMenuItems.css('display', 'block').each(function (index) {
-                        $(this).delay(index * 100).animate({
-                            'opacity': '1',
-                            'margin-top': '0'
-                        }, 500); // 애니메이션 시간 변경
-                    });
-                    $('.gnb div.Community_item').fadeIn(); // 서브 메뉴 보이기
-                });
-
-                $('.gnb > ul > li:nth-child(4)').on('mouseleave', function () {
-                    const subMenuItems = $('.gnb>ul>li:nth-child(4) div > ul > li');
-                    subMenuItems.stop(true, true).each(function (index) {
-                        $(this).delay(index * 100).animate({
-                            'opacity': '0',
-                            'margin-top': '10px'
-                        }, 500, function () {
-                            $(this).css('display', 'none');
-                        });
-                    });
-                    $('.gnb div.Community_item').fadeOut(); // 서브 메뉴 숨기기
-                });
-            });
-
-        </script>
-        <div id="navZone">
-            <div class="logo">
-                <a href="index.html"><img src="./Images/logo.png" alt=""></a>
-            </div>
-            <div class="gnb">
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="shop-1.html" class="Shop">Shop</a>
-                        <div class="Shop_item">
-                            <ul>
-                                <li><a href="shop-1.html" class="Shop">Furniture</a></li>
-                                <li><a href="#" class="Shop">Home deco</a></li>
-                                <li><a href="#" class="Shop">Lighting</a></li>
-                                <li><a href="#" class="Shop">Kitchen</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li><a href="./community/Commu_p.html" class="Community">Community</a>
-                        <div class="Community_item">
-                            <ul>
-                                <li><a href="./community/Commu_p.html" class="Community">Notice</a></li>
-                                <li><a href="#" class="Community">Event</a></li>
-                                <li><a href="#" class="Community">Q&A</a></li>
-                                <li><a href="#" class="Community">Review</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li><a href="/member/login.html">Log in</a></li>
-                    <li><a href="#"><img src="" alt=""></a></li>
-                    <li><a href="#"><img src="" alt=""></a></li>
-
-                </ul>
-            </div>
-        </div>
+        <div id="navZone"></div>
         <!-- 내비 Zone끝 -->
         <!-- 컨텐츠Zone시작 -->
         <script>
@@ -216,44 +143,7 @@
     </div>
     <!-- 상단 Area끝 -->
     <!-- 하단 Area시작 -->
-    <div id="bottomArea">
-        <div class="leftZone">
-            <div class="fotterLogo">
-                <img src="./Images/logo_fotter.png" alt="">
-            </div>
-            <p>모아스튜디오</p>
-            <p>Copyright ⓒ모아스튜디오.All right reserved</p>
-        </div>
-        <div class="rightZone">
-            <div class="rightZone1">
-                <p>070-8095-3686</p>
-                <p>MON - FRI : 11-6pm</p>
-                <p>SON,MON OFF</p>
-                <p>우리은행:1002-955-738542 (고종현)</p>
-                <p>모아스튜디오</p>
-            </div>
-            <div class="rightZone2">
-                <p>Owner : 고종현</p>
-                <p>Address : 서울특별시 강서구 곰달래로31나길</p>
-                <p>Business License : </p>
-                <p>Online business license</p>
-                <p>Designed by moa-studio·Hosting by 카페24(주)</p>
-            </div>
-            <div class="rightZone3">
-                <p>about</p>
-                <p>agreement</p>
-                <p>guide</p>
-                <p>privacy</p>
-            </div>
-            <div class="rightZone4">
-                <p>Instagram</p>
-                <p>youtube</p>
-                <p>naverstore</p>
-                <p>facebook</p>
-            </div>
-
-        </div>
-    </div>
+    <div id="bottomArea"></div>
     <!-- 하단 Area끝 -->
 </body>
 
