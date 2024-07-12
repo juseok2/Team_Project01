@@ -120,8 +120,9 @@
                             </p>
                         </div>
                         <div class="flower_item">
-                            <div class="flower_photo">
+                            <div class="flower_photo_soldout">
                                 <a href="/shop-1-item.html"><img src="../shop_Img/flower6.png" alt=""></a>
+                                <div class="sold_out">sold out</div>
                             </div>
                             <p class="name"><a href="#">수공예 유리 화병</a></p>
                             <p class="money">
@@ -142,7 +143,7 @@
                             </p>
                         </div>
                         <div class="flower_item">
-                            <div class="flower_photo_soldout">
+                            <div class="flower_photo">
                                 <a href="/shop-1-item.html"><img src="../shop_Img/flower2.png" alt=""></a>
                             </div>
                             <p class="name"><a href="#">수공예 유리 화병</a></p>
@@ -164,8 +165,9 @@
                     </div>
                     <div class="flower_list">
                         <div class="flower_item">
-                            <div class="flower_photo">
+                            <div class="flower_photo_soldout">
                                 <a href="/shop-1-item.html"><img src="../shop_Img/flower4.png" alt=""></a>
+                                <div class="sold_out">sold out</div>
                             </div>
                             <p class="name"><a href="#">수공예 유리 화병</a></p>
                             <p class="money">
@@ -231,11 +233,11 @@
                         <div id="first_button"><a href="../shop-1.html">처음으로</a></div>
                         <div id="list_page_button">
                             <ul>
-                                <li id="next"><a href="#">이전</a></li>
+                                <li id="prev"><a href="#">이전</a></li>
                                 <li><a href="../shop-1.html">1</a></li>
                                 <li><a href="/shopPages/shop-2.html">2</a></li>
                                 <li><a href="/shopPages/shop-3.html" style="color: #454d40;">3</a></li>
-                                <li id="prev"><a href="#">다음</a></li>
+                                <li id="next"><a href="#">다음</a></li>
                             </ul>
                         </div>
                         <div id="last_button"><a href="/shopPages/shop-3.html">끝으로</a></div>
@@ -251,9 +253,17 @@
                                 let Addr = $('#list_page_button>ul li>a[style="color: #454d40;"]').parent().next().children().attr('href');
                                     $(this).attr('href',Addr);
                             });
-                            $('#list_page_button > ul > li#prev > a').on('click', function() {
+                            $('#list_page_button ul li#prev a').on('click', function() {
                                 let Addr = $('#list_page_button > ul li > a[style="color: #454d40;"]').parent().prev().children().attr('href');
                                 $(this).attr('href', Addr);
+                            });
+                            $('#first_button a').on('click', function() {
+                                let firstAddr = $('#list_page_button > ul > li:nth-child(2) > a').attr('href');
+                                $(this).attr('href', firstAddr);
+                            });
+                            $('#last_button a').on('click', function() {
+                                let lastAddr = $('#list_page_button > ul > li:nth-child(4) > a').attr('href');
+                                $(this).attr('href', lastAddr);
                             });
                         });
                     </script>

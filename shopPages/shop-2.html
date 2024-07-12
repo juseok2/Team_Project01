@@ -144,6 +144,7 @@
                         <div class="flower_item">
                             <div class="flower_photo_soldout">
                                 <a href="/shop-1-item.html"><img src="../shop_Img/flower4.png" alt=""></a>
+                                <div class="sold_out">sold out</div>
                             </div>
                             <p class="name"><a href="#">수공예 유리 화병</a></p>
                             <p class="money">
@@ -251,9 +252,13 @@
                                 let Addr = $('#list_page_button>ul li>a[style="color: #454d40;"]').parent().next().children().attr('href');
                                 $(this).attr('href',Addr);
                             });
-                            $('#list_page_button > ul > li#prev > a').on('click', function() {
+                            $('#list_page_button ul li#prev a').on('click', function() {
                                 let Addr = $('#list_page_button > ul li > a[style="color: #454d40;"]').parent().prev().children().attr('href');
                                 $(this).attr('href', Addr);
+                            });
+                            $('#last_button a').on('click', function() {
+                                let firstAddr = $('#list_page_button > ul > li:nth-child(2) > a').attr('href');
+                                $(this).attr('href', firstAddr);
                             });
                         });
                     </script>
