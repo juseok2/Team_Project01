@@ -107,17 +107,18 @@
             margin-top: 10px;
         }
         .search{
-            position: relative;
+            position: fixed;
             display: none;
+            z-index: 9999;
         }
         .search>.background{
             width: 100%;
             height: 100%;
             position: fixed;
-            background-color: #ffffff60;
+            background-color: #ffffffd8;
             top: 0;
             left: 0;
-            z-index: 200;
+            z-index: 10000;
         }
         .search>.contents{
             width: 500px;
@@ -126,7 +127,7 @@
             top: 40%;
             left: 50%;
             transform: translate(-50%);
-            z-index: 300;
+            z-index: 30000;
         }
         .search>.contents>div.underLine{
             width: 0px;
