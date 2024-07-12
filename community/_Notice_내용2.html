@@ -11,7 +11,6 @@
         rel="stylesheet">
 
     <script src="../js/jquery.min.js"></script>
-
     <script>
         function includeHTML(ctrl, page, callback) {
             $.get(page, function (data) {
@@ -23,8 +22,9 @@
         }
         includeHTML('navZone', '/nav/nav_sub.html', null);
 
+
         $(function () {
-            $('#EventAll').fadeIn(1000);
+            $('#NoticeCont2').fadeIn(1000);
         });
     </script>
     <style>
@@ -42,110 +42,23 @@
             background-color: #F2F0EB;
         }
 
-        #EventAll {
-            display: none;
-        }
-
-        ul,
-        li {
-            list-style: none;
-        }
-
         a,
-        p {
+        p,
+        h5,
+        h2 {
             text-decoration: none;
             color: rgb(0, 36, 0);
             padding: 5px 10px;
         }
+        h2{font-weight: light;}
 
-        /* 테이블 css */
-
-        table {
-            width: 90%;
+        #NoticeCont2{
             margin: 0 auto;
-            border-top: 2px solid rgb(0, 36, 0);
-            text-align: center;
-            padding-bottom: 30px;
+            padding: 70px 30px;
+            display: none;
         }
 
-
-        thead>tr>th,
-        tbody>tr>td {
-            border-bottom: 1px solid #bbbbbb;
-            padding: 20px;
-            font-size: small;
-            border-collapse: collapse;
-            width: 10%;
-
-        }
-
-        .tbl {
-            width: 60%;
-        }
-
-
-        /* tabel 페이지 이동*/
-        #tab_num {
-            margin: 0 auto;
-            height: 40px;
-            padding-bottom: 30px;
-        }
-
-        #tab_num>ul {
-            width: 100px;
-            margin: 0 auto;
-        }
-
-        #tab_num>ul>li {
-            font-size: small;
-            float: left;
-        }
-
-        /* search box */
-
-        #searchBox {
-            margin: 0 auto;
-            height: 40px;
-        }
-
-        #search_All {
-            width: 500px;
-            margin: 0 auto;
-        }
-
-        #search_input>select {
-            width: 70px;
-            height: 34px;
-            background-color: #F2F0EB;
-            appearance: none;
-            text-align: left;
-            margin-left: 5px;
-            border-color: #bbbbbb;
-            float: left;
-            font-size: small;
-        }
-
-        #search_input>select {
-            padding-left: 8px;
-            text-align: left;
-        }
-
-        #search_box {
-            width: 210px;
-            height: 34px;
-            background-color: #F2F0EB;
-            border: 1px solid #bbbbbb;
-            margin-left: 5px;
-        }
-
-        #search_box_find {
-            width: 70px;
-            height: 34px;
-            background-color: #52594A;
-            color: white;
-            border: none;
-        }
-
+    
         /* 팝업 */
 
         #popup {
@@ -245,34 +158,58 @@
 
         /* 페이지 */
 
-        #container {
+      #NoticeCont2{
+        width: 90%;
+        margin: 0 auto; 
+        font-size: small;
+      }
+      .content2_top{
+        height: 80px;
+        border-bottom: 2px solid rgb(0,36,0);
+      }
+      .content2_top>h3{
+        font-size:x-large;
+        font-weight: 400;
+        color: rgb(0,36,0);
+
+      }
+      .content2_top>p{
+        padding: 10px;
+      }
+
+      .content2_mid{
+        margin: 10px auto;
+        padding-bottom: 100px;
+        border-bottom: 2px solid #bbbbbb;
+      }
+
+    .content2_mid>p:first-child{
+        padding: 20px;
+    }
+
+    .content2_mid>p:nth-last-child(2){
+        padding-bottom: 25px;
+    }
+    .content2_bottom{
             margin: 0 auto;
-            width: 90%;
+          
+        }
+        .content2_bottom>div{
+            margin: 50px 0;
+            height: 34px;
         }
 
-        #titleAria {
-            width: 100%;
+        .content2_bottom>div>a{
+            float: right;
+            width: 80px;
+            height: 20px;
+            border: 1px solid rgb(25, 44, 25);
             text-align: center;
-            padding-bottom: 35px;
         }
 
-        #container>#title_list {
-            width: 100%;
-            height: 40px;
-            padding-bottom: 35px;
+        .content2_bottom>p{
+            margin: 100px 0;
         }
-
-        #container>#title_list>ul {
-            width: 300px;
-            margin: 0 auto;
-            font-size: small;
-
-        }
-
-        #title_list>ul>li {
-            float: left;
-        }
-
 
 
         /* 하단 스타일 -  */
@@ -320,6 +257,8 @@
         .rightZone2>p:nth-child(5) {
             margin-top: 50px;
         }
+
+       
     </style>
 </head>
 
@@ -353,183 +292,35 @@
 
     <!-- 2.상단창  -->
     <div id="navZone">
-        <div class="logo">
-            <a href="../index.html"><img src="./com_img/logogreensmall.png" alt=""></a>
-        </div>
-        <div class="gnb">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#" class="Shop">Shop</a>
-                    <div class="Shop_item">
-                        <ul>
-                            <li><a href="#" class="Shop">Furniture</a></li>
-                            <li><a href="#" class="Shop">Home deco</a></li>
-                            <li><a href="#" class="Shop">Lighting</a></li>
-                            <li><a href="#" class="Shop">Kitchen</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li><a href="#" class="Community">Community</a>
-                    <div class="Community_item">
-                        <ul>
-                            <li><a href="#" class="Community">Notice</a></li>
-                            <li><a href="#" class="Community">Event</a></li>
-                            <li><a href="#" class="Community">Q&A</a></li>
-                            <li><a href="#" class="Community">Review</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li><a href="#">Log in</a></li>
-                <li><a href="#"><img src="" alt=""></a></li>
-                <li><a href="#"><img src="" alt=""></a></li>
-
-            </ul>
-        </div>
+        
     </div>
 
 
+        <!-- 3. 본문 -->
 
-    <!--페이지 -->
-    <div id="EventAll">
-        <div id="container">
+        <div id="NoticeCont2">
 
-            <div id="titleAria">
-                <p>Event</p>
-            </div>
-            <div id="title_list">
-                <ul>
-                    <li><a href="./_Notice.html">Notice</a> &nbsp;/&nbsp;&nbsp;</li>
-                    <li><a href="./_Event.html">Event</a> &nbsp;/&nbsp;&nbsp;</li>
-                    <li><a href="./_Q&A.html">Q&A</a> &nbsp;/&nbsp;&nbsp;</li>
-                    <li><a href="./_Review.html">Review</a>&nbsp;</li>
-
-                </ul>
+            <div class="content2_top">
+                <h3>몰 오픈을 축하합니다.</h3>
+                <p>by E**** . 2021-01-13</p>
             </div>
 
-            <!-- 페이지의 테이블 -->
+            <div class="content2_mid">
+                <p></p>
+                <p>몰오픈을 축하합니다</p>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>
-                            번호
-                        </th>
-                        <th class="tbl">
-                            제목
-                        </th>
-                        <th>
-                            작성자
-                        </th>
-                        <th>
-                            작성일
-                        </th>
-                        <th>
-                            조회
-                        </th>
-                    </tr>
-                </thead>
-
-                <tbody>
-
-                    <tr>
-                        <td>3</td>
-                        <td class="tbl"><a href="#">여름 한정 세일 기간 7/1~8/31 (10%~50%)</a></td>
-                        <td>
-                            <p>모아스튜디오</p>
-                        </td>
-                        <td>
-                            <p>2021-01-13</p>
-                        </td>
-                        <td>
-                            <p>686</p>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>2</td>
-                        <td class="tbl"><a href="#">할인쿠폰,마일리지와 함께 쓸 수 있는 다양한 결제 혜택</a></td>
-                        <td>
-                            <p>모아스튜디오</p>
-                        </td>
-                        <td>
-                            <p>2021-01-13</p>
-                        </td>
-                        <td>
-                            <p>686</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td class="tbl"><a href="#">당신을 위한 7월의 혜택</a></td>
-                        <td>
-                            <p>모아스튜디오</p>
-                        </td>
-                        <td>
-                            <p>2021-01-13</p>
-                        </td>
-                        <td>
-                            <p>60</p>
-                        </td>
-                    </tr>
-                </tbody>
-
-            </table>
-
-            <!-- 테이블 페이지 조정 -->
-            <div id="tab_num">
-                <ul>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">다음</a></li>
-                </ul>
-
+                <p></p>
             </div>
 
-            <div id="searchBox">
-                <div id="search_All">
-                    <div id="search_input">
-                        <select name="month" id="month">
-                            <option value="일주일">
-                                일주일
-                            </option>
-                            <option value="한달">
-                                한달
-                            </option>
-                            <option value="세달">
-                                세달
-                            </option>
-                            <option value="전체">
-                                전체
-                            </option>
-                        </select>
-                        <select name="subject" id="subject">
-                            <option value="제목">
-                                제목
-                            </option>
-                            <option value="내용">
-                                내용
-                            </option>
-                            <option value="글쓴이">
-                                글쓴이
-                            </option>
-                            <option value="아이디">
-                                아이디
-                            </option>
-                            <option value="별명">
-                                별명
-                            </option>
-                        </select>
-                    </div>
-
-                    <div id="search_text">
-                        <input type="search" name="" id="search_box">
-                        <input type="submit" value="찾기" id="search_box_find">
-                    </div>
-                </div>
+            <div class="content2_bottom">
+                <div>
+                    <a href="./_Notice.html">목록</a></div>
+                <p>이전글_<a href="./_Notice_내용1.html">몰 오픈을 축하합니다.</a></p>
             </div>
-       
+        
 
-    </div>
+
+  
     <!-- 4.주소 -->
 
     <div id="bottomArea">
@@ -631,29 +422,28 @@
             });
         });
 
-        // 메인페이지 리스트
-    </script>
-
-    <script>
-        $(function () {
-            $("#title_list>ul>li>a:nth-child(1)").hover(function () {
-
-                $(this).css({
-                    'color': 'rgb(0,36,0)'
-                }, {
-                    'font-weight': '500'
-                });
-
-            }, function () {
-                $(this).css('color', ' rgb(104, 113, 104)');
+        // 
+        
+        // 화면
+        
+       
+        $(function(){
+            $("#title_list>ul>li>a:nth-child(1)").hover(function(){
+               
+                    $(this).css({'color':'rgb(0,36,0)'},{'font-weight':'500'});
+              
+            },function(){
+                $(this).css('color',' rgb(104, 113, 104)');
             });
         });
 
-        $(function () {
-            $("#title_list>ul>li>a:nth-child(1)").on('click', function () {
-
+        $(function(){
+            $("#title_list>ul>li:nth-child(1)").on('click',function(){
+                
             });
         });
+
+    
     </script>
 
 </body>
