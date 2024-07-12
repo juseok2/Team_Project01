@@ -22,7 +22,7 @@
         }
         includeHTML('navZone', '/nav/nav_sub.html', null);
 
-        $(function(){
+        $(function () {
             $('#NoticeAll').fadeIn(1000);
         });
     </script>
@@ -40,7 +40,10 @@
         body {
             background-color: #F2F0EB;
         }
-        #NoticeAll{display: none;}
+
+        #NoticeAll {
+            display: none;
+        }
 
         ul,
         li {
@@ -53,20 +56,23 @@
             color: rgb(0, 36, 0);
             padding: 5px 10px;
         }
-       #title_list>ul>li>a{
-        color: rgb(104, 113, 104);
-        font-weight: bold;
-       }
-       #title_list>ul>li:first-child a{
-        color: rgb(0, 36, 0);
-        font-weight: 500;
-       }
+
+        #title_list>ul>li>a {
+            color: rgb(104, 113, 104);
+            font-weight: bold;
+        }
+
+        #title_list>ul>li:first-child a {
+            color: rgb(0, 36, 0);
+            font-weight: 500;
+        }
 
 
         /* 테이블 css */
+      
 
         table {
-            width: 90%;
+            width: 100%;
             margin: 0 auto;
             border-top: 2px solid rgb(0, 36, 0);
 
@@ -79,17 +85,25 @@
             border-bottom: 1px solid #bbbbbb;
             padding: 20px;
             font-size: small;
-            border-collapse:collapse;
-            width: 10%;   
+            border-collapse: collapse;
+            width: 10%;
 
         }
-        tbody>td>.tbl{text-align: left;}
-        .tbl{width: 60%;}
 
-       
-    
+        tbody>td>.tbl {
+            text-align: left;
+        }
 
-        table>tr-child{border: none;}
+        .tbl {
+            width: 60%;
+        }
+
+
+
+
+        table>tr-child {
+            border: none;
+        }
 
         /* tabel 페이지 이동*/
         #tab_num {
@@ -131,7 +145,8 @@
             float: left;
             font-size: small;
         }
-        #search_input>select{
+
+        #search_input>select {
             padding-left: 8px;
             text-align: left;
         }
@@ -252,13 +267,17 @@
         /* 페이지 */
 
         #container {
-       margin: 0 auto;
+            margin: 0 auto;
+            width: 90%;
         }
-        #titleAria{width: 100%;
-        text-align: center;
-    padding-bottom: 35px;}
 
-        #container>#title_list{
+        #titleAria {
+            width: 100%;
+            text-align: center;
+            padding-bottom: 35px;
+        }
+
+        #container>#title_list {
             width: 100%;
             height: 40px;
             padding-bottom: 35px;
@@ -266,7 +285,7 @@
 
         #container>#title_list>ul {
             width: 300px;
-            margin: 0 auto; 
+            margin: 0 auto;
             font-size: small;
 
         }
@@ -353,18 +372,16 @@
     </div>
 
     <!-- 2.상단창  -->
-    <div id="navZone">
-        
-    </div>
+    <div id="navZone"></div>
 
     <div id="NoticeAll">
 
-    <!--페이지 -->
-    <div id="container">
+        <!--페이지 -->
+        <div id="container">
 
-        <div id="titleAria">
-            <p>Notice</p>
-        </div>
+            <div id="titleAria">
+                <p>Notice</p>
+            </div>
             <div id="title_list">
                 <ul>
                     <li><a href="./_Notice.html">Notice</a> &nbsp;/&nbsp;&nbsp;</li>
@@ -374,159 +391,160 @@
 
                 </ul>
             </div>
-        
 
-        <!-- 페이지의 테이블 -->
 
-        <table>
-            <thead>
-                <tr>
-                    <th>
-                        번호
-                    </th>
-                    <th class="tbl">
-                       제목
-                    </th>
-                    <th>
-                        작성자
-                    </th>
-                    <th>
-                       작성일
-                    </th>
-                    <th>
-                        조회
-                    </th>
-                </tr>
-            </thead>
+            <!-- 페이지의 테이블 -->
 
-            <tbody>
-
-                <tr>
-                    <td>2</td>
-                    <td class="tbl" >
-                        <a href="#">서비스 점검 공지(5/3 12:00 ~ 14:00)</a></td>
-                    <td>
-                        모아스튜디오
-                    </td>
-                    <td>
-                        2021-01-13
-                    </td>
-                    <td>
-                        686
-                    </td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td class="tbl"><a href="#">몰 오픈을 축하합니다.</a></td>
-                    <td>
-                        E***
-                    </td>
-                    <td>
-                        2021-01-08
-                    </td>
-                    <td>
-                        60
-                    </td>
-                </tr>
-            </tbody>
-
-        </table>
-
-        <!-- 테이블 페이지 조정 -->
-        <div id="tab_num">
-            <ul>
-                <li><a href="#">1</a></li>
-                <li><a href="#">다음</a></li>
-            </ul>
-
-        </div>
-
-        <div id="searchBox">
-            <div id="search_All">
-                <div id="search_input">
-                    <select name="month" id="month">
-                        <option value="일주일">
-                            일주일
-                        </option>
-                        <option value="한달">
-                            한달
-                        </option>
-                        <option value="세달">
-                           세달
-                        </option>
-                        <option value="전체">
-                            전체
-                        </option>
-                    </select>
-                    <select name="subject" id="subject">
-                        <option value="제목">
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            번호
+                        </th>
+                        <th class="tbl">
                             제목
-                        </option>
-                        <option value="내용">
-                            내용
-                        </option>
-                        <option value="글쓴이">
-                            글쓴이
-                        </option>
-                        <option value="아이디">
-                            아이디
-                        </option>
-                        <option value="별명">
-                            별명
-                        </option>
-                    </select>
+                        </th>
+                        <th>
+                            작성자
+                        </th>
+                        <th>
+                            작성일
+                        </th>
+                        <th>
+                            조회
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>2</td>
+                        <td class="tbl">
+                            <a href="./_Notice_내용1.html">서비스 점검 공지(5/3 12:00 ~ 14:00)</a></td>
+                        <td>
+                            모아스튜디오
+                        </td>
+                        <td>
+                            2021-01-13
+                        </td>
+                        <td>
+                            686
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td class="tbl"><a href="./_Notice_내용2.html">몰 오픈을 축하합니다.</a></td>
+                        <td>
+                            E***
+                        </td>
+                        <td>
+                            2021-01-08
+                        </td>
+                        <td>
+                            60
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+            <!-- 테이블 페이지 조정 -->
+            <div id="tab_num">
+                <ul>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">다음</a></li>
+                </ul>
+
+            </div>
+
+            <div id="searchBox">
+                <div id="search_All">
+                    <div id="search_input">
+                        <select name="month" id="month">
+                            <option value="일주일">
+                                일주일
+                            </option>
+                            <option value="한달">
+                                한달
+                            </option>
+                            <option value="세달">
+                                세달
+                            </option>
+                            <option value="전체">
+                                전체
+                            </option>
+                        </select>
+                        <select name="subject" id="subject">
+                            <option value="제목">
+                                제목
+                            </option>
+                            <option value="내용">
+                                내용
+                            </option>
+                            <option value="글쓴이">
+                                글쓴이
+                            </option>
+                            <option value="아이디">
+                                아이디
+                            </option>
+                            <option value="별명">
+                                별명
+                            </option>
+                        </select>
+                    </div>
+
+                    <div id="search_text">
+                        <input type="search" name="" id="search_box">
+                        <input type="submit" value="찾기" id="search_box_find">
+                    </div>
                 </div>
+            </div>
 
-                <div id="search_text">
-                    <input type="search" name="" id="search_box">
-                    <input type="submit" value="찾기" id="search_box_find">
+
+            <!-- 4.주소 -->
+
+            <div id="bottomArea">
+                <div class="leftZone">
+                    <div class="fotterLogo">
+                        <img src="../Images/logo_fotter.png" alt="">
+                    </div>
+                    <p>모아스튜디오</p>
+                    <p>Copyright ⓒ모아스튜디오.All right reserved</p>
+                </div>
+                <div class="rightZone">
+                    <div class="rightZone1">
+                        <p>070-8095-3686</p>
+                        <p>MON - FRI : 11-6pm</p>
+                        <p>SON,MON OFF</p>
+                        <p>우리은행:1002-955-738542 (고종현)</p>
+                        <p>모아스튜디오</p>
+                    </div>
+                    <div class="rightZone2">
+                        <p>Owner : 고종현</p>
+                        <p>Address : 서울특별시 강서구 곰달래로31나길</p>
+                        <p>Business License : </p>
+                        <p>Online business license</p>
+                        <p>Designed by moa-studio·Hosting by 카페24(주)</p>
+                    </div>
+                    <div class="rightZone3">
+                        <p>about</p>
+                        <p>agreement</p>
+                        <p>guide</p>
+                        <p>privacy</p>
+                    </div>
+                    <div class="rightZone4">
+                        <p>Instagram</p>
+                        <p>youtube</p>
+                        <p>naverstore</p>
+                        <p>facebook</p>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
     </div>
-
-    <!-- 4.주소 -->
-
-    <div id="bottomArea">
-        <div class="leftZone">
-            <div class="fotterLogo">
-                <img src="../Images/logo_fotter.png" alt="">
-            </div>
-            <p>모아스튜디오</p>
-            <p>Copyright ⓒ모아스튜디오.All right reserved</p>
-        </div>
-        <div class="rightZone">
-            <div class="rightZone1">
-                <p>070-8095-3686</p>
-                <p>MON - FRI : 11-6pm</p>
-                <p>SON,MON OFF</p>
-                <p>우리은행:1002-955-738542 (고종현)</p>
-                <p>모아스튜디오</p>
-            </div>
-            <div class="rightZone2">
-                <p>Owner : 고종현</p>
-                <p>Address : 서울특별시 강서구 곰달래로31나길</p>
-                <p>Business License : </p>
-                <p>Online business license</p>
-                <p>Designed by moa-studio·Hosting by 카페24(주)</p>
-            </div>
-            <div class="rightZone3">
-                <p>about</p>
-                <p>agreement</p>
-                <p>guide</p>
-                <p>privacy</p>
-            </div>
-            <div class="rightZone4">
-                <p>Instagram</p>
-                <p>youtube</p>
-                <p>naverstore</p>
-                <p>facebook</p>
-            </div>
-
-        </div>
-    </div>
-</div>
     <!-- 하단 Area끝 -->
 
 
@@ -587,27 +605,29 @@
         });
 
         // 
-        
+
         // 화면
-        
-       
-        $(function(){
-            $("#title_list>ul>li>a:nth-child(1)").hover(function(){
-               
-                    $(this).css({'color':'rgb(0,36,0)'},{'font-weight':'500'});
-              
-            },function(){
-                $(this).css('color',' rgb(104, 113, 104)');
+
+
+        $(function () {
+            $("#title_list>ul>li>a:nth-child(1)").hover(function () {
+
+                $(this).css({
+                    'color': 'rgb(0,36,0)'
+                }, {
+                    'font-weight': '500'
+                });
+
+            }, function () {
+                $(this).css('color', ' rgb(104, 113, 104)');
             });
         });
 
-        $(function(){
-            $("#title_list>ul>li:nth-child(1)").on('click',function(){
-                
+        $(function () {
+            $("#title_list>ul>li:nth-child(1)").on('click', function () {
+
             });
         });
-
-    
     </script>
 
 </body>
