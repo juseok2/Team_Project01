@@ -245,11 +245,11 @@ h2 {
 
 .size>form>select {
     width: 400px;
-    color: rgba(52, 67, 55, 0.6);
+    color: black;
 }
 
 .size>form>select>option {
-    color: rgba(52, 67, 55, 0.6);
+    color: black;
 }
 
 .price {
@@ -484,6 +484,7 @@ h2 {
     object-fit: cover;
     float: left;
     margin-right: 10px;
+    cursor: pointer;
 }
 #bottomZone>.review>.review_box>.review_contents>.contents{
     width: 100%;

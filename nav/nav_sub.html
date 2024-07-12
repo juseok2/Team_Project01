@@ -152,6 +152,7 @@
             padding-top: 0;
             top: 0;
             left: 0;
+            cursor: text;
         }
         .search>.contents>.tag{
             position: absolute;
@@ -232,7 +233,7 @@
                             'marginTop':'0'
                         },500)
                     }
-                    $('*').css('cursor','url("/Images/close_16dp_535C4C_FILL0_wght400_GRAD0_opsz20.png"),auto');
+                    $('.search>.background').css('cursor','url("/Images/close_16dp_535C4C_FILL0_wght400_GRAD0_opsz20.png"),auto');
                 });
             });
             $('.search>.background').on('click',function(){
@@ -251,7 +252,7 @@
                         },500)
                         count++;
                     }
-                    $('*').css('cursor','auto');
+                    $('.search>.background').css('cursor','auto');
                     count = 0;
                 $('.search').fadeOut(1000);
             });
