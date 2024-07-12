@@ -11,6 +11,21 @@
         rel="stylesheet">
 
     <script src="../js/jquery.min.js"></script>
+    <script>
+        function includeHTML(ctrl, page, callback) {
+            $.get(page, function (data) {
+                $('#' + ctrl).html(data);
+                if (callback) {
+                    callback();
+                }
+            });
+        }
+        includeHTML('navZone', '/nav/nav_sub.html', null);
+
+        $(function () {
+            $('#ReviewAll').fadeIn(1000);
+        });
+    </script>
     <style>
         * {
             margin: 0;
@@ -26,6 +41,10 @@
             background-color: #F2F0EB;
         }
 
+        #ReviewAll {
+            display: none;
+        }
+
         ul,
         li {
             list-style: none;
@@ -38,33 +57,27 @@
             padding: 5px 10px;
         }
 
+        #title_list>ul>li>a {
+            color: rgb(104, 113, 104);
+            font-weight: bold;
+        }
 
-        /* review 내용 */
+        #title_list>ul>li:first-child a {
+            color: rgb(0, 36, 0);
+            font-weight: 500;
+        }
 
-      section{
-        width: 100%;
-        height: 100%;
-    }
-      section>.review_type>li{
-        width: 100px;
-        float: left;
-      }
-      section>.revieWrap{
-        width: 100%;
-        height: 100%;
-      }
-      section>.revieWrap>li{
-        width: 100%;
-        padding: 10px;
-      }
-      section>.revieWrap>li>a{
-        width: 100%;
-      }
 
-      .revieWrap>li>a>.rev_photo{
-        width: 100%;
-      }
+        /* 테이블 css */
+      
 
+
+
+
+
+        table>tr-child {
+            border: none;
+        }
 
         /* tabel 페이지 이동*/
         #tab_num {
@@ -90,12 +103,12 @@
             height: 40px;
         }
 
-        #search_secint {
+        #search_All {
             width: 500px;
             margin: 0 auto;
         }
 
-        #search_sec>select {
+        #search_input>select {
             width: 70px;
             height: 34px;
             background-color: #F2F0EB;
@@ -107,7 +120,12 @@
             font-size: small;
         }
 
-        #searchB_box {
+        #search_input>select {
+            padding-left: 8px;
+            text-align: left;
+        }
+
+        #search_box {
             width: 210px;
             height: 34px;
             background-color: #F2F0EB;
@@ -115,7 +133,7 @@
             margin-left: 5px;
         }
 
-        #searchB_sub {
+        #search_box_find {
             width: 70px;
             height: 34px;
             background-color: #52594A;
@@ -222,31 +240,109 @@
 
         /* 페이지 */
 
-        #main_center {
-            overflow: hidden;
+        #container {
+            margin: 0 auto;
+            width: 90%;
+        }
+
+        #titleAria {
+            width: 100%;
             text-align: center;
-            margin: 0 auto;
+            padding-bottom: 35px;
         }
 
-        #main_center>p {
+        #container>#title_list {
+            width: 100%;
             height: 40px;
-            color: rgb(0, 36, 0);
-            padding-bottom: 30px;
-
+            padding-bottom: 35px;
         }
 
-        #center_list>ul {
-            width: 400px;
+        #container>#title_list>ul {
+            width: 300px;
             margin: 0 auto;
-            height: 40px;
             font-size: small;
-            padding-bottom: 30px;
+
         }
 
-        #center_list>ul>li {
+        #title_list>ul>li {
             float: left;
-            text-align: center;
         }
+
+        /* Review */
+        .rev_button{height: 25px;
+            margin-bottom: 15px;}
+        .rev_button>ul>li>a{margin: 0;
+        padding: 0;}
+        .rev_button>ul>li{
+            width: 90px;
+           
+            float: left;
+        }
+        .rev_content{
+            /* border: 1px solid black; */
+        
+        }
+        .rev_content>ul{
+            width: 100%;
+          
+        }
+        .rev_content>ul>li{
+            width: 286px;
+            height: 570px;
+       
+            border: 1px solid #bbbbbb;
+            border-radius: 5px;
+            float: left;
+            margin: 5px 5px;
+           
+
+        }
+        .rev_content>ul>li>a{
+            padding: 0;
+            /* border: 1px solid blue; */
+        }
+        .rev_content>ul>li>a>img{
+           width: 100%;
+           height: 60%;
+           object-fit: cover;
+           margin: 0;
+            
+        }
+        li>a>.rev_cont_top{
+         width: 93%; 
+         height: 23%;
+         border-bottom: 1px solid #bbbbbb;
+         margin: 0 10px;
+        }
+        li>a>.rev_cont_top>p:first-child{
+            font-size: medium;
+            font-weight: bold
+        }
+        li>a>.rev_cont_top>p{
+            font-size: small;
+        }
+
+        li>a>.rev_cont_top>span{
+            font-size: small;
+        }
+        li>a>.rev_cont_top>span:last-child{
+            float: right;
+        }
+
+        li>a>.rev_cont_bottom{
+            width: 100%;
+        }
+        li>a>.rev_cont_bottom>img{
+            width: 15%;
+            border-radius: 70%;
+            padding: 5px 10px;
+        }
+        li>a>.rev_cont_bottom>p{
+            height: 20px;
+            margin: 0;
+            font-size: small;
+        }
+     
 
 
         /* 하단 스타일 -  */
@@ -326,189 +422,379 @@
     </div>
 
     <!-- 2.상단창  -->
-    <div id="navZone">
-        <div class="logo">
-            <a href="../index.html"><img src="./com_img/logogreensmall.png" alt=""></a>
-        </div>
-        <div class="gnb">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#" class="Shop">Shop</a>
-                    <div class="Shop_item">
-                        <ul>
-                            <li><a href="#" class="Shop">Furniture</a></li>
-                            <li><a href="#" class="Shop">Home deco</a></li>
-                            <li><a href="#" class="Shop">Lighting</a></li>
-                            <li><a href="#" class="Shop">Kitchen</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li><a href="#" class="Community">Community</a>
-                    <div class="Community_item">
-                        <ul>
-                            <li><a href="#" class="Community">Notice</a></li>
-                            <li><a href="#" class="Community">Event</a></li>
-                            <li><a href="#" class="Community">Q&A</a></li>
-                            <li><a href="#" class="Community">Review</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li><a href="#">Log in</a></li>
-                <li><a href="#"><img src="" alt=""></a></li>
-                <li><a href="#"><img src="" alt=""></a></li>
+    <div id="navZone"></div>
 
-            </ul>
-        </div>
-    </div>
+    <div id="ReviewAll">
+
+        <!--페이지 -->
+        <div id="container">
+
+            <div id="titleAria">
+                <p>Review</p>
+            </div>
+            <div id="title_list">
+                <ul>
+                    <li><a href="./_Notice.html">Notice</a> &nbsp;/&nbsp;&nbsp;</li>
+                    <li><a href="./_Event.html">Event</a> &nbsp;/&nbsp;&nbsp;</li>
+                    <li><a href="./_Q&A.html">Q&A</a> &nbsp;/&nbsp;&nbsp;</li>
+                    <li><a href="./_Review.html">Review</a>&nbsp;</li>
+
+                </ul>
+            </div>
 
 
+            <!-- 페이지의 테이블 -->
 
-    <!--페이지 -->
+            <div class="rev_button">
+                <ul>
+                    <li><a href="#"><img src="" alt="">포토리뷰</a></li>
+                    <li><a href="#"><img src="" alt="">일반리뷰</a></li>
+                </ul>
+          </div>
 
-
-    <div id="main_center">
-        <p>Notice</p>
-        <div id="center_list">
-            <ul>
-                <li><a href="#">Notice</a> &nbsp;/&nbsp;&nbsp;</li>
-                <li><a href="#">Event</a> &nbsp;/&nbsp;&nbsp;</li>
-                <li><a href="#">Q&A</a> &nbsp;/&nbsp;&nbsp;</li>
-                <li><a href="#">Review</a>&nbsp;</li>
-
-            </ul>
-        </div>
-    </div>
-
-    <!-- 리뷰 content -->
-
-    <section class="review">
-        <ul class="review_type">
-            <li><a href="#">포토리뷰</a></li>
-            <li><a href="#">일반리뷰</a></li>
-        </ul>
-        <ul class="revieWrap">
-            <li>
-                <a href="#">
-                    <img src="./flower/꽃5.png" alt="rev_photo" class="rev_photo">
-                    <div class="rev_top">
-                        <p class="subject">주말 제외하고 8일만에 받았어요!!</p>
-                        <p class="content">예쁘게 만들어주셔서 감사합니다아 좋은 제품 저렴한 가격에 만족스럽네요.</p>
-                        <div class="rev_strwit">
+            <div class="rev_content">
+                <ul>
+                    <li><a href="">
+                       
+                        <img src="./review/review_1.jpg" alt="">
+                    
+                       
+                        <div class="rev_cont_top">
+                            <p>주말 제외하고 8일 만에 받았어요!!</p>
+                            <p>예쁘게 만들어 주셔서 감사합니다아 좋은 제품 저렴한 가격에 만족스럽네요.</p>
                             <span>★</span>
                             <span>★</span>
                             <span>★</span>
                             <span>★</span>
                             <span>★</span>
-                            <p class="writer">모아스튜디오</p>
+                            <span>모아스튜디오</span>
                         </div>
+                        <div class="rev_cont_bottom">
+                            <img src="/Images/06197437589bf2f11410b140b81e3903.png" alt="">
+                            <p>수공예 유리 화병</p>
+                        </div>
+                    </a></li>
 
+                    <li><a href="">
+                       
+                        <img src="/Images/06c3e158a224b3fd875619c330bb415d.png" alt="">
+                    
+                       
+                        <div class="rev_cont_top">
+                            <p>디자인도 이뿌고 가볍고 다 좋아요</p>
+                            <p>은은하게 부담스럽지 않아서 맘에 들었오욯ㅎ 진짜 예뻐요 좋은 선물이 된거 같아요</p>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>모아스튜디오</span>
+                        </div>
+                        <div class="rev_cont_bottom">
+                            <img src="/Images/d30b860f5ee7251fc841946959f4f752.png" alt="">
+                            <p>수공예 유리 화병</p>
+                        </div>
+                    </a></li>
+
+                    <li><a href="">
+                       
+                        <img src="/Images/06c97856f936f3a8e727f72bec3c0f7b.png" alt="">
+                    
+                       
+                        <div class="rev_cont_top">
+                            <p>리뷰없어서 걱정했는데엥ㅇ엥엥</p>
+                            <p>배송 빠르고 친절 !</p>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>모아스튜디오</span>
+                        </div>
+                        <div class="rev_cont_bottom">
+                            <img src="/Images/d30b860f5ee7251fc841946959f4f752.png" alt="">
+                            <p>수공예 유리 화병</p>
+                        </div>
+                    </a></li>
+
+                    <li><a href="">
+                       
+                        <img src="/Images/11a4e1aef66a59b2c7a2ab92fa3078d6.png" alt="">
+                    
+                       
+                        <div class="rev_cont_top">
+                            <p>생각보다 빨리 도착했음음음</p>
+                            <p>배송 ㅃ라라서요 굿</p>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>모아스튜디오</span>
+                        </div>
+                        <div class="rev_cont_bottom">
+                            <img src="/Images/d30b860f5ee7251fc841946959f4f752.png" alt="">
+                            <p>수공예 유리 화병</p>
+                        </div>
+                    </a></li>
+
+                    <li><a href="">
+                       
+                        <img src="/Images/img3.png" alt="">
+                    
+                       
+                        <div class="rev_cont_top">
+                            <p>주말 제외하고 8일 만에 받았어요!!</p>
+                            <p>예쁘게 만들어 주셔서 감사합니다아 좋은 제품 저렴한 가격에 만족스럽네요.</p>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>모아스튜디오</span>
+                        </div>
+                        <div class="rev_cont_bottom">
+                            <img src="/Images/d30b860f5ee7251fc841946959f4f752.png" alt="">
+                            <p>수공예 유리 화병</p>
+                        </div>
+                    </a></li>
+
+                    <li><a href="">
+                       
+                        <img src="/Images/0eddf15ee620721342672f766df0f8f3.jpg" alt="">
+                    
+                       
+                        <div class="rev_cont_top">
+                            <p>주말 제외하고 8일 만에 받았어요!!</p>
+                            <p>예쁘게 만들어 주셔서 감사합니다아 좋은 제품 저렴한 가격에 만족스럽네요.</p>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>모아스튜디오</span>
+                        </div>
+                        <div class="rev_cont_bottom">
+                            <img src="/Images/d30b860f5ee7251fc841946959f4f752.png" alt="">
+                            <p>수공예 유리 화병</p>
+                        </div>
+                    </a></li>
+
+                    <li><a href="">
+                       
+                        <img src="/Images/84031349fe7b93e1257d19eb71063597.jpg" alt="">
+                       
+                        <div class="rev_cont_top">
+                            <p>주말 제외하고 8일 만에 받았어요!!</p>
+                            <p>예쁘게 만들어 주셔서 감사합니다아 좋은 제품 저렴한 가격에 만족스럽네요.</p>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>모아스튜디오</span>
+                        </div>
+                        <div class="rev_cont_bottom">
+                            <img src="/Images/d30b860f5ee7251fc841946959f4f752.png" alt="">
+                            <p>수공예 유리 화병</p>
+                        </div>
+                    </a></li>
+
+                    <li><a href="">
+                       
+                        <img src="/Images/img2.jpg" alt="">
+                    
+                       
+                        <div class="rev_cont_top">
+                            <p>주말 제외하고 8일 만에 받았어요!!</p>
+                            <p>예쁘게 만들어 주셔서 감사합니다아 좋은 제품 저렴한 가격에 만족스럽네요.</p>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>모아스튜디오</span>
+                        </div>
+                        <div class="rev_cont_bottom">
+                            <img src="/Images/d30b860f5ee7251fc841946959f4f752.png" alt="">
+                            <p>수공예 유리 화병</p>
+                        </div>
+                    </a></li>
+
+                    <li><a href="">
+                       
+                        <img src="./review/review_1.jpg" alt="">
+                    
+                       
+                        <div class="rev_cont_top">
+                            <p>주말 제외하고 8일 만에 받았어요!!</p>
+                            <p>예쁘게 만들어 주셔서 감사합니다아 좋은 제품 저렴한 가격에 만족스럽네요.</p>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>모아스튜디오</span>
+                        </div>
+                        <div class="rev_cont_bottom">
+                            <img src="/Images/d30b860f5ee7251fc841946959f4f752.png" alt="">
+                            <p>수공예 유리 화병</p>
+                        </div>
+                    </a></li>
+
+
+                    <li><a href="">
+                       
+                        <img src="./review/review_1.jpg" alt="">
+                    
+                       
+                        <div class="rev_cont_top">
+                            <p>주말 제외하고 8일 만에 받았어요!!</p>
+                            <p>예쁘게 만들어 주셔서 감사합니다아 좋은 제품 저렴한 가격에 만족스럽네요.</p>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>모아스튜디오</span>
+                        </div>
+                        <div class="rev_cont_bottom">
+                            <img src="/Images/d30b860f5ee7251fc841946959f4f752.png" alt="">
+                            <p>수공예 유리 화병</p>
+                        </div>
+                    </a></li>
+
+                    <li><a href="">
+                       
+                        <img src="./review/review_1.jpg" alt="">
+                    
+                       
+                        <div class="rev_cont_top">
+                            <p>주말 제외하고 8일 만에 받았어요!!</p>
+                            <p>예쁘게 만들어 주셔서 감사합니다아 좋은 제품 저렴한 가격에 만족스럽네요.</p>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>모아스튜디오</span>
+                        </div>
+                        <div class="rev_cont_bottom">
+                            <img src="/Images/d30b860f5ee7251fc841946959f4f752.png" alt="">
+                            <p>수공예 유리 화병</p>
+                        </div>
+                    </a></li>
+
+                    <li><a href="">
+                       
+                        <img src="./review/review_1.jpg" alt="">
+                    
+                       
+                        <div class="rev_cont_top">
+                            <p>주말 제외하고 8일 만에 받았어요!!</p>
+                            <p>예쁘게 만들어 주셔서 감사합니다아 좋은 제품 저렴한 가격에 만족스럽네요.</p>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>모아스튜디오</span>
+                        </div>
+                        <div class="rev_cont_bottom">
+                            <img src="/Images/d30b860f5ee7251fc841946959f4f752.png" alt="">
+                            <p>수공예 유리 화병</p>
+                        </div>
+                    </a></li>
+
+                    <li><a href="">
+                       
+                        <img src="./review/review_1.jpg" alt="">
+                    
+                       
+                        <div class="rev_cont_top">
+                            <p>주말 제외하고 8일 만에 받았어요!!</p>
+                            <p>예쁘게 만들어 주셔서 감사합니다아 좋은 제품 저렴한 가격에 만족스럽네요.</p>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>모아스튜디오</span>
+                        </div>
+                        <div class="rev_cont_bottom">
+                            <img src="/Images/d30b860f5ee7251fc841946959f4f752.png" alt="">
+                            <p>수공예 유리 화병</p>
+                        </div>
+                    </a></li>
+
+                    <li><a href="">
+                       
+                        <img src="./review/review_1.jpg" alt="">
+                    
+                       
+                        <div class="rev_cont_top">
+                            <p>주말 제외하고 8일 만에 받았어요!!</p>
+                            <p>예쁘게 만들어 주셔서 감사합니다아 좋은 제품 저렴한 가격에 만족스럽네요.</p>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>★</span>
+                            <span>모아스튜디오</span>
+                        </div>
+                        <div class="rev_cont_bottom">
+                            <img src="/Images/d30b860f5ee7251fc841946959f4f752.png" alt="">
+                            <p>수공예 유리 화병</p>
+                        </div>
+                    </a></li>
+
+
+                    
+                </ul>
+            </div>
+
+            <!-- 4.주소 -->
+
+            <div id="bottomArea">
+                <div class="leftZone">
+                    <div class="fotterLogo">
+                        <img src="../Images/logo_fotter.png" alt="">
                     </div>
-                    <div class="rev_bottom">
-                        <img src="./flower/꽃3.png" alt="rev_bottom_photo" class="rev_bottom_photo">
-                        <a href="#" class="customer">수공예 유리 화병</a>
+                    <p>모아스튜디오</p>
+                    <p>Copyright ⓒ모아스튜디오.All right reserved</p>
+                </div>
+                <div class="rightZone">
+                    <div class="rightZone1">
+                        <p>070-8095-3686</p>
+                        <p>MON - FRI : 11-6pm</p>
+                        <p>SON,MON OFF</p>
+                        <p>우리은행:1002-955-738542 (고종현)</p>
+                        <p>모아스튜디오</p>
                     </div>
-                </a>
-            </li>
-        </ul>
+                    <div class="rightZone2">
+                        <p>Owner : 고종현</p>
+                        <p>Address : 서울특별시 강서구 곰달래로31나길</p>
+                        <p>Business License : </p>
+                        <p>Online business license</p>
+                        <p>Designed by moa-studio·Hosting by 카페24(주)</p>
+                    </div>
+                    <div class="rightZone3">
+                        <p>about</p>
+                        <p>agreement</p>
+                        <p>guide</p>
+                        <p>privacy</p>
+                    </div>
+                    <div class="rightZone4">
+                        <p>Instagram</p>
+                        <p>youtube</p>
+                        <p>naverstore</p>
+                        <p>facebook</p>
+                    </div>
 
-
-
-    </section>
-
-
-    <!-- 테이블 페이지 조정 -->
-    <div id="tab_num">
-        <ul>
-            <li><a href="#">1</a></li>
-            <li><a href="#">다음</a></li>
-        </ul>
-
-    </div>
-
-    <div id="searchBox">
-        <div id="search_secint">
-            <div id="search_sec">
-                <select name="month" id="month">
-                    <option value="일주일">
-                        <p>일주일</p>
-                    </option>
-                    <option value="한달">
-                        <p>한달</p>
-                    </option>
-                    <option value="세달">
-                        <p>세달</p>
-                    </option>
-                    <option value="전체">
-                        <p>전체</p>
-                    </option>
-                </select>
-                <select name="subject" id="subject">
-                    <option value="제목">
-                        <p>제목</p>
-                    </option>
-                    <option value="내용">
-                        <p>내용</p>
-                    </option>
-                    <option value="글쓴이">
-                        <p>글쓴이</p>
-                    </option>
-                    <option value="아이디">
-                        <p>아이디</p>
-                    </option>
-                    <option value="별명">
-                        <p>별명</p>
-                    </option>
-                </select>
-            </div>
-
-            <div id="search_int">
-                <input type="search" name="" id="searchB_box">
-                <input type="submit" value="찾기" id="searchB_sub">
+                </div>
             </div>
         </div>
     </div>
-    </div>
-
-    <!-- 4.주소 -->
-
-    <div id="bottomArea">
-        <div class="leftZone">
-            <div class="fotterLogo">
-                <img src="../Images/logo_fotter.png" alt="">
-            </div>
-            <p>모아스튜디오</p>
-            <p>Copyright ⓒ모아스튜디오.All right reserved</p>
-        </div>
-        <div class="rightZone">
-            <div class="rightZone1">
-                <p>070-8095-3686</p>
-                <p>MON - FRI : 11-6pm</p>
-                <p>SON,MON OFF</p>
-                <p>우리은행:1002-955-738542 (고종현)</p>
-                <p>모아스튜디오</p>
-            </div>
-            <div class="rightZone2">
-                <p>Owner : 고종현</p>
-                <p>Address : 서울특별시 강서구 곰달래로31나길</p>
-                <p>Business License : </p>
-                <p>Online business license</p>
-                <p>Designed by moa-studio·Hosting by 카페24(주)</p>
-            </div>
-            <div class="rightZone3">
-                <p>about</p>
-                <p>agreement</p>
-                <p>guide</p>
-                <p>privacy</p>
-            </div>
-            <div class="rightZone4">
-                <p>Instagram</p>
-                <p>youtube</p>
-                <p>naverstore</p>
-                <p>facebook</p>
-            </div>
-
-        </div>
     </div>
     <!-- 하단 Area끝 -->
 
@@ -569,15 +855,28 @@
             });
         });
 
-        // 메인페이지 리스트
+        // 
+
+        // 화면
+
 
         $(function () {
-            $('#center_list>li>a').hover(function () {
-                $(this).animate(color, 'red', 100)
+            $("#title_list>ul>li>a:nth-child(1)").hover(function () {
+
+                $(this).css({
+                    'color': 'rgb(0,36,0)'
+                }, {
+                    'font-weight': '500'
+                });
+
             }, function () {
-                color,
-                'rgb(0,36,0)',
-                100
+                $(this).css('color', ' rgb(104, 113, 104)');
+            });
+        });
+
+        $(function () {
+            $("#title_list>ul>li:nth-child(1)").on('click', function () {
+
             });
         });
     </script>

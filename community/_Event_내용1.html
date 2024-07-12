@@ -22,9 +22,8 @@
         }
         includeHTML('navZone', '/nav/nav_sub.html', null);
 
-
         $(function () {
-            $('#NoticeCont2').fadeIn(1000);
+            $('#EventCont').fadeIn(1000);
         });
     </script>
     <style>
@@ -52,7 +51,7 @@
         }
         h2{font-weight: light;}
 
-        #NoticeCont2{
+        #EventCont{
             margin: 0 auto;
             padding: 70px 30px;
             display: none;
@@ -158,48 +157,49 @@
 
         /* 페이지 */
 
-      #NoticeCont2{
+      #EventCont{
         width: 90%;
         margin: 0 auto; 
         font-size: small;
       }
-      .content2_top{
+      .event_top{
         height: 80px;
         border-bottom: 2px solid rgb(0,36,0);
       }
-      .content2_top>h3{
+      .event_top>h3{
         font-size:x-large;
         font-weight: 400;
         color: rgb(0,36,0);
 
       }
-      .content2_top>p{
+      .event_top>p{
         padding: 10px;
       }
 
-      .content2_mid{
+      .event_mid{
+        text-align: left;
         margin: 10px auto;
         padding-bottom: 100px;
         border-bottom: 2px solid #bbbbbb;
       }
 
-    .content2_mid>p:first-child{
-        padding: 20px;
+    .event_mid>p:first-child{
+        padding: 20px 10px;
     }
 
-    .content2_mid>p:nth-last-child(2){
+    .event_mid>p:nth-last-child(2){
         padding-bottom: 25px;
     }
-    .content2_bottom{
+    .event_bottom{
             margin: 0 auto;
           
         }
-        .content2_bottom>div{
+        .event_bottom>div{
             margin: 50px 0;
             height: 34px;
         }
 
-        .content2_bottom>div>a{
+        .event_bottom>div>a{
             float: right;
             width: 80px;
             height: 20px;
@@ -207,7 +207,7 @@
             text-align: center;
         }
 
-        .content2_bottom>p{
+        .event_bottom>p{
             margin: 100px 0;
         }
 
@@ -298,24 +298,28 @@
 
         <!-- 3. 본문 -->
 
-        <div id="NoticeCont2">
+        <div id="EventCont">
 
-            <div class="content2_top">
-                <h3>몰 오픈을 축하합니다.</h3>
-                <p>by E**** . 2021-01-13</p>
+            <div class="event_top">
+                <h3>당신을 위한 7월의 혜택</h3>
+                <p>by 모아스튜디오 . 2021-01-13</p>
             </div>
 
-            <div class="content2_mid">
-                <p></p>
-                <p>몰오픈을 축하합니다</p>
+            <div class="event_mid">
+                <p>안녕하세요. moa 입니다</p>
+                <p>마일리지 적립기준 변경함에 따라 안내 드립니다.<br>적용 시점:2020.04.01 주문 부터 적용 됩니다.</p>
 
-                <p></p>
+                <p>변경 전 : 판매 금액*1%(쿠포할인 미적용)<br>변경 후: 실판매 금액 *1%(쿠폰 할인 적용가)</p>
+
+                <p>예시) 판매 금액 : 10,000원/쿠폰할인 : 1,000원/실판매금액(9,000원)</p>
+                <p>마일리지 적립금액(변경 전) : 100원<br>마일리지 적립금액 (변경 후) : 90원</p>
+                <p>항상 moa를 찾아주셔서 고맙습니다.</p>
             </div>
 
-            <div class="content2_bottom">
+            <div class="event_bottom">
                 <div>
-                    <a href="./_Notice.html">목록</a></div>
-                <p>이전글_<a href="./_Notice_내용1.html">서비스 점검 공지 (5/3 12:00 ~ 14:00)</a></p>
+                    <a href="./_Event.html">목록</a></div>
+                <p>이전 글_<a href="./_Event_내용3.html">여름 한정 세일 기간 7/1 ~ 8/31 (10%~50%)</a></p>
             </div>
         
 
