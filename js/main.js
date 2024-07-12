@@ -29,6 +29,11 @@ $(function () {
             if (textArr[i] == ' ') {
                 textArr[i] = '&nbsp';
             }
+            if (textArr[0] == '취') {
+                $('#textshow>span').css('color','black');
+            }else{
+                $('#textshow>span').css('color','white');
+            }
             if (i < textArr.length) {
                 $('#textshow').append('<span>' + String(textArr[i]) + '</span>');
                 $('#textshow>span:nth-child(' + (i + 1) + ')').delay(i * 100).animate({

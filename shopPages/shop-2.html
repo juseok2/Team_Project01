@@ -264,11 +264,11 @@
                         <div id="first_button"><a href="../shop-1.html">처음으로</a></div>
                         <div id="list_page_button">
                             <ul>
-                                <li><a href="#">이전</a></li>
+                                <li id="prev"><a href="#">이전</a></li>
                                 <li><a href="../shop-1.html">1</a></li>
-                                <li><a href="#" style="color: #454d40;">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">다음</a></li>
+                                <li><a href="/shopPages/shop-2.html" style="color: #454d40;">2</a></li>
+                                <li><a href="/shopPages/shop-3.html">3</a></li>
+                                <li id="next"><a href="#">다음</a></li>
                             </ul>
                         </div>
                         <div id="last_button"><a href="#">끝으로</a></div>
@@ -279,6 +279,10 @@
                                 $(this).css('color', '#454d40');
                             }, function(){
                                 $(this).css('color', '#797d72');
+                            });
+                            $('#list_page_button>ul>li#next>a').on('click',function(){
+                                let Addr = $('#list_page_button>ul li>a[style="color: #454d40;"]').parent().next().children().attr('href');
+                                    $(this).attr('href',Addr);
                             });
                         });
                     </script>
