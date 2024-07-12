@@ -15,9 +15,9 @@
             font-family: "Nanum Myeongjo", serif;
             font-style: normal;
             font-family: "Noto Serif KR", serif;
-
-
+            
         }
+        input:focus {outline:none;}
 
         ul,
         li {
@@ -106,6 +106,62 @@
             display: none;
             margin-top: 10px;
         }
+        .search{
+            position: relative;
+            display: none;
+        }
+        .search>.background{
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            background-color: #ffffff60;
+            top: 0;
+            left: 0;
+            z-index: 200;
+        }
+        .search>.contents{
+            width: 500px;
+            height: 200px;
+            position: fixed;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%);
+            z-index: 300;
+        }
+        .search>.contents>div.underLine{
+            width: 0px;
+            height: 1px;
+            background-color: #535c4c;
+            margin-top: 60px;
+        }
+        .search input{
+            position: absolute;
+            display: block;
+            width: 500px;
+            height: 50px;
+            background-color: transparent;
+            font-size: 18px;
+            margin: 0 auto;
+            opacity: 0;
+            padding-top: 0;
+            top: 0;
+            left: 0;
+        }
+        .search>.contents>.tag{
+            position: absolute;
+            width: 500px;
+            display: flex;
+            /* border: 1px solid white; */
+            justify-content: left;
+            font-size: 14px;
+            padding: 16px 0;
+            left: 0;
+            top: 30%;
+        }
+        .search>.contents>.tag>p{
+            opacity: 0;
+            margin-top: 20px;
+        }
     </style>
     <script>
         $(function () {
@@ -155,6 +211,41 @@
                 });
                 $('.gnb div.Community_item').fadeOut(); // 서브 메뉴 숨기기
             });
+            $('.gnb>ul>li:last').on('click',function(){
+                $('.search').fadeIn(1000,function(){
+                    $('.search>.contents>input').animate({
+                        'opacity':'1',
+                        'paddingTop':'10px'
+                    },500);
+                    $('.search>.contents>.underLine').animate({
+                        'width':'500px'
+                    },500);
+                    for(let i =0; i<5; i++){
+                        $('.search>.contents>.tag>p:nth-child('+(i+1)+')').delay(i*100).animate({
+                            'opacity':'1',
+                            'marginTop':'0'
+                        },500)
+                    }
+                    $('*').css('cursor','url("/Images/close_16dp_535C4C_FILL0_wght400_GRAD0_opsz20.png"),auto');
+                });
+            });
+            $('.search>.background').on('click',function(){
+                $('.search>.contents>input').animate({
+                        'opacity':'0',
+                        'paddingTop':'0px'
+                    },500);
+                    $('.search>.contents>.underLine').animate({
+                        'width':'0px'
+                    },500);
+                    for(let i =4; i>0; i--){
+                        $('.search>.contents>.tag>p:nth-child('+(i+1)+')').delay(i*100).animate({
+                            'opacity':'0',
+                            'marginTop':'20px'
+                        },500)
+                    }
+                    $('*').css('cursor','auto');
+                $('.search').fadeOut(1000);
+            });
         });
     </script>
 </head>
@@ -191,6 +282,22 @@
                 <li><a href="/cart.html"><img src="/Images/shopping_bag_FFFFFF.png" alt=""></a></li>
                 <li><a href="#"><img src="/Images/search_FFFFFF.png" alt=""></a></li>
             </ul>
+        </div>
+        <div class="search">
+            <div class="background">
+            </div>
+            <div class="contents">
+                <input type="text" placeholder="무엇을 찾아드릴까요?" style="border: none;">
+                <div class="underLine">
+                </div>
+                <div class="tag">
+                    <p>#괜찮아, </p>
+                    <p>#잘 하고 있어, </p>
+                    <p>#다 잘될거야, </p>
+                    <p>#화이팅, </p>
+                    <p>#너를 위한 선물</p>
+                </div>
+            </div>
         </div>
     </div>
 </body>

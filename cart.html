@@ -25,6 +25,12 @@
         $(function () {
             $('body').fadeIn(1000);
         });
+        $(function(){
+            $('#topArea>p.btn').on('click',function(){
+                $('#topArea>p').removeClass('active');
+                $(this).addClass('active');
+            });
+        });
     </script>
 
 </head>
@@ -32,9 +38,9 @@
     <div id="navZone"></div>
     <div id="topArea">
         <h4>Cart</h4>
-        <p class="active">국내배송상품 (0)</p>
+        <p class="active btn">국내배송상품 (0)</p>
         <p>/</p>
-        <p>해외배송상품 (0)</p>
+        <p class="btn">해외배송상품 (0)</p>
         <span>장바구니가 비어 있습니다.</span>
         <div>
             <a href="#">전체상품주문</a>
