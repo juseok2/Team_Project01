@@ -230,6 +230,7 @@
                 });
             });
             $('.search>.background').on('click',function(){
+                let count = 0;
                 $('.search>.contents>input').animate({
                         'opacity':'0',
                         'paddingTop':'0px'
@@ -237,13 +238,15 @@
                     $('.search>.contents>.underLine').animate({
                         'width':'0px'
                     },500);
-                    for(let i =4; i>0; i--){
-                        $('.search>.contents>.tag>p:nth-child('+(i+1)+')').delay(i*100).animate({
+                    for(let i =5; i>0; i--){
+                        $('.search>.contents>.tag>p:nth-child('+(i)+')').delay((count)*100).animate({
                             'opacity':'0',
                             'marginTop':'20px'
                         },500)
+                        count++;
                     }
                     $('*').css('cursor','auto');
+                    count = 0;
                 $('.search').fadeOut(1000);
             });
         });
