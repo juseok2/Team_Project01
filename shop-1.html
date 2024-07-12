@@ -259,48 +259,16 @@
                             </p>
                         </div>
                     </div>            
-                    <div class="flower_list">
-                        <div class="flower_item">
-                            <div class="flower_photo">
-                                <a href="/shop-1-item.html"><img src="/shop_Img/flower4.png" alt=""></a>
-                            </div>
-                            <p class="name"><a href="#">수공예 유리 화병</a></p>
-                            <p class="money">
-                                <span style="text-decoration: line-through;">50,000원</span>
-                                <span><strong style="color: #535c4c;">43,000원</strong></span>
-                            </p>
-                        </div>            
-                        <div class="flower_item">
-                            <div class="flower_photo">
-                                <a href="/shop-1-item.html"><img src="/shop_Img/flower5.png" alt=""></a>
-                            </div>
-                            <p class="name"><a href="#">수공예 유리 화병</a></p>
-                            <p class="money">
-                                <span style="text-decoration: line-through;">50,000원</span>
-                                <span><strong style="color: #535c4c;">43,000원</strong></span>
-                            </p>
-                        </div>            
-                        <div class="flower_item">
-                            <div class="flower_photo">
-                                <a href="/shop-1-item.html"><img src="/shop_Img/flower6.png" alt=""></a>
-                            </div>
-                            <p class="name"><a href="#">수공예 유리 화병</a></p>
-                            <p class="money">
-                                <span style="text-decoration: line-through;">50,000원</span>
-                                <span><strong style="color: #535c4c;">43,000원</strong></span>
-                            </p>
-                        </div>
-                    </div>
                 </div>
                     <div id="content_bottom">
                         <div id="first_button"><a href="#">처음으로</a></div>
                         <div id="list_page_button">
                             <ul>
-                                <li><a href="#">이전</a></li>
+                                <li><a href="#" class="next">이전</a></li>
                                 <li><a href="/shop-1.html" style="color: #454d40;">1</a></li>
                                 <li><a href="/shopPages/shop-2.html">2</a></li>
                                 <li><a href="/shopPages/shop-3.html">3</a></li>
-                                <li><a href="#">다음</a></li>
+                                <li><a href="#" class="prev">다음</a></li>
                             </ul>
                         </div>
                         <div id="last_button"><a href="#">끝으로</a></div>
@@ -315,6 +283,10 @@
                             $('#list_page_button>ul>li#next>a').on('click',function(){
                                 let Addr = $('#list_page_button>ul li>a[style="color: #454d40;"]').parent().next().children().attr('href');
                                     $(this).attr('href',Addr);
+                            });
+                            $('#list_page_button > ul > li#prev > a').on('click', function() {
+                                let Addr = $('#list_page_button>ul li>a[style="color: #454d40;"]').parent().prev().children().attr('href');
+                                $(this).attr('href', Addr);
                             });
                         });
                     </script>
